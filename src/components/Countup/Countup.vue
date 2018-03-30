@@ -5,9 +5,9 @@
 </template>
 
 <script>
-// import Countup from './countup.min.js'
+// import Countup from './countup.js'
 
-let CountUp = require('./countup.min.js').CountUp
+let CountUp = require('./countup.js').CountUp
 
 export default {
   name: 'countup',
