@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script></script>
+    <style>
+.search_checkbox{
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+    display: inline-block;
+    height: 30px;
+    padding-top: 12px;
+}
+.search_checkbox input[type=checkbox]{
+    height: 0px;
+    width: 0px;
+    visibility: hidden;
+}
+.search_checkbox label{
+    cursor: pointer;
+    height: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: gray;
+    width: 40px;
+    text-indent: -99999px;
+    position: relative;
+}
+.search_checkbox label::before {
+    content: '';
+    display:inline-block;
+    background-color: white;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    border-radius: 7px;
+    transition:0.3s;
+}
+.search_checkbox input:checked + label {
+  background: #bada55;
+}
+.search_checkbox input:checked + label:before {
+  left: calc(100% - 2.5px);
+  transform: translateX(-100%);
+}
+.search_checkbox label:active:before{
+    width:20px;
+}
+    </style>
+</head>
+
+
+<body>
+    <div class='search_checkbox'>高级检索：
+        <input type='checkbox' id= 'switch'>
+        <label for='switch'>高级检索</label>
+    </div>
+</body>
+</html>
