@@ -1,7 +1,8 @@
 let isDragging = false;
-import Vue from 'vue';
+// import Vue from 'vue';
 
-const supportTouch = !Vue.prototype.$isServer && 'ontouchstart' in window;
+// const supportTouch = !Vue.prototype.$isServer && 'ontouchstart' in window;
+const supportTouch = 'ontouchstart' in window;
 
 export default function(element, options) {
   const moveFn = function(event) {
