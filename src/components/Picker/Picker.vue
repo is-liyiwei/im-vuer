@@ -71,7 +71,7 @@ export default {
       bottom: 0;
       width: 100%;
       background-color: #fff;
-      font-size: .3rem;
+      font-size: .3rem * @baseRem;
       transition: all .3s;
       &-content {
         display: flex;
@@ -100,7 +100,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 0 40px;
-        font-size: .3rem;
+        font-size: .3rem * @baseRem;
         div {
           color: #FFF;
         }

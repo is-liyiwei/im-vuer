@@ -111,20 +111,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .2rem;
+      padding: .2rem * @baseRem;
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       .progress-text {
-        font-size: .3rem;
+        font-size: .3rem * @baseRem;
         color: #5d5d5d;
       }
       &-box {
         position: relative;
         width: 100%;
-        margin: 0 .2rem;
+        margin: 0 .2rem * @baseRem;
         &-runway {
           width: 100%;
           position: absolute;

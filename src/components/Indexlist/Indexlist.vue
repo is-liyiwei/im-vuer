@@ -122,24 +122,24 @@ export default {
       right: 0;
       top: 0;
       background-color: rgba(0, 0, 0, .3);
-      width: .4rem;
+      width: .4rem * @baseRem;
       height: 100%;
-      font-size: .26rem;
+      font-size: .26rem * @baseRem;
       color: #FFF;
       &-item {
-        padding: .03rem .1rem;
+        padding: .03rem * @baseRem .1rem * @baseRem;
       }
     }
     &-content {
       &-item {
         &-title {
           background-color: #e9e9e9;
-          font-size: .3rem;
-          padding: .2rem;
+          font-size: .3rem * @baseRem;
+          padding: .2rem * @baseRem;
         }
         &-text {
-          font-size: .1rem;
-          padding: .2rem;
+          font-size: .1rem * @baseRem;
+          padding: .2rem * @baseRem;
           border-bottom: 1px solid #c1c1c1;
         }
       }
@@ -151,9 +151,9 @@ export default {
       -webkit-transform: translate3d(-50%, -50%, 0);
       transform: translate3d(-50%, -50%, 0);
       background-color: rgba(0, 0, 0, .3);
-      width: 1rem;
-      height: 1rem;
-      font-size: .6rem;
+      width: 1rem * @baseRem;
+      height: 1rem * @baseRem;
+      font-size: .6rem * @baseRem;
       border-radius: 50%;
       display: flex;
       justify-content: center;

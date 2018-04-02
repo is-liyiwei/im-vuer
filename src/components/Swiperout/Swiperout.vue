@@ -118,8 +118,8 @@ export default {
   &-swiper-out {
     display: flex;
     position: relative;
-    height: .8rem;
-    font-size: .2rem;
+    height: .8rem * @baseRem;
+    font-size: .2rem * @baseRem;
     overflow: hidden;
     width: 100%;
     * {
@@ -132,8 +132,8 @@ export default {
         border: 0;
         background-color: #00BFFF;
         color: #fff;
-        width: 1rem;
-        font-size: .3rem;
+        width: 1rem * @baseRem;
+        font-size: .3rem * @baseRem;
         height: 100%;
       }
     }
@@ -143,7 +143,7 @@ export default {
       right: 0;
       bottom: 0;
       margin: 0;
-      padding: .02rem;
+      padding: .02rem * @baseRem;
       text-align: right;
       display: flex;
       justify-content: flex-end;
@@ -154,7 +154,7 @@ export default {
       bottom: 0;
       left: 0;
       margin: 0;
-      padding: .02rem;
+      padding: .02rem * @baseRem;
       text-align: left;
       display: flex;
       justify-content: flex-start;
@@ -166,12 +166,12 @@ export default {
       bottom: 0;
       left: 0;
       display: flex;
-      font-size: .3rem;
+      font-size: .3rem * @baseRem;
       align-items: center;
       background-color: #fff;
       transition: transform .1s;
       border-bottom: 1px solid #5f5f5f;
-      padding: .2rem;
+      padding: .2rem * @baseRem;
     }
   }
 }

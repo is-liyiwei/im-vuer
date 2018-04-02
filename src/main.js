@@ -15,6 +15,7 @@ import { Timeline, TimelineItem } from './components/Timeline'
 import { Swiper, SwiperItem } from './components/Swiper'
 import { Indexlist } from './components/Indexlist'
 import { Picker, PickerItem } from './components/Picker'
+import { Datepicker } from './components/Datepicker'
 import { Layer } from './components/Layer'
 
 console.log(Tab)
@@ -35,6 +36,7 @@ console.log(SwiperItem)
 console.log(Indexlist)
 console.log(Picker)
 console.log(PickerItem)
+console.log(Datepicker)
 console.log(Layer)
 
 export {
@@ -56,6 +58,7 @@ export {
 	Indexlist,
 	Picker,
 	PickerItem,
+	Datepicker,
 	Layer
 }
 

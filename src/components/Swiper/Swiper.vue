@@ -270,19 +270,19 @@ export default {
       bottom: 0;
       left: 50%;
       transform: translate3d(-50%,0,0);
-      height: 1rem;
+      height: 1rem * @baseRem;
       display: flex;
       justify-content: center;
       align-items: center;
       &-dot {
         display: block;
-        width: .1rem;
-        height: .1rem;
+        width: .1rem * @baseRem;
+        height: .1rem * @baseRem;
         /*安卓机又bug，会有不圆的点出现，只能用px单位了*/
         /*width: 6px;
         height: 6px;*/
         border-radius: 50%;
-        margin: 0 .1rem;
+        margin: 0 .1rem * @baseRem;
       }
     }
   }
