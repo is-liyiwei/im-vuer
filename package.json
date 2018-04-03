@@ -1,6 +1,6 @@
 {
   "name": "im-vuer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Vue2.js Ui",
   "author": "liyiwei",
   "private": false,
@@ -23,7 +23,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-
+    "compression-webpack-plugin": "^1.1.11"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
