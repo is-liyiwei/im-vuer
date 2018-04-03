@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { CountUp } from './countUp.js'
+import CountUp from './countUp.js'
 
 export default {
   name: 'countup',

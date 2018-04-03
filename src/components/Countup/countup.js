@@ -1,13 +1,5 @@
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require, exports, module);
-  } else {
-    root.CountUp = factory();
-  }
-}(this, function(require, exports, module) {
+// Thanks for : https://github.com/inorganik/countUp.js
 
 /*
 	countUp.js
@@ -254,6 +246,4 @@ var CountUp = function(target, startVal, endVal, decimals, duration, options) {
 	if (self.initialize()) self.printValue(self.startVal);
 };
 
-return CountUp;
-
-}));
+export default CountUp
