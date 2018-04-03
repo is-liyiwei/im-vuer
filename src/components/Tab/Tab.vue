@@ -3,8 +3,8 @@
 
     <div class="im-tab-box">
       <div v-for="(v, k) in list" class="im-tab-box-item" @click="clickItem(k)">
-        <div :style="{color: currIndex === k ? textColorActive : textColorDefault}">{{v.name}}</div>
-        <span class="im-tab-box-label" v-if="v.label" :style="{backgroundColor: labelColor,color: labelTextColor}">{{v.label}}</span>
+        <div :style="{ color: currIndex === k ? textColorActive : textColorDefault }">{{v.name}}</div>
+        <span class="im-tab-box-label" v-if="v.label" :style="{ backgroundColor: labelColor, color: labelTextColor }">{{v.label}}</span>
       </div>
     </div>
 
@@ -19,13 +19,15 @@ export default {
   data () {
     return {
       showLine: true,
-      currIndex: 0
+      currIndex: ~~this.activeCurrIndex
     }
   },
   props: {
     list: {
       type: Array,
-      default: []
+      default () {
+        return []
+      }
     },
     labelColor: {
       type: String,
@@ -50,6 +52,10 @@ export default {
     lineThickness: {
       type: String,
       default: '2px'
+    },
+    activeCurrIndex: {
+      type: [Number, String],
+      default: 0
     }
   },
   methods: {
@@ -74,6 +80,11 @@ export default {
   },
   created: function () {
     
+  },
+  watch: {
+    activeCurrIndex (newVal) {
+      this.currIndex = newVal;
+    }
   }
 }
 </script>

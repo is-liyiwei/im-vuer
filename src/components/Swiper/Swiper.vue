@@ -155,7 +155,7 @@ export default {
 
       element.addEventListener('touchend', (evt) =>{
         if(!isTouchMove) {
-          this.$emit('tap-swiper', this.currentIndex)
+          this.$emit('tap-swiper', this.currentIndex);
           return;
         }
 
@@ -179,6 +179,7 @@ export default {
 
           this.currentIndex--;
           this.onswiper(-1)
+          this.$emit('on-swiper', -1)
         } else if (touchStatus.currentTx < -touchStatus.boundary) {
 
           if (this.length == 1) {
@@ -193,6 +194,7 @@ export default {
 
           this.currentIndex++;
           this.onswiper(1)
+          this.$emit('on-swiper', 1)
         } else {
           this.onswiper(0)
         }
