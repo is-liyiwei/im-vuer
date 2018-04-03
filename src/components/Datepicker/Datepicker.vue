@@ -1,9 +1,11 @@
 <template>
-  <div class="im-date-picker">
+  <div class="im-date-picker" v-if="value">
 
 		<div class="im-date-picker-box">
 
-		<div class="im-date-picker-box-value">{{todayText}}</div>
+		<div class="im-date-picker-box-value" :style="{ backgroundColor: headerColor}">
+      <span :class="{ 'txt-in': setAnimate }">{{todayText}}</span>
+    </div>
 
 		<div class="im-date-picker-box-ctrl">
 			<svg viewBox="0 0 24 24" class="im-date-picker-box-ctrl-prev arrow" @click="_prev">
@@ -30,7 +32,7 @@
 			<span class="im-date-picker-box-content-item prev" v-for="v in prevDate">{{v}}</span>
 
 			<span 
-      :style="today == (k + prevDate.length) ? currentDate : ''" 
+      :style="currentItem == (k + prevDate.length) ? currentDate : currentDateNot" 
       class="im-date-picker-box-content-item now" 
       v-for="(v, k) in nowDate"
       @click="tapItem(k + prevDate.length)">{{v}}</span>
@@ -40,8 +42,8 @@
 		</div>
 
 		<div class="im-date-picker-box-btns">
-			<div class="im-date-picker-box-btns-item" style="color: #000;" @click="cancel">取消</div>
-			<div class="im-date-picker-box-btns-item" style="color: #00bfff" @click="confirm">确定</div>
+			<div class="im-date-picker-box-btns-item" :style="{ color: cancelBtn }" @click.stop="cancel">取消</div>
+			<div class="im-date-picker-box-btns-item" :style="{ color: confirmBtn }" @click.stop="confirm">确定</div>
 		</div>
 
 	</div>
@@ -63,27 +65,44 @@ export default {
       prevDate: [],
       nowDate: [],
       nextDate: [],
-      today: null,
       todayText: null,
-      weekArr: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+      weekArr: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+      weekArrIndex: 0,
+      currentItem: null,
+      setAnimate: false
     }
   },
   props: {
     value: {
+      type: Boolean,
+      default: false
+    },
+    headerColor: {
       type: String,
-      default: ''
+      default: '#00bfff'
+    },
+    itemColor: {
+      type: String,
+      default: '#00bfff'
+    },
+    cancelBtn: {
+      type: String,
+      default: '#000'
+    },
+    confirmBtn: {
+      type: String,
+      default: '#00bfff'
     }
   },
   created: function () {
     this._fillDate(this.now.year, this.now.month);
   },
   mounted () {
-    this.$emit('input', this.todayText)
+    this.$emit('confirm', this.todayText)
   },
   methods: {
   	_fillDate (year, month) {
-      let first_day = new Date(year, month, 1).getDay();
-      first_day = first_day == 0 ? 7 : first_day;
+      let first_day = new Date(year, month, 1).getDay() == 0 ? 7 : new Date(year, month, 1).getDay();
       let final_date = new Date(year, month + 1, 0).getDate();
       let last_date = new Date(year, month, 0).getDate();
       let surplus = 42 - first_day - final_date;
@@ -98,8 +117,8 @@ export default {
         this.nextDate.push((k + 1));
       }
       if (year == new Date().getFullYear() && month == new Date().getMonth()) {
-          this.today = first_day + new Date().getDate() - 1;
-          this._setWeek(this.today);
+          this.currentItem = first_day + new Date().getDate() - 1;
+          this._setWeek(this.currentItem);
       }
   	},
 		_next () {
@@ -110,6 +129,7 @@ export default {
       }
       this._reset();
       this._fillDate(this.now.year, this.now.month);
+      this.tapItem(1, true);
 		},
 		_prev () {
       this.now.month--;
@@ -119,6 +139,7 @@ export default {
       }
       this._reset();
       this._fillDate(this.now.year, this.now.month);
+      this.tapItem(1, true);
 		},
 		_nextYear () {
 
@@ -131,31 +152,55 @@ export default {
       this.nowDate = [];
       this.nextDate = [];
     },
-    _setWeek (k) {
-      let str = k + '日'
-      while (k > 7) {
-        k = k % 7;
+    _setWeek (k, tapArrow = false) {
+
+
+      let str = '';
+
+      this.setAnimate = true;
+
+      this.weekArrIndex = k;
+      
+      if (tapArrow) {
+        str = k + '日';
+        this.todayText = this.oHeadDate + str + this.weekArr[~~this.prevDate.length % 7];
+      } else {
+        this.weekArrIndex = k - this.prevDate.length;
+        str = (this.weekArrIndex + 1) + '日';
+        this.todayText = this.oHeadDate + str + this.weekArr[~~k % 7];
       }
-      this.todayText = this.oHeadDate + str + this.weekArr[~~k];
-    },
-    tapItem (k) {
-      this.today = k;
-      this._setWeek(k);
-      console.log(k)
-    },
-    cancel () {
+
+      setTimeout( () => {
+        this.setAnimate = false;
+      }, 300)
 
     },
+    tapItem (targetIndex, tapArrow = false) {
+
+      this.currentItem = tapArrow ? (targetIndex + this.prevDate.length - 1) : targetIndex
+
+      this._setWeek(targetIndex, tapArrow);
+
+    },
+    cancel () {
+      this.$emit('input', false);
+    },
     confirm () {
-      this.$emit('input', this.todayText);
+      this.$emit('confirm', this.todayText);
+      this.$emit('input', false);
     }
   },
   computed: {
     currentDate () {
       return {
-        backgroundColor: '#00bfff',
+        backgroundColor: this.itemColor,
         color: '#FFF',
         borderRadius: '50%'
+      }
+    },
+    currentDateNot () {
+      return {
+        color: this.itemColor
       }
     }
   }
@@ -166,29 +211,40 @@ export default {
 <style lang="less" scoped>
 @import '../../less/base.less';
 
+@keyframes vuer-txt-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+
+    }
+  }
+
 .@{prefixClass} {
   &-date-picker {
-  	position: fixed;
-  	top: 50%;
-  	left: 50%;
-  	width: 6rem * @baseRem;
-  	height: 9.5rem * @baseRem;
-  	transform: translate3d(-50%, -50%, 0);
-  	-webkit-transform: translate3d(-50%, -50%, 0);
+    .mask();
+    animation: vuer-txt-in 100ms linear 0s 1 forwards;
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     &-box {
-    	display: flex;
+    	position: fixed;
+    	top: 50%;
+    	left: 50%;
+    	width: 6rem * @baseRem;
+    	height: 9.5rem * @baseRem;
+    	transform: translate3d(-50%, -50%, 0);
+    	-webkit-transform: translate3d(-50%, -50%, 0);
+      display: flex;
     	flex-direction: column;
     	align-items: center;
-    	height: 100%;
     	box-shadow: 1px 19px 60px rgba(0,0,0,.3), 2px 15px 20px rgba(0,0,0,.2);
+      z-index: 1501;
+      background-color: #FFF;
     	&-value {
     		padding: .6rem * @baseRem .2rem * @baseRem;
-    		background-color: #00bfff;
     		width: 100%;
     		font-size: .4rem * @baseRem;
     		font-weight: bold;
@@ -251,5 +307,9 @@ export default {
 
 .prev, .next {
 	color: #5d5d5d;
+}
+
+.txt-in {
+  animation: vuer-txt-in 300ms ease-in 0s 1 forwards;
 }
 </style>

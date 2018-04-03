@@ -5,9 +5,7 @@
 </template>
 
 <script>
-// import Countup from './countup.js'
-
-let CountUp = require('./countup.js').CountUp
+import { CountUp } from './countUp.js'
 
 export default {
   name: 'countup',

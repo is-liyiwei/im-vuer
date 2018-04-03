@@ -1,6 +1,6 @@
 {
   "name": "im-vuer",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Vue2.js Ui",
   "author": "liyiwei",
   "private": false,
@@ -15,6 +15,9 @@
     "Vue",
     "Vue2",
     "Vue.js",
+    "Vuer",
+    "im Vuer",
+    "im Vuer ui",
     "Vue ui"
   ],
   "scripts": {
