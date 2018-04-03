@@ -3,62 +3,62 @@
 
 import { Tab } from './components/Tab'
 import { Step } from './components/Step'
-import { Countup } from './components/Countup'
+import { CountUp } from './components/CountUp'
 import { Marquee } from './components/Marquee'
 import { Rater } from './components/Rater'
 import { Switch } from './components/Switch'
-import { Checkbox } from './components/Checkbox'
-import { Swiperout } from './components/Swiperout'
+import { CheckBox } from './components/CheckBox'
+import { SwiperOut } from './components/SwiperOut'
 import { Progress } from './components/Progress'
 import { Radio, RadioItem } from './components/Radio'
-import { Timeline, TimelineItem } from './components/Timeline'
+import { TimeLine, TimeLineItem } from './components/TimeLine'
 import { Swiper, SwiperItem } from './components/Swiper'
-import { Indexlist } from './components/Indexlist'
+import { IndexList } from './components/IndexList'
 import { Picker, PickerItem } from './components/Picker'
-import { Datepicker } from './components/Datepicker'
+import { DatePicker } from './components/DatePicker'
 import { Layer } from './components/Layer'
 
 console.log(Tab)
 console.log(Step)
-console.log(Countup)
+console.log(CountUp)
 console.log(Marquee)
 console.log(Rater)
 console.log(Switch)
-console.log(Checkbox)
-console.log(Swiperout)
+console.log(CheckBox)
+console.log(SwiperOut)
 console.log(Progress)
 console.log(Radio)
 console.log(RadioItem)
-console.log(Timeline)
-console.log(TimelineItem)
+console.log(TimeLine)
+console.log(TimeLineItem)
 console.log(Swiper)
 console.log(SwiperItem)
-console.log(Indexlist)
+console.log(IndexList)
 console.log(Picker)
 console.log(PickerItem)
-console.log(Datepicker)
+console.log(DatePicker)
 console.log(Layer)
 
 export {
 	Tab,
 	Step,
-	Countup,
+	CountUp,
 	Marquee,
 	Rater,
 	Switch,
-	Checkbox,
-	Swiperout,
+	CheckBox,
+	SwiperOut,
 	Progress,
 	Radio,
 	RadioItem,
-	Timeline,
-	TimelineItem,
+	TimeLine,
+	TimeLineItem,
 	Swiper,
 	SwiperItem,
-	Indexlist,
+	IndexList,
 	Picker,
 	PickerItem,
-	Datepicker,
+	DatePicker,
 	Layer
 }
 

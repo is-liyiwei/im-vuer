@@ -28,11 +28,13 @@
 		<div class="im-date-picker-box-content">
 
 			<span class="im-date-picker-box-content-item prev" v-for="v in prevDate">{{v}}</span>
+
 			<span 
       :style="today == (k + prevDate.length) ? currentDate : ''" 
       class="im-date-picker-box-content-item now" 
       v-for="(v, k) in nowDate"
       @click="tapItem(k + prevDate.length)">{{v}}</span>
+      
       <span class="im-date-picker-box-content-item next" v-for="v in nextDate">{{v}}</span>
 
 		</div>
@@ -80,37 +82,26 @@ export default {
   },
   methods: {
   	_fillDate (year, month) {
-  		// 本月份第一天是星期几-为显示上个月的天数做铺垫
-      var first_day = new Date(year, month, 1).getDay();
-      // 如果刚好是星期天，则空出一行（显示上个月的天数）
+      let first_day = new Date(year, month, 1).getDay();
       first_day = first_day == 0 ? 7 : first_day;
-      // 本月份最后一天是几号
-      var final_date = new Date(year, month + 1, 0).getDate(),
-      // 上个月的最后一天是几号
-      last_date = new Date(year, month, 0).getDate(),
-      // 剩余的格子数--即排在末尾的格子数
-      surplus = 42 - first_day - final_date;
-      // 设置表头的日历
+      let final_date = new Date(year, month + 1, 0).getDate();
+      let last_date = new Date(year, month, 0).getDate();
+      let surplus = 42 - first_day - final_date;
       this.oHeadDate = year + '年' + (month + 1) + '月';
-      // 上个月的显示天数
-      for (var i = 0; i < first_day; i++) {
-          this.prevDate.push((last_date - (first_day - 1) + i))
+      for (let i = 0; i < first_day; i++) {
+          this.prevDate.push((last_date - (first_day - 1) + i));
       }
-      // 本月的显示天数
-      for (var j = 0; j < final_date; j++) {
-        this.nowDate.push((j + 1))
+      for (let j = 0; j < final_date; j++) {
+        this.nowDate.push((j + 1));
       }
-      // 下个月的显示天数
-      for (var k = 0; k < surplus; k++) {
-        this.nextDate.push((k + 1))
+      for (let k = 0; k < surplus; k++) {
+        this.nextDate.push((k + 1));
       }
-      // 当天
       if (year == new Date().getFullYear() && month == new Date().getMonth()) {
           this.today = first_day + new Date().getDate() - 1;
           this._setWeek(this.today);
       }
   	},
-  	// 下个月
 		_next () {
       this.now.month++;
       if (this.now.month > 11) {
@@ -120,7 +111,6 @@ export default {
       this._reset();
       this._fillDate(this.now.year, this.now.month);
 		},
-		// 上个月
 		_prev () {
       this.now.month--;
       if (this.now.month < 0) {
@@ -130,11 +120,9 @@ export default {
       this._reset();
       this._fillDate(this.now.year, this.now.month);
 		},
-		// 下一年
 		_nextYear () {
 
 		},
-		// 上一年
 		_prevYear () {
 
 		},
