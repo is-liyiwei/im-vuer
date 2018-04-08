@@ -6,6 +6,7 @@ import { ToastPlugin } from './components/Toast'
 import { ActionSheetPlugin } from './components/ActionSheet'
 import { TipPlugin } from './components/Tip'
 
+import './font_alibaba/iconfont.css'
 
 import { Tab } from './components/Tab'
 import { Step } from './components/Step'
