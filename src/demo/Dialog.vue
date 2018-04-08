@@ -1,23 +1,24 @@
 <template>
   <div class="dialog-button">
+    <h5>Confirm for ios ↓</h5>
     <button @click="openConfirm1('ios')">ios style 1</button>
     <button @click="openConfirm2('ios')">ios style 2</button>
     <button @click="openConfirm3('ios')">ios style 3</button>
     <button @click="openConfirm4('ios')">ios style 4</button>
-    <hr><hr>
+    <h5>Confirm for android ↓</h5>
     <button @click="openConfirm1('android')">android style 1</button>
     <button @click="openConfirm2('android')">android style 2</button>
     <button @click="openConfirm3('android')">android style 3</button>
     <button @click="openConfirm4('android')">android style 4</button>
-    <hr><hr>
+    <h5>Toast ↓</h5>
     <button @click="openToast1('top')">toast top</button>
     <button @click="openToast1('center')">toast center</button>
     <button @click="openToast1('bottom')">toast bottom</button>
-    <hr><hr>
+    <h5>ActionSheet ↓</h5>
     <button @click="openActionSheet1()">ActionSheet of default</button>
     <button @click="openActionSheet2()">ActionSheet of no cancel</button>
     <button @click="openActionSheet3()">ActionSheet of color</button>
-    <hr><hr>
+    <h5>Tip ↓</h5>
     <button @click="openTip1('loading')">Tip of default</button>
     <button @click="openTip1('success')">Tip of success</button>
     <button @click="openTip1('warn')">Tip of warn</button>
@@ -27,16 +28,29 @@
 </template>
 
 <script>
+
+let mixin = {
+  methods: {
+    setFlag () {
+      this.flag = true;
+      setTimeout( () => {
+        this.flag = false;
+      }, 1800)
+    }
+  }
+}
+
 export default {
   name: 'm-dialog',
   data () {
     return {
-
+      flag: false
     }
   },
   mounted () {
 
   },
+  mixins: [mixin],
   methods: {
     openConfirm1 (styleFor) {
       this.$confirm({
@@ -98,6 +112,10 @@ export default {
       })
     },
     openToast1 (position) {
+      if (this.flag) {
+        return
+      }
+      this.setFlag();
       this.$toast({
         content: 'has bug: no animation for end',
         position: position,
@@ -143,6 +161,10 @@ export default {
       })
     },
     openTip1 (iconStatus) {
+      if (this.flag) {
+        return
+      }
+      this.setFlag();
       this.$tip({
         txt: iconStatus,
         icon: iconStatus,
@@ -150,6 +172,10 @@ export default {
       })
     },
     openTip2 () {
+      if (this.flag) {
+        return
+      }
+      this.setFlag();
       this.$tip({
         txt: '自定义',
         time: 1800,
@@ -173,16 +199,31 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.dialog-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .dialog-button button {
   font-size: .35rem;
-  background-color: pink;
+  background-color: #00bfff;
   border: none;
   outline:none;
   text-align: center;
   display: block;
-  width: 100%;
+  width: 90%;
   margin: 1rem 0;
   height: 80px;
   color: #fff;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+h5 {
+  margin: 10px;
+  font-size: .37rem;
+  color: #3d3d3d;
 }
 </style>
