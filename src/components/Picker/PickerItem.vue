@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import draggable from './draggable';
-import translateUtil from './translate';
+import draggable from '../../helper/draggable.js';
+import translateUtil from '../../helper/translate.js';
 export default {
   name: 'picker-item',
   data () {
@@ -47,21 +47,21 @@ export default {
       var el = this.$refs.wrapper;
       var dragState = {};
       draggable(el, {
-        start: (event) => {
+        start: (touch, $event) => {
           dragState = {
             startTime: new Date(),
-            startLeft: event.pageX,
-            startTop: event.pageY,
+            startX: touch.pageX,
+            startY: touch.pageY,
             startTranslateTop: translateUtil.getElementTranslate(el).top
           };
         },
-        drag: (event) => {
+        drag: (touch, $event) => {
           this.dragging = true;
-          dragState.left = event.pageX;
-          dragState.top = event.pageY;
-          translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.top - dragState.startTop);
+          dragState.dragX = touch.pageX - dragState.startX;
+          dragState.dragY = touch.pageY - dragState.startY;
+          translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.dragY);
         },
-        end: (event) => {
+        end: (touch, $event) => {
           this.dragging = false;
           var currentTranslate = translateUtil.getElementTranslate(el).top;
           var duration = new Date() - dragState.startTime;
@@ -75,7 +75,7 @@ export default {
           var rect, offset;
           if (distance < 6) {
             rect = this.$el.getBoundingClientRect();
-            let tapItemIndex = ~~(~~(event.clientY - rect.top) / itemHeight);
+            let tapItemIndex = ~~(~~(touch.clientY - rect.top) / itemHeight);
             this.dev_currentIndex = tapItemIndex;
             offset = Math.round((defaultH - tapItemIndex) * itemHeight);
             currentTranslate = offset;

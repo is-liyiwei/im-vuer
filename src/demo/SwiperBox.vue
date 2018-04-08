@@ -1,7 +1,7 @@
 <template>
   <div class="demo-swiper-box">
-  	<im-tab lineThickness="5px" :activeCurrIndex="activeCurrIndex" :list='list'></im-tab>
-  	<im-swiper @on-swiper="onSwiper" :autoPlay="0" :loop="false" :idx="activeCurrIndex" dotColor="transparent" dotActiveColor="transparent">
+  	<im-tab @on-tab="tabClick" lineThickness="5px" :activeCurrIndex="activeCurrIndex" :list='list'></im-tab>
+  	<im-swiper @on-swiper="onSwiper" :isTabView="true" :idx="activeCurrIndex" :autoPlay="0" :loop="false" dotColor="transparent" dotActiveColor="transparent">
      <im-swiper-item v-for="(v, k) in list.length" :key="k">
       <div class="swiper-box">这是tab组件和swiper组件一起使用的{{v}}</div>
      </im-swiper-item>
@@ -23,7 +23,7 @@ export default {
 			},{
 			  name: '分类4'
 			}],
-			activeCurrIndex: 2
+			activeCurrIndex: 1
     }
   },
   components: {
@@ -34,8 +34,11 @@ export default {
   },
   methods: {
   	onSwiper (idx) {
-  		this.activeCurrIndex += idx
-  	}
+  		this.activeCurrIndex += idx;
+  	},
+    tabClick (idx) {
+      this.activeCurrIndex = idx;
+    }
   }
 }
 </script>
@@ -46,8 +49,6 @@ export default {
 	height: 90vh;
 	width: 100%;
 	font-size: .37rem;
-	text-align: center;
-	line-height: 500px;
 	background-color: #6f6dff;
 	color: #FFF;
 	font-weight: bold;

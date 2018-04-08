@@ -61,6 +61,7 @@ export default {
   methods: {
     clickItem (idx) {
       this.currIndex = idx;
+      this.$emit('on-tab', idx)
     }
   },
   computed: {

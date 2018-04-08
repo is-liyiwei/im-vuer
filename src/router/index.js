@@ -19,6 +19,7 @@ import SwiperOut from '@/demo/SwiperOut.vue'
 import DatePicker from '@/demo/DatePicker.vue'
 import SwiperBox from '@/demo/SwiperBox.vue'
 import Dialog from '@/demo/Dialog.vue'
+import PullRefresh from '@/demo/PullRefresh.vue'
 
 Vue.use(Router)
 
@@ -96,6 +97,10 @@ export default new Router({
       path: '/dialog',
       name: 'dialog',
       component: Dialog
+    },{
+      path: '/pullRefresh',
+      name: 'pullRefresh',
+      component: PullRefresh
     }
   ]
 })

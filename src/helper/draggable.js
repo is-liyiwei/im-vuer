@@ -7,7 +7,7 @@ const supportTouch = 'ontouchstart' in window;
 export default function(element, options) {
   const moveFn = function(event) {
     if (options.drag) {
-      options.drag(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+      options.drag(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
     }
   };
 
@@ -22,7 +22,7 @@ export default function(element, options) {
     isDragging = false;
 
     if (options.end) {
-      options.end(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+      options.end(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
     }
   };
 
@@ -38,8 +38,7 @@ export default function(element, options) {
     isDragging = true;
 
     if (options.start) {
-      event.preventDefault();
-      options.start(supportTouch ? event.changedTouches[0] || event.touches[0] : event);
+      options.start(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
     }
   });
 

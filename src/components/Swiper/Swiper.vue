@@ -60,6 +60,10 @@ export default {
     dotActiveColor: {
       type: String,
       default: '#f00'
+    },
+    isTabView: {
+      type: Boolean,
+      default: false
     }
   },
   mounted () {
@@ -73,7 +77,7 @@ export default {
 
     this.supportTouch ? this.bindSwipeHandle() : this.noop();
 
-    if (this.autoPlay > 0) this.autoPlayHandle();
+    if (~~this.autoPlay > 0) this.autoPlayHandle();
 
   },
   destroyed() {
@@ -127,7 +131,7 @@ export default {
     },
     swipeEv(element = window, type, handle) {
       let isTouchMove;
-      let touchStatus = Object.create(null)
+      let touchStatus = Object.create(null);
 
       element.addEventListener('touchstart', (evt) => {
         clearTimeout(this.timerByAutoPlay);
@@ -149,7 +153,7 @@ export default {
         touchStatus.currentTx = touches.pageX - touchStatus.startTx;
         touchStatus.currentTy = touches.pageY - touchStatus.startTy;
 
-        this.setTranslate(0, touchStatus.currentTx + -(this.$el.clientWidth * this.currentIndex))
+        this.setTranslate(0, touchStatus.currentTx + -(this.$el.clientWidth * this.currentIndex));
 
       }, false);
 
@@ -173,13 +177,17 @@ export default {
           }
 
           if (this.loop == false && this.currentIndex == 0) {
-            this.onswiper(0)
+            this.onswiper(0);
             return
           }
 
+          this.$emit('on-swiper', -1);
+          if (this.isTabView) {
+            // 如果是tab轮播View，这里则返回，因为父组件的watch会触发轮播事件，设计方式尚不合理
+            return
+          }
           this.currentIndex--;
           this.onswiper(-1)
-          this.$emit('on-swiper', -1)
         } else if (touchStatus.currentTx < -touchStatus.boundary) {
 
           if (this.length == 1) {
@@ -188,18 +196,22 @@ export default {
           }
 
           if (this.loop == false && this.currentIndex >= this.length - 1) {
-            this.onswiper(0)
+            this.onswiper(0);
             return
           }
 
+          this.$emit('on-swiper', 1);
+          if (this.isTabView) {
+            // 如果是tab轮播View，这里则返回，因为父组件的watch会触发轮播事件，设计方式尚不合理
+            return
+          }
           this.currentIndex++;
-          this.onswiper(1)
-          this.$emit('on-swiper', 1)
+          this.onswiper(1);
         } else {
-          this.onswiper(0)
+          this.onswiper(0);
         }
 
-        touchStatus = Object.create(null)
+        touchStatus = Object.create(null);
 
         if (this.autoPlay > 0) this.autoPlayHandle();
 
@@ -230,6 +242,16 @@ export default {
   watch: {
     currentIndex(val) {
       this.dotIndex = this.loop ? val - 1 : val
+    },
+    idx (newVal, oldVal) {
+      let diff = newVal - oldVal;
+      let counts = 0;
+      let n = diff > 0 ? 1 : -1;
+      while (counts != diff) {
+        counts += n;
+        this.currentIndex += n;
+        this.onswiper(n);
+      }
     }
   }
 }
