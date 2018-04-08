@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-
+@import './font_alibaba/iconfont.css';
 </style>

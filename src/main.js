@@ -1,5 +1,17 @@
+
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+// import store from './vuex'
+
+
+import { ConfirmPlugin } from './components/Confirm'
+import { ToastPlugin } from './components/Toast'
+import { ActionSheetPlugin } from './components/ActionSheet'
+import { TipPlugin } from './components/Tip'
+
 
 import { Tab } from './components/Tab'
 import { Step } from './components/Step'
@@ -18,61 +30,44 @@ import { Picker, PickerItem } from './components/Picker'
 import { DatePicker } from './components/DatePicker'
 import { Layer } from './components/Layer'
 
-console.log(Tab)
-console.log(Step)
-console.log(CountUp)
-console.log(Marquee)
-console.log(Rater)
-console.log(Switch)
-console.log(CheckBox)
-console.log(SwiperOut)
-console.log(Progress)
-console.log(Radio)
-console.log(RadioItem)
-console.log(TimeLine)
-console.log(TimeLineItem)
-console.log(Swiper)
-console.log(SwiperItem)
-console.log(IndexList)
-console.log(Picker)
-console.log(PickerItem)
-console.log(DatePicker)
-console.log(Layer)
 
-export {
-	Tab,
-	Step,
-	CountUp,
-	Marquee,
-	Rater,
-	Switch,
-	CheckBox,
-	SwiperOut,
-	Progress,
-	Radio,
-	RadioItem,
-	TimeLine,
-	TimeLineItem,
-	Swiper,
-	SwiperItem,
-	IndexList,
-	Picker,
-	PickerItem,
-	DatePicker,
-	Layer
-}
+const n = 'im-'
+
+const _n = 'i'  // 用某些内置的html标签，Vue会发出警告，只能换个名字，但是内部还是用<im-xxx></im-xxx>
+
+Vue.component(`${n}${Tab.name}`, Tab)
+Vue.component(`${n}${Step.name}`, Step)
+Vue.component(`${n}${CountUp.name}`, CountUp)
+Vue.component(`${n}${Marquee.name}`, Marquee)
+Vue.component(`${n}${Rater.name}`, Rater)
+Vue.component(`${n}${CheckBox.name}`, CheckBox)
+Vue.component(`${n}${SwiperOut.name}`, SwiperOut)
+Vue.component(`${n}${TimeLine.name}`, TimeLine)
+Vue.component(`${n}${TimeLineItem.name}`, TimeLineItem)
+Vue.component(`${n}${Radio.name}`, Radio)
+Vue.component(`${n}${RadioItem.name}`, RadioItem)
+Vue.component(`${n}${Swiper.name}`, Swiper)
+Vue.component(`${n}${SwiperItem.name}`, SwiperItem)
+Vue.component(`${n}${IndexList.name}`, IndexList)
+Vue.component(`${n}${Picker.name}`, Picker)
+Vue.component(`${n}${PickerItem.name}`, PickerItem)
+Vue.component(`${n}${DatePicker.name}`, DatePicker)
+Vue.component(`${n}${Layer.name}`, Layer)
 
 
-// import Vue from 'vue'
-// import App from './App'
-// import router from './router'
+Vue.component(`${_n}${Progress.name}`, Progress)
+Vue.component(`${_n}${Switch.name}`, Switch)
 
-// Vue.config.productionTip = false
 
-// /* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   router,
-//   components: { App },
-//   template: '<App/>'
-// })
+Vue.use(ConfirmPlugin);
+Vue.use(ToastPlugin);
+Vue.use(ActionSheetPlugin);
+Vue.use(TipPlugin);
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App }
+})
