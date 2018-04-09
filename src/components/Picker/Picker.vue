@@ -2,6 +2,7 @@
   <div class="im-picker">
 
     <div class="im-picker-box" :style="styleObj">
+
       <div class="im-picker-box-header">
         <div @click="cancelBtn">取消</div>
         <div @click="confirmBtn">确定</div>
@@ -9,7 +10,9 @@
 
       <div class="im-picker-box-content">
  
-        <slot></slot>
+        <im-picker-item @get-data="getProvince" v-model="provinceIndex" :currentIndex="provinceIndex" :data="provinceData"></im-picker-item>
+        <im-picker-item @get-data="getCity" ref="city" v-model="cityIndex" :currentIndex="cityIndex" :data="cityData"></im-picker-item>
+        <im-picker-item @get-data="getArea" ref="area" :data="areaData"></im-picker-item>
 
         <div class="line-box"></div>
 
@@ -21,27 +24,50 @@
 </template>
 
 <script>
-
+import PickerItem from './pickerItem'
 
 export default {
   name: 'picker',
   data () {
     return {
-
+      provinceIndex: 0,
+      cityIndex: 0,
+      currData: []
     }
+  },
+  components: {
+    'im-picker-item': PickerItem
   },
   props: {
     showStatus: {
       type: Boolean,
       default: false
+    },
+    data: {
+      type: Array,
+      default: () => {
+        return []
+      }
     }
+  },
+  mounted () {
+
   },
   methods: {
     cancelBtn () {
-      this.$emit('cancelBtn')
+      this.$emit('cancelBtn');
     },
     confirmBtn () {
-      this.$emit('confirmBtn')
+      this.$emit('confirmBtn', this.currData);
+    },
+    getProvince (val) {
+      this.currData[0] = val;
+    },
+    getCity (val) {
+      this.currData[1] = val;
+    },
+    getArea (val) {
+      this.currData[2] = val;
     }
   },
   computed: {
@@ -49,6 +75,20 @@ export default {
       return {
         transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)`
       }
+    },
+    provinceData () {
+      return this.data
+    },
+    cityData () {
+      return this.provinceData[this.provinceIndex].c
+    },
+    areaData () {
+      return this.cityData[this.cityIndex].c
+    }
+  },
+  watch: {
+    provinceIndex () {
+      this.cityIndex = 0;
     }
   }
 }

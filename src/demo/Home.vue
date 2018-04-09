@@ -12,6 +12,7 @@
 <script>
 
 const list = [
+'test',
 'Tab',
 'Step',
 'TimeLine',

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 500px;
+        }
+
+        .box p {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 32px;
+            background-color: pink;
+            margin: 0;padding: 0;
+        }
+
+        .loading {
+            margin-top: -100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .hiddenBox {
+          overflow: scroll;
+          height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="hiddenBox" id="hiddenBox">
+          <div class="loading">loading</div>
+          <p>12</p>
+          <p>13</p>
+          <p>14</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+          <p>1</p>
+        </div>
+    </div>
+</body>
+<script>
+
+let isDragging = false;
+
+const supportTouch = 'ontouchstart' in window;
+
+let draggable = function(element, options) {
+  const moveFn = function(event) {
+    if (options.drag) {
+      options.drag(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
+    }
+  };
+
+  const endFn = function(event) {
+    if (!supportTouch) {
+      document.removeEventListener('mousemove', moveFn);
+      document.removeEventListener('mouseup', endFn);
+    }
+    document.onselectstart = null;
+    document.ondragstart = null;
+
+    isDragging = false;
+
+    if (options.end) {
+      options.end(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
+    }
+  };
+
+  element.addEventListener(supportTouch ? 'touchstart' : 'mousedown', function(event) {
+    if (isDragging) return;
+    document.onselectstart = function() { return false; };
+    document.ondragstart = function() { return false; };
+
+    if (!supportTouch) {
+      document.addEventListener('mousemove', moveFn);
+      document.addEventListener('mouseup', endFn);
+    }
+    isDragging = true;
+
+    if (options.start) {
+      options.start(supportTouch ? event.changedTouches[0] || event.touches[0] : event, event);
+    }
+  });
+
+  if (supportTouch) {
+    element.addEventListener('touchmove', moveFn);
+    element.addEventListener('touchend', endFn);
+    element.addEventListener('touchcancel', endFn);
+  }
+};
+
+
+var exportObj = {};
+
+if (true) {
+  var docStyle = document.documentElement.style;
+  var engine;
+  var translate3d = false;
+
+  if (window.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
+    engine = 'presto';
+  } else if ('MozAppearance' in docStyle) {
+    engine = 'gecko';
+  } else if ('WebkitAppearance' in docStyle) {
+    engine = 'webkit';
+  } else if (typeof navigator.cpuClass === 'string') {
+    engine = 'trident';
+  }
+
+  var cssPrefix = {trident: '-ms-', gecko: '-moz-', webkit: '-webkit-', presto: '-o-'}[engine];
+
+  var vendorPrefix = {trident: 'ms', gecko: 'Moz', webkit: 'Webkit', presto: 'O'}[engine];
+
+  var helperElem = document.createElement('div');
+  var perspectiveProperty = vendorPrefix + 'Perspective';
+  var transformProperty = vendorPrefix + 'Transform';
+  var transformStyleName = cssPrefix + 'transform';
+  var transitionProperty = vendorPrefix + 'Transition';
+  var transitionStyleName = cssPrefix + 'transition';
+  var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd';
+
+  if (helperElem.style[perspectiveProperty] !== undefined) {
+    translate3d = true;
+  }
+
+  var getTranslate = function(element) {
+    var result = {left: 0, top: 0};
+    if (element === null || element.style === null) return result;
+
+    var transform = element.style[transformProperty];
+    var matches = /translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/ig.exec(transform);
+    if (matches) {
+      result.left = +matches[1];
+      result.top = +matches[3];
+    }
+
+    return result;
+  };
+
+  var translateElement = function(element, x, y) {
+    if (x === null && y === null) return;
+
+    if (element === null || element === undefined || element.style === null) return;
+
+    if (!element.style[transformProperty] && x === 0 && y === 0) return;
+
+    if (x === null || y === null) {
+      var translate = getTranslate(element);
+      if (x === null) {
+        x = translate.left;
+      }
+      if (y === null) {
+        y = translate.top;
+      }
+    }
+
+    cancelTranslateElement(element);
+
+    if (translate3d) {
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ') translateZ(0px)';
+    } else {
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ')';
+    }
+  };
+
+  var cancelTranslateElement = function(element) {
+    if (element === null || element.style === null) return;
+    var transformValue = element.style[transformProperty];
+    if (transformValue) {
+      transformValue = transformValue.replace(/translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/g, '');
+      element.style[transformProperty] = transformValue;
+    }
+  };
+  exportObj = {
+    transformProperty: transformProperty,
+    transformStyleName: transformStyleName,
+    transitionProperty: transitionProperty,
+    transitionStyleName: transitionStyleName,
+    transitionEndProperty: transitionEndProperty,
+    getElementTranslate: getTranslate,
+    translateElement: translateElement,
+    cancelTranslateElement: cancelTranslateElement
+  };
+};
+
+function checkBottomReached(el) {
+  return el.scrollTop + el.offsetHeight + 1 >= el.scrollHeight;
+}
+
+
+// ==================================================================================================================
+
+let boxDom = document.getElementById('box');
+let hiddenBoxDom = document.getElementById('hiddenBox');
+
+let dragState = {};
+
+let vue_data = {
+
+}
+
+draggable(boxDom, {
+  start: (touch, $event) => {
+    dragState = {
+      startTime: new Date(),
+      startX: touch.pageX,
+      startY: touch.pageY,
+      startTranslateTop: exportObj.getElementTranslate(hiddenBoxDom).top,
+      elTop: hiddenBoxDom.scrollTop,
+      elBottom: checkBottomReached(hiddenBoxDom)
+    };
+  },
+  drag: (touch, $event) => {
+    dragState.dragX = touch.pageX - dragState.startX;
+    dragState.dragY = touch.pageY - dragState.startY;
+    vue_data.direction = dragState.dragY > 0 ? 'down' : 'up';
+
+    if(dragState.elTop <= 0 && vue_data.direction === 'down') {
+      vue_data.distance = dragState.dragY;
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      exportObj.translateElement(hiddenBoxDom, null, ~~vue_data.distance);
+
+      if(vue_data.distance > 100) {
+        vue_data.pullDownText = 'vue_data.v_pullDownConfig.triggerText';
+      } else {
+        vue_data.pullDownText = 'vue_data.v_pullDownConfig.pullText';
+      }
+    } else if(dragState.elBottom && vue_data.direction === 'up') {
+      vue_data.distance = dragState.dragY;
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      if(vue_data.distance < -100) {
+        vue_data.pullUpText = 'vue_data.v_pullUpConfig.triggerText';
+      } else {
+        vue_data.pullUpText = 'vue_data.v_pullUpConfig.pullText';
+      }
+    }
+
+    console.log(vue_data)
+    console.log(dragState.elTop)
+    console.log(dragState.elBottom)
+
+  },
+  end: (touch, $event) => {
+
+  }
+})
+</script>
+</html>

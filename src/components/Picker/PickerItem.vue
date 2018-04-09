@@ -34,6 +34,9 @@ export default {
     this.setDefault();
     this.initEvent();
   },
+  updated () {
+    this.setDefault();
+  },
   methods: {
     init () {
       this.itemHeight = document.querySelector('.im-picker-box-content-item-value').clientHeight;
@@ -59,7 +62,7 @@ export default {
           this.dragging = true;
           dragState.dragX = touch.pageX - dragState.startX;
           dragState.dragY = touch.pageY - dragState.startY;
-          translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.dragY);
+          // translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.dragY);
         },
         end: (touch, $event) => {
           this.dragging = false;
@@ -121,6 +124,7 @@ export default {
   watch: {
     dev_currentIndex (newVal) {
       this.$emit('input', newVal)
+      this.$emit('get-data', this.data[newVal])
     }
   }
 }

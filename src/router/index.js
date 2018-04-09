@@ -21,11 +21,17 @@ import SwiperBox from '@/demo/SwiperBox.vue'
 import Dialog from '@/demo/Dialog.vue'
 import PullRefresh from '@/demo/PullRefresh.vue'
 
+import test from '@/demo/test.vue'
+
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/test',
+      name: 'test',
+      component: test
+    },{
       path: '/',
       name: 'home',
       component: Home

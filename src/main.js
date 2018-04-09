@@ -27,7 +27,7 @@ import { Radio, RadioItem } from './components/Radio'
 import { TimeLine, TimeLineItem } from './components/TimeLine'
 import { Swiper, SwiperItem } from './components/Swiper'
 import { IndexList } from './components/IndexList'
-import { Picker, PickerItem } from './components/Picker'
+import { Picker } from './components/Picker'
 import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
 import { Layer } from './components/Layer'
@@ -52,7 +52,6 @@ Vue.component(`${n}${Swiper.name}`, Swiper)
 Vue.component(`${n}${SwiperItem.name}`, SwiperItem)
 Vue.component(`${n}${IndexList.name}`, IndexList)
 Vue.component(`${n}${Picker.name}`, Picker)
-Vue.component(`${n}${PickerItem.name}`, PickerItem)
 Vue.component(`${n}${DatePicker.name}`, DatePicker)
 Vue.component(`${n}${PullRefresh.name}`, PullRefresh)
 Vue.component(`${n}${Layer.name}`, Layer)
