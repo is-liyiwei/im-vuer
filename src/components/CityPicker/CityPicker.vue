@@ -174,6 +174,7 @@ export default {
             height: 80px;
             line-height: 80px;
             display: block;
+            overflow: hidden;
           }
         }
       }

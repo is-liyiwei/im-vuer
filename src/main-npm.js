@@ -23,6 +23,7 @@ import { Swiper, SwiperItem } from './components/Swiper'
 import { IndexList } from './components/IndexList'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
+import { PullRefresh } from './components/PullRefresh'
 
 let _Nid = 0;
 let _log = function (component) {
@@ -48,6 +49,7 @@ _log(SwiperItem)
 _log(IndexList)
 _log(CityPicker)
 _log(DatePicker)
+_log(PullRefresh)
 
 
 _log(ConfirmPlugin)
@@ -83,6 +85,7 @@ export {
 	IndexList,
 	CityPicker,
 	DatePicker,
+	PullRefresh,
 	ConfirmPlugin,
 	ToastPlugin,
 	ActionSheetPlugin,

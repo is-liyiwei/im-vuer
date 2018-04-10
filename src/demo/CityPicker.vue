@@ -126,10 +126,10 @@ export default {
     }
   },
   created: function () {
-    setTimeout( () => {
     this.data = data1;
+    // setTimeout( () => {
 
-    }, 1500)
+    // }, 1500)
   },
   watch: {
   	value (newVal, oldVal) {
@@ -156,7 +156,6 @@ export default {
       this.showLayer = !this.showLayer;
     },
     changeData () {
-      // this.$refs.picker.reload();
       this.data == data1 ? this.data = data2 : this.data = data1;
     }
   },
