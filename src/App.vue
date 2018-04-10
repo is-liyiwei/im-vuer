@@ -1,15 +1,30 @@
 <template>
   <div id="app">
-    <router-view/>
+		<transition name="fade" v-on:before-enter="enter" v-on:after-enter="afterEnter">
+			<router-view ref="rt"></router-view>
+		</transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+  	enter () {
+  		this.$refs.rt.$el.style.display = 'none';
+  	},
+  	afterEnter () {
+  		this.$refs.rt.$el.style.display = 'block';
+  	}
+  }
 }
 </script>
 
 <style>
-
+.fade-enter-active, .fade-leave-active {
+	transition: all .3s ease-in;
+}
+.fade-enter, .fade-leave-active {
+	opacity:0;
+}
 </style>

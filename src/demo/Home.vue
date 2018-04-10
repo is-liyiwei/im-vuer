@@ -24,7 +24,7 @@ const list = [
 'Radio',
 'Swiper',
 'IndexList',
-'Picker',
+'CityPicker',
 'Progress',
 'DatePicker',
 'PullRefresh',

@@ -8,7 +8,7 @@
 import draggable from '../../helper/draggable.js';
 import translateUtil from '../../helper/translate.js';
 export default {
-  name: 'picker-item',
+  name: 'city-picker-item',
   data () {
     return {
       itemHeight: null,
@@ -36,6 +36,7 @@ export default {
   },
   updated () {
     this.setDefault();
+    this.dev_currentIndex = 0;
   },
   methods: {
     init () {
@@ -43,12 +44,14 @@ export default {
       this.maxH = this.data.length * this.itemHeight;
     },
     setDefault () {
-      let _currentIndex = this.dev_currentIndex > this.data.length - 1 || this.dev_currentIndex < 0 ? 0 : this.dev_currentIndex;
+      // 本想选择之后保持下一联动的位置，但是有bug未能修复，只好先全部置0先
+      // let _currentIndex = this.dev_currentIndex > this.data.length - 1 || this.dev_currentIndex < 0 ? 0 : this.dev_currentIndex;
+      let _currentIndex = 0;
       translateUtil.translateElement(this.$refs.wrapper, null, (this.defaultH - _currentIndex) * this.itemHeight);
     },
     initEvent () {
-      var el = this.$refs.wrapper;
-      var dragState = {};
+      let el = this.$refs.wrapper;
+      let dragState = {};
       draggable(el, {
         start: (touch, $event) => {
           dragState = {
@@ -62,20 +65,20 @@ export default {
           this.dragging = true;
           dragState.dragX = touch.pageX - dragState.startX;
           dragState.dragY = touch.pageY - dragState.startY;
-          // translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.dragY);
+          translateUtil.translateElement(el, null, dragState.startTranslateTop + dragState.dragY);
         },
         end: (touch, $event) => {
           this.dragging = false;
-          var currentTranslate = translateUtil.getElementTranslate(el).top;
-          var duration = new Date() - dragState.startTime;
-          var distance = Math.abs(dragState.startTranslateTop - currentTranslate);
-          var itemHeight = this.itemHeight;
-          var defaultH = this.defaultH;
+          let currentTranslate = translateUtil.getElementTranslate(el).top;
+          let duration = new Date() - dragState.startTime;
+          let distance = Math.abs(dragState.startTranslateTop - currentTranslate);
+          let itemHeight = this.itemHeight;
+          let defaultH = this.defaultH;
           // console.log('当前的y距离', currentTranslate)
           // console.log('滑动时间差', duration)
           // console.log('鼠标滑动位移', distance)
           // console.log('一个元素的高度，这个是固定的', itemHeight)
-          var rect, offset;
+          let rect, offset;
           if (distance < 6) {
             rect = this.$el.getBoundingClientRect();
             let tapItemIndex = ~~(~~(touch.clientY - rect.top) / itemHeight);
@@ -84,27 +87,22 @@ export default {
             currentTranslate = offset;
           }
 
-          var momentumTranslate = 0;
-          if (duration < 300) {
-            momentumTranslate = currentTranslate;
-          }
-
           this.$nextTick(() => {
-            var translate;
-            if (momentumTranslate) {
-              translate = Math.round(momentumTranslate / itemHeight) * itemHeight;
-            } else {
-              translate = Math.round(currentTranslate / itemHeight) * itemHeight;
-            }
-            this.dev_currentIndex = Math.abs(translate / itemHeight - defaultH);
+
+            let translate = Math.round(currentTranslate / itemHeight) * itemHeight;
+
             if (translate >= ~~this.maxTopTranslate) {
               translateUtil.translateElement(el, null, ~~this.maxTopTranslate);
+              this.dev_currentIndex = 0;  // 向上拖动过度，则表示拖动到第一个
               return
             }
             if (translate <= -(~~this.maxBottomTranslate)) {
               translateUtil.translateElement(el, null, -(~~this.maxBottomTranslate));
+              this.dev_currentIndex = this.data.length - 1;  // 向下拖动过度，则表示拖动到倒数第一个
               return
             }
+
+            this.dev_currentIndex = Math.abs(translate / itemHeight - defaultH);  // 计算位置索引值
             translateUtil.translateElement(el, null, translate);
           });
 
@@ -123,8 +121,9 @@ export default {
   },
   watch: {
     dev_currentIndex (newVal) {
+      console.log(newVal)
       this.$emit('input', newVal)
-      this.$emit('get-data', this.data[newVal])
+      this.$emit('get-data', newVal)
     }
   }
 }

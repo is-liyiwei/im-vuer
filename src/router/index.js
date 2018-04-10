@@ -13,7 +13,7 @@ import CheckBox from '@/demo/CheckBox.vue'
 import Radio from '@/demo/Radio.vue'
 import Progress from '@/demo/Progress.vue'
 import IndexList from '@/demo/IndexList.vue'
-import Picker from '@/demo/Picker.vue'
+import CityPicker from '@/demo/CityPicker.vue'
 import Swiper from '@/demo/Swiper.vue'
 import SwiperOut from '@/demo/SwiperOut.vue'
 import DatePicker from '@/demo/DatePicker.vue'
@@ -25,7 +25,8 @@ import test from '@/demo/test.vue'
 
 Vue.use(Router)
 
-export default new Router({
+let myRouter =  new Router({
+  // mode: 'history',
   routes: [
     {
       path: '/test',
@@ -88,9 +89,9 @@ export default new Router({
       name: 'indexList',
       component: IndexList
     },{
-      path: '/picker',
-      name: 'picker',
-      component: Picker
+      path: '/cityPicker',
+      name: 'cityPicker',
+      component: CityPicker
     },{
       path: '/datePicker',
       name: 'datePicker',
@@ -108,5 +109,20 @@ export default new Router({
       name: 'pullRefresh',
       component: PullRefresh
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+      // return new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve({ x: 0, y: 200 })
+      //   }, 500)
+      // })
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
+
+
+export default myRouter

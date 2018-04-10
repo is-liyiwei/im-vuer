@@ -27,10 +27,9 @@ import { Radio, RadioItem } from './components/Radio'
 import { TimeLine, TimeLineItem } from './components/TimeLine'
 import { Swiper, SwiperItem } from './components/Swiper'
 import { IndexList } from './components/IndexList'
-import { Picker } from './components/Picker'
+import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
-import { Layer } from './components/Layer'
 
 
 const n = 'im-'
@@ -51,10 +50,9 @@ Vue.component(`${n}${RadioItem.name}`, RadioItem)
 Vue.component(`${n}${Swiper.name}`, Swiper)
 Vue.component(`${n}${SwiperItem.name}`, SwiperItem)
 Vue.component(`${n}${IndexList.name}`, IndexList)
-Vue.component(`${n}${Picker.name}`, Picker)
+Vue.component(`${n}${CityPicker.name}`, CityPicker)
 Vue.component(`${n}${DatePicker.name}`, DatePicker)
 Vue.component(`${n}${PullRefresh.name}`, PullRefresh)
-Vue.component(`${n}${Layer.name}`, Layer)
 
 
 Vue.component(`${_n}${Progress.name}`, Progress)
