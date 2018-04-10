@@ -30,6 +30,7 @@ import { IndexList } from './components/IndexList'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
+import { Picker, PickerItem } from './components/Picker'
 
 
 const n = 'im-'
@@ -53,6 +54,8 @@ Vue.component(`${n}${IndexList.name}`, IndexList)
 Vue.component(`${n}${CityPicker.name}`, CityPicker)
 Vue.component(`${n}${DatePicker.name}`, DatePicker)
 Vue.component(`${n}${PullRefresh.name}`, PullRefresh)
+Vue.component(`${n}${Picker.name}`, Picker)
+Vue.component(`${n}${PickerItem.name}`, PickerItem)
 
 
 Vue.component(`${_n}${Progress.name}`, Progress)

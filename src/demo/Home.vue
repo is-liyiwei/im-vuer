@@ -1,6 +1,6 @@
 <template>
   <div class="demo-home">
-    <router-link v-for="(v, k) in list" :to="v" :key="k">
+    <router-link v-for="(v, k) in list" :to="v.toLowerCase()" :key="k">
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 100 100">
         <path d="M50.214 10.067c6.4.204 10.753 25.648 10.753 25.648s26.256-1.803 27.13 2.857c.874 4.66-20.04 16.642-20.04 16.642s9.537 24.303 5.523 26.817c-4.015 2.515-23.545-14.023-23.545-14.023S29.333 84.493 25.633 81.785c-3.7-2.71 6.657-26.472 6.657-26.472S11.234 43.94 12.383 39.108c1.15-4.832 26.55-3.393 26.55-3.393s4.88-25.853 11.28-25.648z" fill="#00bfff" fill-rule="evenodd"/>
       </svg>
@@ -28,6 +28,7 @@ const list = [
 'Progress',
 'DatePicker',
 'PullRefresh',
+'Picker',
 'SwiperBox',
 'Dialog',
 'SwiperOut'

@@ -20,6 +20,7 @@ import DatePicker from '@/demo/DatePicker.vue'
 import SwiperBox from '@/demo/SwiperBox.vue'
 import Dialog from '@/demo/Dialog.vue'
 import PullRefresh from '@/demo/PullRefresh.vue'
+import Picker from '@/demo/Picker.vue'
 
 import test from '@/demo/test.vue'
 
@@ -108,6 +109,10 @@ let myRouter =  new Router({
       path: '/pullRefresh',
       name: 'pullRefresh',
       component: PullRefresh
+    },{
+      path: '/picker',
+      name: 'picker',
+      component: Picker
     }
   ],
   scrollBehavior (to, from, savedPosition) {

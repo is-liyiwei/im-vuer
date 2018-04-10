@@ -24,6 +24,7 @@ import { IndexList } from './components/IndexList'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
+import { Picker } from './components/Picker'
 
 let _Nid = 0;
 let _log = function (component) {
@@ -50,6 +51,7 @@ _log(IndexList)
 _log(CityPicker)
 _log(DatePicker)
 _log(PullRefresh)
+_log(Picker)
 
 
 _log(ConfirmPlugin)
@@ -86,6 +88,7 @@ export {
 	CityPicker,
 	DatePicker,
 	PullRefresh,
+	Picker,
 	ConfirmPlugin,
 	ToastPlugin,
 	ActionSheetPlugin,

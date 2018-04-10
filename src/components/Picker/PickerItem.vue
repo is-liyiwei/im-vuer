@@ -1,6 +1,6 @@
 <template>
   <div class="im-picker-box-content-item" ref="wrapper">
-    <span class="im-picker-box-content-item-value" v-for="(v, k) in data">{{v.n}}</span>
+    <span class="im-picker-box-content-item-value" v-for="(v, k) in data">{{v}}</span>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import draggable from '../../helper/draggable.js';
 import translateUtil from '../../helper/translate.js';
 export default {
-  name: 'city-picker-item',
+  name: 'picker-item',
   data () {
     return {
       itemHeight: null,
@@ -34,18 +34,16 @@ export default {
     this.setDefault();
     this.initEvent();
   },
-  updated () {
-    this.setDefault();
-    this.dev_currentIndex = 0;
-  },
+  // updated () {
+  //   this.setDefault();
+  //   this.dev_currentIndex = 0;
+  // },
   methods: {
     init () {
       this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight;
       this.maxH = this.data.length * this.itemHeight;
     },
     setDefault () {
-      // 本想选择之后保持下一联动的位置，但是有bug未能修复，只好先全部置0先
-      // let _currentIndex = this.dev_currentIndex > this.data.length - 1 || this.dev_currentIndex < 0 ? 0 : this.dev_currentIndex;
       let _currentIndex = 0;
       translateUtil.translateElement(this.$refs.wrapper, null, (this.defaultH - _currentIndex) * this.itemHeight);
     },
@@ -121,8 +119,8 @@ export default {
   },
   watch: {
     dev_currentIndex (newVal) {
-      this.$emit('input', newVal)
-      this.$emit('get-data', newVal)
+      this.resultItem = this.data[newVal];
+      this.$parent.updateValue()
     }
   }
 }
