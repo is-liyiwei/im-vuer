@@ -14,7 +14,7 @@ export default {
   		this.$refs.rt.$el.style.display = 'none';
   	},
   	afterEnter () {
-  		this.$refs.rt.$el.style.display = 'block';
+  		this.$refs.rt.$el.style.display = '';
   	}
   }
 }

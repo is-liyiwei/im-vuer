@@ -5,7 +5,7 @@
     <im-pull-refresh ref="pull" :pullDownMethods="pullDownMethods" :pullUpMethods="pullUpMethods">
     <!-- <im-pull-refresh ref="pull"> -->
       <!-- <div slot="top-loading" style="height: 100%;">{{'123213'}}</div> -->
-      <div class="item" v-for="(v, k) in list" :key="k">页面及设计仍有很多不足{{v}}</div>
+      <div class="item" v-for="(v, k) in list" :key="k">上下拉组件，效果仍不理想{{v}}</div>
       <!-- <div slot="bottom-loading" style="height: 100%;">{{'123213'}}</div> -->
 
     </im-pull-refresh>
