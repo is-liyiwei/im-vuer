@@ -126,10 +126,10 @@ export default {
     }
   },
   created: function () {
+    setTimeout( () => {
     this.data = data1;
-    // setTimeout( () => {
 
-    // }, 1500)
+    }, 1500)
   },
   watch: {
   	value (newVal, oldVal) {
@@ -150,6 +150,7 @@ export default {
       this.showLayer = !this.showLayer;
     },
     confirm (value) {
+      console.log(value)
       this.test = `${value[0].n}-${value[1].n}-${value[2].n}`;
     	this.showPicker = !this.showPicker;
       this.showLayer = !this.showLayer;

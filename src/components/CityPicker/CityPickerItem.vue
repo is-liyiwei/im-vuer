@@ -121,7 +121,6 @@ export default {
   },
   watch: {
     dev_currentIndex (newVal) {
-      console.log(newVal)
       this.$emit('input', newVal)
       this.$emit('get-data', newVal)
     }

@@ -21,9 +21,8 @@ import { Radio, RadioItem } from './components/Radio'
 import { TimeLine, TimeLineItem } from './components/TimeLine'
 import { Swiper, SwiperItem } from './components/Swiper'
 import { IndexList } from './components/IndexList'
-import { Picker, PickerItem } from './components/Picker'
+import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
-import { Layer } from './components/Layer'  // 这个感觉没啥用
 
 let _Nid = 0;
 let _log = function (component) {
@@ -47,10 +46,8 @@ _log(TimeLineItem)
 _log(Swiper)
 _log(SwiperItem)
 _log(IndexList)
-_log(Picker)
-_log(PickerItem)
+_log(CityPicker)
 _log(DatePicker)
-_log(Layer)
 
 
 _log(ConfirmPlugin)
@@ -84,10 +81,8 @@ export {
 	Swiper,
 	SwiperItem,
 	IndexList,
-	Picker,
-	PickerItem,
+	CityPicker,
 	DatePicker,
-	Layer,
 	ConfirmPlugin,
 	ToastPlugin,
 	ActionSheetPlugin,

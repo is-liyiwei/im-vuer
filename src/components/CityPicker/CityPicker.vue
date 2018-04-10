@@ -93,9 +93,9 @@ export default {
     confirmBtn () {
       let result = [];
       // 使用下面的索引分别找到对应的省市区的值
-      result.push(this.provinceData[this.currData[0]] || this.provinceData[0]);
-      result.push(this.cityData[this.currData[1]] || this.cityData[0]);
-      result.push(this.areaData[this.currData[2]] || this.areaData[0]);
+      result.push(this.provinceData[this.currData[0]] || this.provinceData[0] || {});
+      result.push(this.cityData[this.currData[1]] || this.cityData[0] || {});
+      result.push(this.areaData[this.currData[2]] || this.areaData[0] || {});
 
       this.$emit('confirmBtn', result.filter(Boolean));
     },
@@ -173,12 +173,7 @@ export default {
             text-align: center;
             height: 80px;
             line-height: 80px;
-            white-space: normal;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
+            display: block;
           }
         }
       }
