@@ -118,8 +118,8 @@ export default {
   &-swiper-out {
     display: flex;
     position: relative;
-    height: .8rem * @baseRem;
-    font-size: .2rem * @baseRem;
+    height: 1rem * @baseRem;
+    font-size: .37rem * @baseRem;
     overflow: hidden;
     width: 100%;
     * {
@@ -132,8 +132,8 @@ export default {
         border: 0;
         background-color: #00BFFF;
         color: #fff;
-        width: 1rem * @baseRem;
-        font-size: .3rem * @baseRem;
+        width: 1.2rem * @baseRem;
+        font-size: .37rem * @baseRem;
         height: 100%;
       }
     }
@@ -143,10 +143,10 @@ export default {
       right: 0;
       bottom: 0;
       margin: 0;
-      padding: .02rem * @baseRem;
       text-align: right;
       display: flex;
       justify-content: flex-end;
+      z-index: 98;
     }
     &-left {
       position: absolute;
@@ -154,10 +154,10 @@ export default {
       bottom: 0;
       left: 0;
       margin: 0;
-      padding: .02rem * @baseRem;
       text-align: left;
       display: flex;
       justify-content: flex-start;
+      z-index: 98;
     }
     &-content {
       position: absolute;
@@ -170,8 +170,8 @@ export default {
       align-items: center;
       background-color: #fff;
       transition: transform .1s;
-      border-bottom: 1px solid #5f5f5f;
       padding: .2rem * @baseRem;
+      z-index: 99;
     }
   }
 }

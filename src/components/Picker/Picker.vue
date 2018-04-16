@@ -1,7 +1,7 @@
 <template>
   <div class="im-picker">
 
-    <div class="im-picker-box" :style="styleObj">
+    <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)` }">
       <div class="im-picker-box-header">
         <div @click="cancelBtn">取消</div>
         <div @click="confirmBtn">确定</div>
@@ -32,12 +32,6 @@ export default {
     showStatus: {
       type: Boolean,
       default: false
-    },
-    result: {
-      type: Array,
-      default () {
-        return []
-      }
     }
   },
   methods: {
@@ -57,11 +51,10 @@ export default {
     }
   },
   computed: {
-    styleObj () {
-      return {
-        transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)`
-      }
-    }
+
+  },
+  mounted () {
+    this.updateValue();
   }
 }
 </script>

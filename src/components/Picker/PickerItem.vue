@@ -14,7 +14,8 @@ export default {
       itemHeight: null,
       defaultH: 2,
       dragging: null,
-      dev_currentIndex: this.currentIndex
+      dev_currentIndex: 0,
+      resultItem: this.data[0]
     }
   },
   props: {
@@ -23,10 +24,6 @@ export default {
       default () {
         return []
       }
-    },
-    currentIndex: {
-      type: Number,
-      default: 0
     }
   },
   mounted: function () {
@@ -34,10 +31,6 @@ export default {
     this.setDefault();
     this.initEvent();
   },
-  // updated () {
-  //   this.setDefault();
-  //   this.dev_currentIndex = 0;
-  // },
   methods: {
     init () {
       this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight;
@@ -91,12 +84,12 @@ export default {
 
             if (translate >= ~~this.maxTopTranslate) {
               translateUtil.translateElement(el, null, ~~this.maxTopTranslate);
-              this.dev_currentIndex = 0;  // 向上拖动过度，则表示拖动到第一个
+              this.dev_currentIndex = 0;  // 向下拖动过度，则表示拖动到第一个
               return
             }
             if (translate <= -(~~this.maxBottomTranslate)) {
               translateUtil.translateElement(el, null, -(~~this.maxBottomTranslate));
-              this.dev_currentIndex = this.data.length - 1;  // 向下拖动过度，则表示拖动到倒数第一个
+              this.dev_currentIndex = this.data.length - 1;  // 向上拖动过度，则表示拖动到倒数第一个
               return
             }
 

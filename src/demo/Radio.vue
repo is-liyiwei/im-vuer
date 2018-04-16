@@ -19,7 +19,7 @@
    <im-radio v-model="radio3">
    	<im-radio-item val="启用1"></im-radio-item>
    	<im-radio-item val="启用2"></im-radio-item>
-   	<im-radio-item val="禁用1" :disabled="true"></im-radio-item>
+   	<im-radio-item val="禁用1" :disabled="true" bgColor="#333" textColor="#333"></im-radio-item>
    </im-radio>
 
    <br>

@@ -37,15 +37,15 @@ export default {
   	},
   	size: {
   		type: String,
-  		default: '.3rem'
+  		default: '.37rem'
   	},
   	textFz: {
   		type: String,
-  		default: '.2rem'
+  		default: '.27rem'
   	},
   	textColor: {
   		type: String,
-  		default: '#5d5d5d'
+  		default: '#666'
   	}
   },
   methods: {

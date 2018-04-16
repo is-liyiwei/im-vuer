@@ -93,12 +93,12 @@ export default {
 
             if (translate >= ~~this.maxTopTranslate) {
               translateUtil.translateElement(el, null, ~~this.maxTopTranslate);
-              this.dev_currentIndex = 0;  // 向上拖动过度，则表示拖动到第一个
+              this.dev_currentIndex = 0;  // 向下拖动过度，则表示拖动到第一个
               return
             }
             if (translate <= -(~~this.maxBottomTranslate)) {
               translateUtil.translateElement(el, null, -(~~this.maxBottomTranslate));
-              this.dev_currentIndex = this.data.length - 1;  // 向下拖动过度，则表示拖动到倒数第一个
+              this.dev_currentIndex = this.data.length - 1;  // 向上拖动过度，则表示拖动到倒数第一个
               return
             }
 

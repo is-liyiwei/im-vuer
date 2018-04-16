@@ -22,18 +22,12 @@ import Dialog from '@/demo/Dialog.vue'
 import PullRefresh from '@/demo/PullRefresh.vue'
 import Picker from '@/demo/Picker.vue'
 
-import test from '@/demo/test.vue'
-
 Vue.use(Router)
 
 let myRouter =  new Router({
   // mode: 'history',
   routes: [
     {
-      path: '/test',
-      name: 'test',
-      component: test
-    },{
       path: '/',
       name: 'home',
       component: Home

@@ -1,16 +1,17 @@
 <template>
   <div class="demo-picker">
 
-    <button id="btn" @click="showPickerFn">open</button>
+    <button id="btn" @click="togglePicker">open</button>
 
-    <div @click="clockLayer" v-if="showLayer" class="layer"></div>
+    <div @click="togglePicker" v-if="showLayer" class="layer"></div>
 
-    <im-picker v-model="result" :showStatus="showPicker" @cancelBtn="cancel" @confirmBtn="confirm">
+    <im-picker :showStatus="showPicker" @cancelBtn="togglePicker" @confirmBtn="confirm">
       <im-picker-item :data="hour"></im-picker-item>
       <im-picker-item :data="minutes"></im-picker-item>
       <im-picker-item :data="seconds"></im-picker-item>
     </im-picker>
 
+    <div class="result">选择的是：{{result}}</div>
   </div>
 </template>
 
@@ -34,34 +35,16 @@ export default {
       showLayer: false
     }
   },
-  created: function () {
-    
-  },
-  watch: {
-    value (newVal, oldVal) {
-      
-    }
-  },
   methods: {
-    showPickerFn () {
-      this.showPicker = !this.showPicker;
-      this.showLayer = !this.showLayer;
-    },
-    clockLayer () {
-      this.showPicker = !this.showPicker;
-      this.showLayer = !this.showLayer;
-    },
-    cancel () {
+    togglePicker () {
       this.showPicker = !this.showPicker;
       this.showLayer = !this.showLayer;
     },
     confirm (value) {
-      console.log(value);
+      this.result = value;
       this.showPicker = !this.showPicker;
       this.showLayer = !this.showLayer;
     }
-  },
-  components: {
   }
 }
 </script>
@@ -86,5 +69,10 @@ export default {
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, .5);
+}
+
+.result {
+  font-size: .37rem;
+  text-align: center;
 }
 </style>

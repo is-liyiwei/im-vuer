@@ -134,11 +134,11 @@ export default {
       &-item {
         &-title {
           background-color: #e9e9e9;
-          font-size: .3rem * @baseRem;
+          font-size: .37rem * @baseRem;
           padding: .2rem * @baseRem;
         }
         &-text {
-          font-size: .1rem * @baseRem;
+          font-size: .27rem * @baseRem;
           padding: .2rem * @baseRem;
           border-bottom: 1px solid #c1c1c1;
         }

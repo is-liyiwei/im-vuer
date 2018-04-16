@@ -12,7 +12,6 @@
 <script>
 
 const list = [
-'test',
 'Tab',
 'Step',
 'TimeLine',
@@ -27,7 +26,7 @@ const list = [
 'CityPicker',
 'Progress',
 'DatePicker',
-'PullRefresh',
+// 'PullRefresh',
 'Picker',
 'SwiperBox',
 'Dialog',
