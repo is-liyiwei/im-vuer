@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'swiper-item',
+  name: 'im-swiper-item',
   data () {
     return {
       

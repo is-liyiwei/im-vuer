@@ -55,7 +55,7 @@
   }
 
   export default {
-    name: 'pull-refresh',
+    name: 'im-pull-refresh',
     data() {
       return {
         scrollEl: null,

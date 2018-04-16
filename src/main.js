@@ -32,34 +32,29 @@ import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
 import { Picker, PickerItem } from './components/Picker'
 
-
-const n = 'im-'
-
-const _n = 'i'  // 用某些内置的html标签，Vue会发出警告，只能换个名字，但是内部还是用<im-xxx></im-xxx>
-
-Vue.component(`${n}${Tab.name}`, Tab)
-Vue.component(`${n}${Step.name}`, Step)
-Vue.component(`${n}${CountUp.name}`, CountUp)
-Vue.component(`${n}${Marquee.name}`, Marquee)
-Vue.component(`${n}${Rater.name}`, Rater)
-Vue.component(`${n}${CheckBox.name}`, CheckBox)
-Vue.component(`${n}${SwiperOut.name}`, SwiperOut)
-Vue.component(`${n}${TimeLine.name}`, TimeLine)
-Vue.component(`${n}${TimeLineItem.name}`, TimeLineItem)
-Vue.component(`${n}${Radio.name}`, Radio)
-Vue.component(`${n}${RadioItem.name}`, RadioItem)
-Vue.component(`${n}${Swiper.name}`, Swiper)
-Vue.component(`${n}${SwiperItem.name}`, SwiperItem)
-Vue.component(`${n}${IndexList.name}`, IndexList)
-Vue.component(`${n}${CityPicker.name}`, CityPicker)
-Vue.component(`${n}${DatePicker.name}`, DatePicker)
-Vue.component(`${n}${PullRefresh.name}`, PullRefresh)
-Vue.component(`${n}${Picker.name}`, Picker)
-Vue.component(`${n}${PickerItem.name}`, PickerItem)
+Vue.component(`${Tab.name}`, Tab)
+Vue.component(`${Step.name}`, Step)
+Vue.component(`${CountUp.name}`, CountUp)
+Vue.component(`${Marquee.name}`, Marquee)
+Vue.component(`${Rater.name}`, Rater)
+Vue.component(`${CheckBox.name}`, CheckBox)
+Vue.component(`${SwiperOut.name}`, SwiperOut)
+Vue.component(`${TimeLine.name}`, TimeLine)
+Vue.component(`${TimeLineItem.name}`, TimeLineItem)
+Vue.component(`${Radio.name}`, Radio)
+Vue.component(`${RadioItem.name}`, RadioItem)
+Vue.component(`${Swiper.name}`, Swiper)
+Vue.component(`${SwiperItem.name}`, SwiperItem)
+Vue.component(`${IndexList.name}`, IndexList)
+Vue.component(`${CityPicker.name}`, CityPicker)
+Vue.component(`${DatePicker.name}`, DatePicker)
+Vue.component(`${PullRefresh.name}`, PullRefresh)
+Vue.component(`${Picker.name}`, Picker)
+Vue.component(`${PickerItem.name}`, PickerItem)
 
 
-Vue.component(`${_n}${Progress.name}`, Progress)
-Vue.component(`${_n}${Switch.name}`, Switch)
+Vue.component(`${Progress.name}`, Progress)
+Vue.component(`${Switch.name}`, Switch)
 
 
 Vue.use(ConfirmPlugin);

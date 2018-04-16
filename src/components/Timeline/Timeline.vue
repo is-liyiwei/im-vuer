@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'timeline',
+  name: 'im-timeline',
   data () {
     return {
 

@@ -8,7 +8,7 @@
 import draggable from '../../helper/draggable.js';
 import translateUtil from '../../helper/translate.js';
 export default {
-  name: 'picker-item',
+  name: 'im-picker-item',
   data () {
     return {
       itemHeight: null,

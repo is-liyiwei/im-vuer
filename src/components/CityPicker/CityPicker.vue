@@ -48,7 +48,7 @@
 import CityPickerItem from './CityPickerItem'
 
 export default {
-  name: 'city-picker',
+  name: 'im-city-picker',
   data () {
     return {
       provinceIndex: 0,

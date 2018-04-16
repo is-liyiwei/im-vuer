@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'step',
+  name: 'im-step',
   data () {
     return {
 

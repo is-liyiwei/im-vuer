@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'action-sheet',
+    name: 'im-action-sheet',
     render: function(_c) {
       return _c('div', {
         class: {

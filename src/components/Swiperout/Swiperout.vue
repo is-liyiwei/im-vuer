@@ -27,7 +27,7 @@
 let checkTouchBug  = (distance) => 35 < Math.abs(distance) ? false : true
 
 export default {
-  name: 'swiper-out',
+  name: 'im-swiper-out',
   data () {
     return {
       tslX: 0,

@@ -17,7 +17,7 @@
 <script>
 
 export default {
-  name: 'radio-item',
+  name: 'im-radio-item',
   data () {
     return {
       checked: false

@@ -8,7 +8,7 @@
 import CountUp from './countUp.js'
 
 export default {
-  name: 'countup',
+  name: 'im-countup',
   data () {
     return {
       

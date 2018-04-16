@@ -9,7 +9,7 @@
   }
 
   export default {
-    name: 'tip',
+    name: 'im-tip',
     render: function(_c) {
       return _c('div', {
         class: {

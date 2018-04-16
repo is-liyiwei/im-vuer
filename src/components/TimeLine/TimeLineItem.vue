@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'timeline-item',
+  name: 'im-timeline-item',
   data () {
     return {
       

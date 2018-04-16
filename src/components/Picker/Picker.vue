@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'picker',
+  name: 'im-picker',
   data () {
     return {
       resultData: []

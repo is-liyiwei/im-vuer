@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'rater',
+  name: 'im-rater',
   created () {
     this.currentIndex = this.value;
   },

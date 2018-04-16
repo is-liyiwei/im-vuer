@@ -1,17 +1,6 @@
-<!-- <template>
-  <div class="im-progress">
-        <slot name="startText"></slot>
-        <div class="im-progress-box">
-            <div class="im-progress-box-runway" :style="runwayStyle"></div>
-            <div class="im-progress-box-progress" :style="progressStyle"></div>
-        </div>
-        <slot name="endText"></slot>
-    </div>
-</template> -->
-
 <script>
   export default {
-    name: 'm-progress',
+    name: 'im-progress',
     data() {
       return {
 

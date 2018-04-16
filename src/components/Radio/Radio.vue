@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'radio',
+  name: 'im-radio',
   data () {
     return {
 

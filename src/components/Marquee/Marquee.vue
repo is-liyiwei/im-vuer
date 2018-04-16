@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'marquee',
+  name: 'im-marquee',
   data () {
     return {
       itemHeight: '',

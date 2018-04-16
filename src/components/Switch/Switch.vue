@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'm-switch',
+  name: 'im-switch',
   data () {
     return {
       curIndex: false

@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'toast',
+    name: 'im-toast',
     render: function(_c) {
       return _c('div', {
         class: {

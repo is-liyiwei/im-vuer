@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: 'confirm',
+    name: 'im-confirm',
     render: function(_c) {
       return _c('div', {
         class: {

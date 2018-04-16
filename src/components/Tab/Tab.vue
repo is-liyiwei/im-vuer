@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'tab',
+  name: 'im-tab',
   data () {
     return {
       showLine: true,

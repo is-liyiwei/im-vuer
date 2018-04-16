@@ -25,7 +25,7 @@
 <script>
 
 export default {
-  name: 'index-list',
+  name: 'im-index-list',
   data () {
     return {
       targetInnerText: null,

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'checkbox',
+  name: 'im-checkbox',
   data () {
     return {
       curIndex: false

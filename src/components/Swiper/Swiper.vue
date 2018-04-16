@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'swiper',
+  name: 'im-swiper',
   data () {
     return {
       dragStyleObject: {

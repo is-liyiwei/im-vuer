@@ -53,7 +53,7 @@
 
 <script>
 export default {
-  name: 'date-picker',
+  name: 'im-date-picker',
   data () {
     return {
       now: {
