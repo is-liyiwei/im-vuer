@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     init () {
-      this.itemsArr = this.$children.filter(item => item.$options.name === 'swiper-item');
+      this.itemsArr = this.$children.filter(item => item.$options.name === 'im-swiper-item');
       this.length = this.itemsArr.length;
 
       if (this.loop) {

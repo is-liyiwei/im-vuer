@@ -43,7 +43,7 @@ export default {
     },
     updateValue () {
       this.resultData = [];
-      this.childrens = this.$children.filter(item => item.$options.name === 'picker-item');
+      this.childrens = this.$children.filter(item => item.$options.name === 'im-picker-item');
       for (let i = 0; i < this.childrens.length; i++) {
         
         this.resultData.push(this.childrens[i].resultItem)
