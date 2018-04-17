@@ -26,7 +26,7 @@ const list = [
 'CityPicker',
 'Progress',
 'DatePicker',
-// 'PullRefresh',
+'PullRefresh',
 'Picker',
 'SwiperBox',
 'Dialog',

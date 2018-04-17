@@ -45,7 +45,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .demo-box {
-  background-color: #e8e8e8;
   border-bottom: 1px solid #777;
   padding: 20px 50px;
 }

@@ -1,10 +1,14 @@
 <template>
   <div class="demo-countup">
-    <p>thanks:https://github.com/inorganik/countUp.js</p>
-    <im-countup :start="start" :startVal="startVal" :endVal="endVal" :duration="duration" ref="c"></im-countup>
-    <button @click="startHandle()">start/pause</button>
-    <button @click="endVal = 2000">set endVal</button>
-    <button @click="reset()">reset</button>
+    <div class="box">
+      <p>thanks：https://github.com/inorganik/countUp.js</p>
+      <im-countup :endVal="88.88" :decimals="2" txtColor="#f00"></im-countup>
+      <im-countup :endVal="6666" :duration="50"></im-countup>
+      <im-countup :start="start" :startVal="startVal" :endVal="endVal" :duration="duration" ref="c" fz="1rem"></im-countup>
+    </div>
+    <button class="btn" @click="startHandle()">start / pause</button>
+    <button class="btn" @click="endVal = 2000">set endVal</button>
+    <button class="btn" @click="reset()">reset</button>
   </div>
 </template>
 
@@ -39,13 +43,28 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-button {
-  display: block;
-  font-size: .4rem;
-  margin: 20px;
-  padding: 20px;
-}
-p {
+
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   font-size: .3rem;
+  height: 5rem;
+  p {
+    color: red;
+    font-size: .27rem;
+  }
+}
+
+.btn {
+  border: none;
+  background-color: #00bfff;
+  color: #FFF;
+  padding: .2rem;
+  margin: .2rem auto;
+  width: 90%;
+  display: block;
+  font-size: .37rem;
 }
 </style>

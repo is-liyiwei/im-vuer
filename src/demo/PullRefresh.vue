@@ -1,15 +1,11 @@
 <template>
-  <div class="hello" style="height: 1000px;">
-  <!-- <div class="hello"> -->
-    <!-- <div style="background-color: pink;height: 200px;"></div> -->
+  <div class="hello" style="height: 100vh;">
+
     <im-pull-refresh ref="pull" :pullDownMethods="pullDownMethods" :pullUpMethods="pullUpMethods">
-    <!-- <im-pull-refresh ref="pull"> -->
       <!-- <div slot="top-loading" style="height: 100%;">{{'123213'}}</div> -->
       <div class="item" v-for="(v, k) in list" :key="k">上下拉组件，效果仍不理想{{v}}</div>
       <!-- <div slot="bottom-loading" style="height: 100%;">{{'123213'}}</div> -->
-
     </im-pull-refresh>
-    <!-- <div style="background-color: pink;height: 500px;"></div> -->
 
   </div>
 </template>
@@ -49,7 +45,7 @@ export default {
 }
 
 .item:nth-of-type(1n) {
-  background-color: #789;
+  background-color: #53b9dc;
 }
 
 .item:nth-of-type(2n) {

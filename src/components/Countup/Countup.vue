@@ -1,5 +1,5 @@
 <template>
-  <div class="im-countup">
+  <div class="im-countup" :style="st">
 
   </div>
 </template>
@@ -42,10 +42,23 @@ export default {
       default () {
         return {}
       }
+    },
+    txtColor: {
+      type: String,
+      default: '#00bfff'
+    },
+    fz: {
+      type: String,
+      default: '.37rem'
     }
   },
-  components: {
-
+  computed: {
+    st () {
+      return {
+        fontSize: this.fz,
+        color: this.txtColor
+      }
+    }
   },
   mounted: function () {
     this._countup = new CountUp(this.$el, this.startVal, this.endVal, this.decimals, this.duration, this.options)
