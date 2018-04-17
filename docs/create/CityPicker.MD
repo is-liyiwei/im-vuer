@@ -1,18 +1,12 @@
 
 > 使用
-
 ```js
-
 import { CityPicker } form 'im-vuer'
-
 Vue.component(${CityPicker.name}, CityPicker)
-
 ```
 
 > 示例代码
-
 ```js
-
 <template>
   <div class="demo-picker">
     <button class="picker-btn" @click="showPickerFn">open</button>
@@ -205,9 +199,7 @@ export default {
 
 
 
-
 ```
-
 > 参数说明
 
   <div>
@@ -222,42 +214,35 @@ export default {
      </tr>
     </thead> 
     <tbody>
-     <tr>
-      <td>message</td> 
-      <td>文本内容</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr> 
-     <tr>
-      <td>position</td> 
-      <td>Toast 的位置</td> 
-      <td>String</td> 
-      <td>'top'<br />'bottom'<br />'middle'</td> 
-      <td>'middle'</td>
-     </tr> 
-     <tr>
-      <td>duration</td> 
-      <td>持续时间（毫秒），若为 -1 则不会自动关闭</td> 
-      <td>Number</td> 
-      <td></td> 
-      <td>3000</td>
-     </tr> 
-     <tr>
-      <td>className</td> 
-      <td>Toast 的类名。可以为其添加样式</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr> 
-     <tr>
-      <td>iconClass</td> 
-      <td>icon 图标的类名</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr>
+    <tr>
+      <td>data</td> 
+      <td>数据列表</td> 
+      <td>Array</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>showStatus</td> 
+      <td>控制组件显示</td> 
+      <td>Boolean</td> 
+      <td>true, false</td> 
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>@cancelBtn</td> 
+      <td>取消按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>@confirmBtn</td> 
+      <td>确定按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
     </tbody>
    </table>
   </div>
-
+  

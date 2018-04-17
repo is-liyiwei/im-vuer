@@ -29,25 +29,33 @@ function makeContent(data, componentName) {
   let _d = '`'
   let _data = `
 > 使用
-
 ${_d}${_d}${_d}js
-
 import { ${componentName} } form 'im-vuer'
-
 Vue.component(\${${componentName}.name}, ${componentName})
-
 ${_d}${_d}${_d}
 
 > 示例代码
-
 ${_d}${_d}${_d}js
-
 ${data}
-
 ${_d}${_d}${_d}
-
 > 参数说明
+`
+  return _data
+}
 
+function makeTable(tb_data) {
+  let table_data = ''
+  for (var i = 0; i < tb_data.length; i++) {
+    table_data += `
+    <tr>
+      <td>${tb_data[i].params}</td> 
+      <td>${tb_data[i].instructions}</td> 
+      <td>${tb_data[i].type}</td> 
+      <td>${tb_data[i].optional}</td> 
+      <td>${tb_data[i].default}</td>
+    </tr>`
+  }
+  let result = `
   <div>
    <table>
     <thead>
@@ -59,74 +67,45 @@ ${_d}${_d}${_d}
       <th>默认值</th>
      </tr>
     </thead> 
-    <tbody>
-     <tr>
-      <td>message</td> 
-      <td>文本内容</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr> 
-     <tr>
-      <td>position</td> 
-      <td>Toast 的位置</td> 
-      <td>String</td> 
-      <td>'top'<br />'bottom'<br />'middle'</td> 
-      <td>'middle'</td>
-     </tr> 
-     <tr>
-      <td>duration</td> 
-      <td>持续时间（毫秒），若为 -1 则不会自动关闭</td> 
-      <td>Number</td> 
-      <td></td> 
-      <td>3000</td>
-     </tr> 
-     <tr>
-      <td>className</td> 
-      <td>Toast 的类名。可以为其添加样式</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr> 
-     <tr>
-      <td>iconClass</td> 
-      <td>icon 图标的类名</td> 
-      <td>String</td> 
-      <td></td> 
-      <td></td>
-     </tr>
+    <tbody>`
+    + table_data + 
+    `
     </tbody>
    </table>
   </div>
+  `
 
-`
-  return _data
+  return result
 }
 
-function creatFile(fileNames) {
+function creatFile(files) {
 
   let count = 0;
-  fileNames.map(v => {
+  files.map(v => {
 
-    const ext = path.parse(v).ext;
-    const name = path.parse(v).name;
-    const dev_path = `./create/${name}.MD`;
+    const ext = path.parse(v).ext;  // 获取文件后缀名
+    const fileName = path.parse(v).name;  // 获取文件名字
+    const create_path = `./create/${fileName}.MD`;  // 创建路径和文件名字
 
     if (ext != '.vue') {
       return
     }
 
-    fs.exists(dev_path, function(exists) {
+    fs.exists(create_path, function(exists) {
 
       if (!exists) return
 
-      let data = fs.readFileSync(v, "utf-8");
+      let md_data_content = fs.readFileSync(v, "utf-8");  // 读取文件内容
 
-      fs.writeFileSync(dev_path, makeContent(data, name), function(err) {
+      let api_data = require('./api/' + fileName + '.js');  // 获取对应的文件的api参数内容
+
+      let result_data = makeContent(md_data_content, fileName) + makeTable(api_data);  // 生成模板
+
+      fs.writeFileSync(create_path, result_data, function(err) {
         if(err) {
           return console.log(err);
         }
-        console.log(`The file ${name}.MD was saved!`, count);
+        console.log(`The file ${fileName}.MD was saved!`, count);
         count++;
       });
 
@@ -135,5 +114,5 @@ function creatFile(fileNames) {
   })
 }
 
-let fileNames = findSync(path.resolve('../src/demo'));
-creatFile(fileNames);
+let files = findSync(path.resolve('../src/demo'));
+creatFile(files);
