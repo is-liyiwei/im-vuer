@@ -28,12 +28,6 @@ export default {
       
     }
   },
-  components: {
-
-  },
-  created: function () {
-    
-  },
   methods: {
     onClick (i) {
       console.log(i)

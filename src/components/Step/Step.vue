@@ -25,7 +25,8 @@ export default {
       type: Array
     },
     current: {
-      type: [Number, String]
+      type: [Number, String],
+      default: 0
     }
   },
   components: {
