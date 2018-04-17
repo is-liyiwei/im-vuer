@@ -9,10 +9,23 @@ Vue.component(${Marquee.name}, Marquee)
 ```js
 <template>
   <div class="demo-marquee">
-    <p style="font-size: .37rem;text-align: center;margin-bottom: 2rem;">还有n多bug</p>
-    <im-marquee speed="1">
-      <div v-for="i in 3" :key="i" @click="onClick(i)">JavaScript is the best language{{i}}</div>
+
+    <br>
+    <im-marquee duration="300" interval="2000">
+      <div 
+      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      v-for="i in 5" :key="i" 
+      @click="onClick(i)">JavaScript is the best language{{i}}</div>
     </im-marquee>
+
+    <br>
+    <im-marquee scrollStatus="down">
+      <div 
+      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      v-for="i in 5" :key="i" 
+      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+    </im-marquee>
+
   </div>
 </template>
 
@@ -23,12 +36,6 @@ export default {
     return {
       
     }
-  },
-  components: {
-
-  },
-  created: function () {
-    
   },
   methods: {
     onClick (i) {
@@ -46,3 +53,47 @@ export default {
 ```
 > 参数说明
 
+  <div>
+   <table>
+    <thead>
+     <tr>
+      <th>参数</th> 
+      <th>说明</th> 
+      <th>类型</th> 
+      <th>可选值</th> 
+      <th>默认值</th>
+     </tr>
+    </thead> 
+    <tbody>
+    <tr>
+      <td>data</td> 
+      <td>数据列表</td> 
+      <td>Array</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>showStatus</td> 
+      <td>控制组件显示</td> 
+      <td>Boolean</td> 
+      <td>true, false</td> 
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>@cancelBtn</td> 
+      <td>取消按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>@confirmBtn</td> 
+      <td>确定按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    </tbody>
+   </table>
+  </div>
+  

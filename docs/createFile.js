@@ -78,6 +78,35 @@ function makeTable(tb_data) {
   return result
 }
 
+
+let _$str = `let api = [{
+  params: 'data',
+  instructions: '数据列表',
+  type: 'Array',
+  optional: '-',
+  default: '-'
+},{
+  params: 'showStatus',
+  instructions: '控制组件显示',
+  type: 'Boolean',
+  optional: 'true, false',
+  default: 'false'
+},{
+  params: '@cancelBtn',
+  instructions: '取消按钮事件',
+  type: 'Function',
+  optional: '-',
+  default: '-'
+},{
+  params: '@confirmBtn',
+  instructions: '确定按钮事件',
+  type: 'Function',
+  optional: '-',
+  default: '-'
+}]
+
+module.exports = api`
+
 function creatFile(files) {
 
   let count = 0;
@@ -85,13 +114,14 @@ function creatFile(files) {
 
     const ext = path.parse(v).ext;  // 获取文件后缀名
     const fileName = path.parse(v).name;  // 获取文件名字
-    const create_path = `./create/${fileName}.MD`;  // 创建路径和文件名字
+    const md_create_path = `./create/${fileName}.MD`;  // 创建路径和文件名字
+    // const js_create_path = `./api/${fileName}.js`;  // 创建路径和文件名字
 
     if (ext != '.vue') {
       return
     }
 
-    fs.exists(create_path, function(exists) {
+    fs.exists(md_create_path, function(exists) {
 
       if (!exists) return
 
@@ -99,9 +129,10 @@ function creatFile(files) {
 
       let api_data = require('./api/' + fileName + '.js');  // 获取对应的文件的api参数内容
 
-      let result_data = makeContent(md_data_content, fileName) + makeTable(api_data);  // 生成模板
+      let md_result_data = makeContent(md_data_content, fileName) + makeTable(api_data);  // 生成模板
+      let js_result_data = _$str;  // 生成模板
 
-      fs.writeFileSync(create_path, result_data, function(err) {
+      fs.writeFileSync(md_create_path, md_result_data, function(err) {
         if(err) {
           return console.log(err);
         }

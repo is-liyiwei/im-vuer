@@ -3,7 +3,7 @@
 
     <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)` }">
 
-      <div class="im-picker-box-header" :style="{ backgroundColor: color }">
+      <div class="im-picker-box-header" :style="{ backgroundColor: bgColor }">
         <div :style="{ color: cancelBtnColor }" @click="cancelBtn">取消</div>
         <div :style="{ color: confirmBtnColor }" @click="confirmBtn">确定</div>
       </div>
@@ -70,7 +70,7 @@ export default {
         return []
       }
     },
-    color: {
+    bgColor: {
       type: String,
       default: '#00bfff'
     },

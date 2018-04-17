@@ -14,7 +14,7 @@ import { CountUp } from './components/CountUp'
 import { Marquee } from './components/Marquee'
 import { Rater } from './components/Rater'
 import { Switch } from './components/Switch'
-import { CheckBox } from './components/CheckBox'
+import { CheckBox, CheckBoxItem } from './components/CheckBox'
 import { SwiperOut } from './components/SwiperOut'
 import { Progress } from './components/Progress'
 import { Radio, RadioItem } from './components/Radio'
@@ -39,6 +39,7 @@ _log(Marquee)
 _log(Rater)
 _log(Switch)
 _log(CheckBox)
+_log(CheckBoxItem)
 _log(SwiperOut)
 _log(Progress)
 _log(Radio)
@@ -76,6 +77,7 @@ export {
 	Rater,
 	Switch,
 	CheckBox,
+	CheckBoxItem,
 	SwiperOut,
 	Progress,
 	Radio,

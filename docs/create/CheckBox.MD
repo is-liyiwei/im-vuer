@@ -9,12 +9,23 @@ Vue.component(${CheckBox.name}, CheckBox)
 ```js
 <template>
   <div class="demo-checkbox">
-    <div style="display: flex;justify-content: space-around;flex-direction: column;height: 500px;margin: 80px;">
-      <im-checkbox v-model="data1" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox>
-      <im-checkbox v-model="data2"></im-checkbox>
-      <im-checkbox v-model="data3"></im-checkbox>
-      <im-checkbox v-model="data4"></im-checkbox>
+    <div style="display: flex;justify-content: space-around;flex-direction: column;">
+      <im-checkbox v-model="result">
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="true" :val="'haha1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="false" :val="'haha2'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="false" :val="'haha3'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="true" :val="'haha4'"></im-checkbox-item>
+        </div>
+      </im-checkbox>
     </div>
+    <div class="result-box">当前选择：{{result}}</div>
   </div>
 </template>
 
@@ -23,32 +34,35 @@ export default {
   name: 'checkbox',
   data () {
     return {
-      data1: false,
-      data2: true,
-      data3: false,
-      data4: true
+      result: []
     }
   },
   components: {
 
   },
   created: function () {
-    
+    console.log(this.result)
   },
   watch: {
-  	data1 (val) {
-  		console.log('data1 is : ', val)
-  	},
-  	data2 (val) {
-  		console.log('data2 is : ', val)
-  	}
+    result (newVal) {
+      console.log(newVal)
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+.demo-box {
+  border-bottom: 1px solid #777;
+  padding: 20px 50px;
+}
 
+.result-box {
+  font-size: .3rem;
+  text-align: center;
+  padding: .5rem;
+}
 </style>
 
 ```
@@ -67,16 +81,30 @@ export default {
     </thead> 
     <tbody>
     <tr>
-      <td>current</td> 
-      <td>当前索引值</td> 
-      <td>[String, Number]</td> 
+      <td>data</td> 
+      <td>数据列表</td> 
+      <td>Array</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>list</td> 
-      <td>数据列表</td> 
-      <td>String</td> 
+      <td>showStatus</td> 
+      <td>控制组件显示</td> 
+      <td>Boolean</td> 
+      <td>true, false</td> 
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>@cancelBtn</td> 
+      <td>取消按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>@confirmBtn</td> 
+      <td>确定按钮事件</td> 
+      <td>Function</td> 
       <td>-</td> 
       <td>-</td>
     </tr>

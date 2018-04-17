@@ -23,11 +23,11 @@ export default {
       default () {
         return []
       }
-    },
-    currentIndex: {
-      type: Number,
-      default: 0
     }
+    // currentIndex: {
+    //   type: Number,
+    //   default: 22
+    // }
   },
   mounted: function () {
     this.init();

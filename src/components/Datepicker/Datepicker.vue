@@ -87,7 +87,7 @@ export default {
     },
     cancelBtn: {
       type: String,
-      default: '#000'
+      default: '#000000'
     },
     confirmBtn: {
       type: String,

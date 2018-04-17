@@ -12,10 +12,18 @@ Vue.component(${Step.name}, Step)
     <im-step :current="currentFor_A" :list="list_A"></im-step>
     <br>
     <im-step :current="currentFor_B" :list="list_B"></im-step>
-
     <br>
 
     <div style="font-size: .3rem;text-align: center;">两秒后会跳转</div>
+    <br>
+
+    <im-step :current="currentFor_C" :list="list_C"></im-step>
+    <br>
+
+    <div class="btn-group">
+      <button class="btn" @click="prevHandle">上一步</button>
+      <button class="btn" @click="nextHandle">下一步</button>
+    </div>
   </div>
 </template>
 
@@ -45,8 +53,21 @@ export default {
       },{
         bottom: '步骤四'
       }],
+      list_C: [{
+        top: '手动一',
+        bottom: '手动一'
+      },{
+        top: '手动二',
+        bottom: '手动二'
+      },{
+        bottom: '手动三'
+      },{
+        top: '手动四',
+        bottom: '手动四'
+      }],
       currentFor_A: 3,
-      currentFor_B: '2'
+      currentFor_B: '2',
+      currentFor_C: 1
     }
   },
   components: {
@@ -62,6 +83,14 @@ export default {
       setTimeout( () => {
         this.currentFor_B++;
       }, 3000)
+    },
+    nextHandle () {
+      if (this.currentFor_C >= this.list_C.length) return
+      this.currentFor_C++;
+    },
+    prevHandle () {
+      if (this.currentFor_C <= 1) return
+      this.currentFor_C--;
     }
   },
   mounted: function () {
@@ -73,9 +102,67 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+   border: none;
+   background-color: #f00;
+   color: #FFF;
+   padding: .2rem;
+   margin: .2rem;
+   display: block;
+   font-size: .37rem;
+   border-radius: 2rem;
+}
 </style>
 
 ```
 > 参数说明
 
+  <div>
+   <table>
+    <thead>
+     <tr>
+      <th>参数</th> 
+      <th>说明</th> 
+      <th>类型</th> 
+      <th>可选值</th> 
+      <th>默认值</th>
+     </tr>
+    </thead> 
+    <tbody>
+    <tr>
+      <td>data</td> 
+      <td>数据列表</td> 
+      <td>Array</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>showStatus</td> 
+      <td>控制组件显示</td> 
+      <td>Boolean</td> 
+      <td>true, false</td> 
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>@cancelBtn</td> 
+      <td>取消按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>@confirmBtn</td> 
+      <td>确定按钮事件</td> 
+      <td>Function</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    </tbody>
+   </table>
+  </div>
+  

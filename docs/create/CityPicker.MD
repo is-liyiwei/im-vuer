@@ -184,7 +184,7 @@ export default {
    margin: .2rem auto;
    width: 90%;
    display: block;
-   font-size: .2rem;
+   font-size: .37rem;
 }
 
 .layer {
@@ -219,14 +219,35 @@ export default {
       <td>数据列表</td> 
       <td>Array</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>[]</td>
     </tr>
     <tr>
       <td>showStatus</td> 
       <td>控制组件显示</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
+    </tr>
+    <tr>
+      <td>bgColor</td> 
+      <td>背景颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#00bfff</td>
+    </tr>
+    <tr>
+      <td>cancelBtnColor</td> 
+      <td>取消文字颜色</td> 
+      <td>String</td> 
+      <td></td> 
+      <td>#fff</td>
+    </tr>
+    <tr>
+      <td>confirmBtnColor</td> 
+      <td>确定文字颜色</td> 
+      <td>String</td> 
+      <td></td> 
+      <td>#fff</td>
     </tr>
     <tr>
       <td>@cancelBtn</td> 
