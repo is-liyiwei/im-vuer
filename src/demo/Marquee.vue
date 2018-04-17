@@ -1,9 +1,22 @@
 <template>
   <div class="demo-marquee">
-    <p style="font-size: .37rem;text-align: center;margin-bottom: 2rem;">还有n多bug</p>
-    <im-marquee speed="1">
-      <div v-for="i in 3" :key="i" @click="onClick(i)">JavaScript is the best language{{i}}</div>
+
+    <br>
+    <im-marquee duration="300" interval="2000">
+      <div 
+      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      v-for="i in 5" :key="i" 
+      @click="onClick(i)">JavaScript is the best language{{i}}</div>
     </im-marquee>
+
+    <br>
+    <im-marquee scrollStatus="down">
+      <div 
+      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      v-for="i in 5" :key="i" 
+      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+    </im-marquee>
+
   </div>
 </template>
 

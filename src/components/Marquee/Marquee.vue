@@ -1,5 +1,5 @@
 <template>
-  <div class="im-marquee" :style="{ height: itemHeight + 'px', textAlign: 'center' }">
+  <div class="im-marquee" :style="boxStyle">
     <div ref="box" class="im-marquee-box" :style="animate">
       <slot></slot>
     </div>
@@ -22,14 +22,18 @@ export default {
   props: {
     scrollStatus: {
       type: String,
-      default: 'down',
+      default: 'up',
       validator(value) {
         return ['up', 'down'].indexOf(value) > -1;
       }
     },
-    speed: {
+    duration: {
       type: [Number, String],
-      default: .2
+      default: 300
+    },
+    interval: {
+      type: [Number, String],
+      default: 3000
     }
   },
   computed: {
@@ -37,6 +41,12 @@ export default {
       return {
         transition: `transform ${this.noAnimate == true ? 0 : 200}ms`,
         transform: `translate3d(0, ${this.tsY}px, 0)`
+      }
+    },
+    boxStyle () {
+      return {
+        height: this.itemHeight + 'px',
+        textAlign: 'center'
       }
     }
   },
@@ -46,22 +56,20 @@ export default {
   methods: {
     init () {
       let { firstItem, lastItem } = this.cloneNode();
+      this.itemHeight = firstItem.offsetHeight;
       this.itemLength = this.$refs.box.children.length;
+
       if (this.scrollStatus === 'up') {
         this.cloneNode = firstItem.cloneNode(true);
         this.$refs.box.appendChild(this.cloneNode);
-        this.itemHeight = firstItem.offsetHeight;
       } else if (this.scrollStatus === 'down') {
         this.cloneNode = lastItem.cloneNode(true);
         this.$refs.box.insertBefore(this.cloneNode, firstItem);
-        this.itemHeight = firstItem.offsetHeight;
       }
 
       this.setDefault(this.scrollStatus);
 
-
       this.start();
-
     },
     cloneNode () {
       let firstItem = this.$refs.box.firstElementChild;
@@ -72,7 +80,7 @@ export default {
       if (status === 'up') {
         this.currentIndex = 0;
       } else if (status === 'down') {
-        this.currentIndex = 1;
+        this.currentIndex = this.itemLength;
       }
       this.tsY = -this.currentIndex * this.itemHeight;
     },
@@ -80,34 +88,37 @@ export default {
       this.timer = setInterval( () => {
         if (this.scrollStatus == 'up') {
 
+          this.noAnimate = false;
+          this.currentIndex++;
+          this.setTranslate();
+
           if (this.currentIndex == this.itemLength) {
             this.currentIndex = 0;
-            this.noAnimate = true;
-            this.tsY = -this.currentIndex * this.itemHeight;
             setTimeout( () => {
-              this.noAnimate = false;
-            }, 200)
-          } else {
-            this.currentIndex++;
-            this.tsY = -this.currentIndex * this.itemHeight;
+              this.noAnimate = true;
+              this.setTranslate();
+            }, this.duration)
           }
 
         } else if (this.scrollStatus === 'down') {
 
+          this.noAnimate = false;
+          this.currentIndex--;
+          this.setTranslate();
+
           if (this.currentIndex == 0) {
             this.currentIndex = this.itemLength;
-            this.noAnimate = true;
-            this.tsY = -this.currentIndex * this.itemHeight;
             setTimeout( () => {
-              this.noAnimate = false;
-            }, 200)
-          } else {
-            this.currentIndex--;
-            this.tsY = -this.currentIndex * this.itemHeight;
+              this.noAnimate = true;
+              this.setTranslate();
+            }, this.duration)
           }
 
         }
-      }, 1000)
+      }, this.interval)
+    },
+    setTranslate () {
+      this.tsY = -this.currentIndex * this.itemHeight;
     }
   },
   mounted: function () {
@@ -122,17 +133,11 @@ export default {
 
 .@{prefixClass} {
   &-marquee {
+    overflow: hidden;
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    overflow: hidden;
-    &-box {
-
-    }
-    div {
-      font-size: .3rem;
     }
   }
 }
