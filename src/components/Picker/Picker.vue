@@ -80,7 +80,7 @@ export default {
       &-content {
         display: flex;
         /*height: 400px;*/
-        height: 480px;
+        height: 4.8rem * @baseRem;
         overflow: hidden;
         justify-content: space-around;
         position: relative;
@@ -90,21 +90,21 @@ export default {
           flex: 1;
           &-value {
             text-align: center;
-            height: 80px;
-            line-height: 80px;
+            height: .8rem * @baseRem;
+            line-height: .8rem * @baseRem;
             display: block;
           }
         }
       }
       &-header {
         display: flex;
-        height: 85px;
+        height: .8rem * @baseRem;
         background-color: #00bfff;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 40px;
-        font-size: .3rem * @baseRem;
+        font-size: .37rem * @baseRem;
         div {
           color: #FFF;
         }
@@ -115,8 +115,8 @@ export default {
 .line-box {
   position: absolute;
   width: 100%;
-  height: 80px;
-  top: 160px;
+  height: .8rem * @baseRem;
+  top: 1.6rem * @baseRem;
   border-color: #5d5d5d;
   border-style: solid;
   border-width: 1px;

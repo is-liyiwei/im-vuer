@@ -20,7 +20,7 @@ import { CountUp } from './components/CountUp'
 import { Marquee } from './components/Marquee'
 import { Rater } from './components/Rater'
 import { Switch } from './components/Switch'
-import { CheckBox } from './components/CheckBox'
+import { CheckBox, CheckBoxItem } from './components/CheckBox'
 import { SwiperOut } from './components/SwiperOut'
 import { Progress } from './components/Progress'
 import { Radio, RadioItem } from './components/Radio'
@@ -38,6 +38,7 @@ Vue.component(`${CountUp.name}`, CountUp)
 Vue.component(`${Marquee.name}`, Marquee)
 Vue.component(`${Rater.name}`, Rater)
 Vue.component(`${CheckBox.name}`, CheckBox)
+Vue.component(`${CheckBoxItem.name}`, CheckBoxItem)
 Vue.component(`${SwiperOut.name}`, SwiperOut)
 Vue.component(`${TimeLine.name}`, TimeLine)
 Vue.component(`${TimeLineItem.name}`, TimeLineItem)

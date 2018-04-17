@@ -175,7 +175,7 @@ export default {
    margin: .2rem auto;
    width: 90%;
    display: block;
-   font-size: .2rem;
+   font-size: .37rem;
 }
 
 .layer {

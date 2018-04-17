@@ -1,6 +1,6 @@
 <template>
-  <div class="im-checkbox">
-    <input class="im-checkbox-item" v-model="curIndex" type="checkbox" :style="checkboxStyle">
+  <div class="im-checkbox" v-model="result">
+    <slot></slot>
   </div>
 </template>
 
@@ -9,68 +9,64 @@ export default {
   name: 'im-checkbox',
   data () {
     return {
-      curIndex: false
+      result: [],
+      childrens: []
     }
   },
-  props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
-    activeBgColor: {
-      type: String,
-      default: '#00BFFF'
-    },
-    activeColor: {
-      type: String,
-      default: '#FFFFFF'
+  methods: {
+    update () {
+      this.result = []
+      this.childrens = this.$children.filter(item => item.$options.name === 'im-checkbox-item')
+      this.childrens.map(v => {
+        if (v.curIndex) {
+          this.result.push(v.val)
+        }
+      })
+      this.$emit('input', this.result)
     }
   },
-  computed: {
-    checkboxStyle () {
-      return {
-        backgroundColor: this.value ? this.activeBgColor : '',
-        color: this.activeColor,
-        border: `1px solid ${this.activeBgColor}`
-      }
-    }
-  },
-  created: function () {
-    this.curIndex = this.value
-  },
-  watch: {
-    curIndex (newVal) {
-      this.$emit('input', newVal)
-    }
+  mounted () {
+    this.update()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less" scoped>
+<style lang="less">
 @import '../../less/base.less';
-
 /*
 
 参考于:http://blog.csdn.net/qq_22557797/article/details/78484795
 
 */
-
-.im-checkbox-item {
-  font-family:"iconfont" !important;
-  font-size:.16rem * @baseRem;
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .@{prefixClass} {
+
+  &-checkbox-box-item {
+    font-family:"iconfont" !important;
+    font-size:.16rem * @baseRem;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   &-checkbox {
-    font-size: .3rem * @baseRem;
+    font-size: .37rem * @baseRem;
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    &-box {
+      display: flex;
+      align-items: center;
+      &-item {
+
+      }
+      &-txt {
+        padding-left: .2rem * @baseRem;
+        margin: .2rem * @baseRem 0;
+        font-size: .37rem * @baseRem;
+      }
     }
     input[type = checkbox] {
       /*同样，首先去除浏览器默认样式*/  
