@@ -95,7 +95,7 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
@@ -105,13 +105,13 @@ export default {
       <td>数据列表</td> 
       <td>Array</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>[]</td>
     </tr>
     <tr>
       <td>showStatus</td> 
       <td>控制组件显示</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
     </tr>
     <tr>

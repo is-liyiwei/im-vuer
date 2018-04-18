@@ -1,8 +1,15 @@
 
 > 使用
 ```js
-import { Dialog } form 'im-vuer'
-Vue.component(${Dialog.name}, Dialog)
+import { ConfirmPlugin } from 'im-vuer'
+import { ToastPlugin } from 'im-vuer'
+import { ActionSheetPlugin } from 'im-vuer'
+import { TipPlugin } from 'im-vuer'
+
+Vue.use(ConfirmPlugin);
+Vue.use(ToastPlugin);
+Vue.use(ActionSheetPlugin);
+Vue.use(TipPlugin);
 ```
 
 > 示例代码
@@ -247,38 +254,129 @@ h5 {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
+      <td>Confirm组件</td> 
+      <td>-</td> 
+      <td>-</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>title</td> 
+      <td>标题</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>content</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>styleFor</td> 
+      <td>样式</td> 
+      <td>String</td> 
+      <td>ios, android</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>opts</td> 
+      <td>配置</td> 
+      <td>Array</td> 
+      <td>参考demo,最好不要超过3个配置项</td> 
+      <td>ios</td>
+    </tr>
+    <tr>
+      <td>Toast组件</td> 
+      <td>-</td> 
+      <td>-</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>content</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>position</td> 
+      <td>位置</td> 
+      <td>String</td> 
+      <td>top, bottom, center</td> 
+      <td>bottom</td>
+    </tr>
+    <tr>
+      <td>time</td> 
+      <td>显示时间</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>ActionSheet组件</td> 
+      <td>-</td> 
+      <td>-</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>hasCancel</td> 
+      <td>是否有取消按钮</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
+      <td>opts</td> 
+      <td>配置</td> 
+      <td>Array</td> 
+      <td>参考demo</td> 
+      <td></td>
+    </tr>
+    <tr>
+      <td>Tip组件</td> 
+      <td>-</td> 
+      <td>-</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
+      <td>txt</td> 
+      <td>文本</td> 
+      <td>String</td> 
       <td>-</td> 
       <td>-</td>
+    </tr>
+    <tr>
+      <td>icon</td> 
+      <td>图标</td> 
+      <td>String</td> 
+      <td>loading, success, warn, error</td> 
+      <td>loading</td>
+    </tr>
+    <tr>
+      <td>tpl</td> 
+      <td>自定义模板</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>time</td> 
+      <td>显示时间</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>1800</td>
     </tr>
     </tbody>
    </table>

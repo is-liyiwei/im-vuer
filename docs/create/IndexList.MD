@@ -292,37 +292,23 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
+      <td>dataList</td> 
       <td>数据列表</td> 
       <td>Array</td> 
-      <td>-</td> 
+      <td>参考demo</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
-      <td>Boolean</td> 
-      <td>true, false</td> 
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
+      <td>@handleClick</td> 
+      <td>点击每一项事件</td> 
       <td>Function</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
-      <td>-</td> 
+      <td>返回item数据</td> 
       <td>-</td>
     </tr>
     </tbody>

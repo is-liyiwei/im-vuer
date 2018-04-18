@@ -87,37 +87,72 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
+      <td>speed</td> 
+      <td>动画速度</td> 
+      <td>Number, String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>350</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>loop</td> 
+      <td>是否循环</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>autoPlay</td> 
+      <td>自动播放时间间隔</td> 
+      <td>Number, String</td> 
+      <td>为0时不自动播放</td> 
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>idx</td> 
+      <td>当前图片索引</td> 
+      <td>Number, String</td> 
+      <td>-</td> 
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>dotColor</td> 
+      <td>点颜色</td> 
+      <td>String</td> 
+      <td>为0时不自动播放</td> 
+      <td>#fff</td>
+    </tr>
+    <tr>
+      <td>dotActiveColor</td> 
+      <td>点选中颜色</td> 
+      <td>String</td> 
+      <td>为0时不自动播放</td> 
+      <td>#f00</td>
+    </tr>
+    <tr>
+      <td>isTabView</td> 
+      <td>是否配合tab组件使用</td> 
+      <td>Boolean</td> 
+      <td>详情看demo</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
+      <td>@on-swiper</td> 
+      <td>滑动事件</td> 
       <td>Function</td> 
-      <td>-</td> 
+      <td>返回1或-1代表正反向</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
+      <td>@tap-swiper</td> 
+      <td>点击事件</td> 
       <td>Function</td> 
-      <td>-</td> 
+      <td>返回索引值</td> 
       <td>-</td>
     </tr>
     </tbody>

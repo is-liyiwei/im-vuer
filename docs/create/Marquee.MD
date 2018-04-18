@@ -13,17 +13,21 @@ Vue.component(${Marquee.name}, Marquee)
     <br>
     <im-marquee duration="300" interval="2000">
       <div 
-      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      class="single" 
       v-for="i in 5" :key="i" 
-      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+      @click="onClick(i)">single item up for {{i}}</div>
     </im-marquee>
 
     <br>
     <im-marquee scrollStatus="down">
       <div 
-      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      class="double" 
       v-for="i in 5" :key="i" 
-      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+      @click="onClick(i)">
+        <p>double item down for {{i}}</p>
+        <p>double item down for {{i}}</p>
+        <p>double item down for {{i}}</p>
+      </div>
     </im-marquee>
 
   </div>
@@ -47,7 +51,23 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-
+.single {
+  font-size: .37rem;
+  height: .8rem;
+  line-height: .8rem;
+  background-color: #00bfff;
+  color: #FFF;
+}
+.double {
+  font-size: .37rem;
+  height: 2.8rem;
+  background-color: #00bfff;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 </style>
 
 ```
@@ -60,38 +80,31 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>scrollStatus</td> 
+      <td>滚动方向</td> 
+      <td>String</td> 
+      <td>up, down</td> 
+      <td>up</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
-      <td>Boolean</td> 
-      <td>true, false</td> 
-      <td>false</td>
+      <td>duration</td> 
+      <td>动画时长</td> 
+      <td>[Number, String]</td> 
+      <td></td> 
+      <td>300</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>interval</td> 
+      <td>动画间隔时长</td> 
+      <td>[Number, String]</td> 
+      <td></td> 
+      <td>3000</td>
     </tr>
     </tbody>
    </table>

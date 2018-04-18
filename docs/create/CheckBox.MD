@@ -12,20 +12,38 @@ Vue.component(${CheckBox.name}, CheckBox)
     <div style="display: flex;justify-content: space-around;flex-direction: column;">
       <im-checkbox v-model="result">
         <div class="demo-box">
-          <im-checkbox-item :isCheck="true" :val="'haha1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
+          <im-checkbox-item :isCheck="true" :val="'square1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="false" :val="'haha2'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="false" :val="'square2'" activeBgColor="#f00" activeColor="#fbff00"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="false" :val="'haha3'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="false" :val="'square3'"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="true" :val="'haha4'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="true" :val="'square4'"></im-checkbox-item>
         </div>
       </im-checkbox>
     </div>
     <div class="result-box">当前选择：{{result}}</div>
+
+    <div style="display: flex;justify-content: space-around;flex-direction: column;">
+      <im-checkbox v-model="result1">
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle1'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle2'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle3'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :circle="false" :isCheck="true" :val="'circle4'"></im-checkbox-item>
+        </div>
+      </im-checkbox>
+    </div>
+    <div class="result-box">当前选择：{{result1}}</div>
   </div>
 </template>
 
@@ -34,18 +52,8 @@ export default {
   name: 'checkbox',
   data () {
     return {
-      result: []
-    }
-  },
-  components: {
-
-  },
-  created: function () {
-    console.log(this.result)
-  },
-  watch: {
-    result (newVal) {
-      console.log(newVal)
+      result: [],
+      result1: []
     }
   }
 }
@@ -75,38 +83,45 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>isCheck</td> 
+      <td>是否选择</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
+      <td>val</td> 
+      <td>文本</td> 
+      <td>String</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
+      <td>activeBgColor</td> 
+      <td>选中背景颜色</td> 
+      <td>String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>#00BFFF</td>
+    </tr>
+    <tr>
+      <td>activeColor</td> 
+      <td>选中图标颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#FFFFFF</td>
+    </tr>
+    <tr>
+      <td>circle</td> 
+      <td>是否圆形</td> 
+      <td>Boolean</td> 
+      <td>-</td> 
+      <td>false</td>
     </tr>
     </tbody>
    </table>

@@ -61,38 +61,73 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
+      <td>v-model</td> 
+      <td>当前值</td> 
+      <td>-</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>min</td> 
+      <td>最小值</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>max</td> 
+      <td>最大值</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>disabled</td> 
+      <td>是否禁用</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
+      <td>star</td> 
+      <td>html模板</td> 
+      <td>String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>★</td>
     </tr>
     <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
+      <td>activeColor</td> 
+      <td>选中颜色</td> 
+      <td>String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>#00bfff</td>
+    </tr>
+    <tr>
+      <td>margin</td> 
+      <td>边距</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>0.2rem</td>
+    </tr>
+    <tr>
+      <td>fontSize</td> 
+      <td>大小</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>0.4rem</td>
+    </tr>
+    <tr>
+      <td>offColor</td> 
+      <td>没选中颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#ccc</td>
     </tr>
     </tbody>
    </table>

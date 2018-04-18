@@ -130,38 +130,59 @@ Vue.component(${Progress.name}, Progress)
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
+      <td>progressWidth</td> 
+      <td>进度条进度</td> 
+      <td>Number, String</td> 
+      <td>0-100</td> 
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>progressHeight</td> 
+      <td>进度条高度(宽度)</td> 
+      <td>Number, String</td> 
+      <td>-</td> 
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>progressColor</td> 
+      <td>进度条颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#00bfff</td>
+    </tr>
+    <tr>
+      <td>color</td> 
+      <td>进度条默认背景颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#5d5d5d</td>
+    </tr>
+    <tr>
+      <td>startText</td> 
+      <td>默认左边开始文本</td> 
+      <td>String</td> 
       <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>endText</td> 
+      <td>默认右边结束文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>inTop</td> 
+      <td>顶部进度条</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
-    </tr>
-    <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
-      <td>-</td> 
-      <td>-</td>
     </tr>
     </tbody>
    </table>

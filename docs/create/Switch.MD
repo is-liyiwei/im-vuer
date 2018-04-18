@@ -9,10 +9,27 @@ Vue.component(${Switch.name}, Switch)
 ```js
 <template>
   <div class="demo-switch">
-    <im-switch v-model="data1" :onColor="'#28e1bd'" :onBgColor="'#1abc9c'"></im-switch>
-    <im-switch v-model="data2" :onColor="'#00BFFF'" :onBgColor="'#00a5dc'"></im-switch>
-    <im-switch v-model="data3" :onColor="'#ed7669'" :onBgColor="'#e74c3c'"></im-switch>
-    <im-switch v-model="data4" :onColor="'#eb9950'" :onBgColor="'#e67e22'"></im-switch>
+
+    <div class="switch-box">
+      <span class="result">当前状态：{{data1}}</span>
+      <im-switch v-model="data1" :onColor="'#28e1bd'" :onBgColor="'#1abc9c'"></im-switch>
+    </div>
+
+    <div class="switch-box small">
+      <span class="result">当前状态：{{data2}}</span>
+      <im-switch v-model="data2"></im-switch>
+    </div>
+
+    <div class="switch-box">
+      <span class="result">当前状态：{{data3}}</span>
+      <im-switch v-model="data3" :onColor="'#ed7669'" :onBgColor="'#e74c3c'"></im-switch>
+    </div>
+
+    <div class="switch-box small">
+      <span class="result">当前状态：{{data4}}</span>
+      <im-switch v-model="data4" :onColor="'#eb9950'" :onBgColor="'#e67e22'"></im-switch>
+    </div>
+
   </div>
 </template>
 
@@ -24,7 +41,7 @@ export default {
       data1: false,
       data2: true,
       data3: false,
-      data4: true
+      data4: false
     }
   },
   watch: {
@@ -37,7 +54,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+.demo-switch .switch-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem;
+}
 
+.demo-switch .switch-box .result {
+  font-size: .37rem;
+}
+
+.small {
+  height: 1rem;
+}
 </style>
 
 ```
@@ -50,38 +80,31 @@ export default {
       <th>参数</th> 
       <th>说明</th> 
       <th>类型</th> 
-      <th>可选值</th> 
+      <th>可选值/备注</th> 
       <th>默认值</th>
      </tr>
     </thead> 
     <tbody>
     <tr>
-      <td>data</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>showStatus</td> 
-      <td>控制组件显示</td> 
+      <td>v-model</td> 
+      <td>当前值</td> 
       <td>Boolean</td> 
-      <td>true, false</td> 
+      <td>-</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@cancelBtn</td> 
-      <td>取消按钮事件</td> 
-      <td>Function</td> 
+      <td>onColor</td> 
+      <td>选中颜色</td> 
+      <td>String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>#00bfff</td>
     </tr>
     <tr>
-      <td>@confirmBtn</td> 
-      <td>确定按钮事件</td> 
-      <td>Function</td> 
+      <td>onBgColor</td> 
+      <td>选中背景颜色</td> 
+      <td>String</td> 
       <td>-</td> 
-      <td>-</td>
+      <td>#00bfff</td>
     </tr>
     </tbody>
    </table>
