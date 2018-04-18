@@ -20,11 +20,11 @@ export default {
   props: {
     onColor: {
       type: String,
-      default: '#ccc'
+      default: '#00bfff'
     },
     onBgColor: {
       type: String,
-      default: '#ccc'
+      default: '#00bfff'
     },
     value: {
       type: Boolean,
@@ -66,9 +66,10 @@ export default {
       box-sizing: border-box;
     }
     &-box {
+      height: 100%;
       &-input {
         position: absolute;
-        left: -9999em;        
+        left: -9999em;
       }
       &-slider {
         position: relative;

@@ -41,7 +41,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: '#fc6'
+      default: '#00bfff'
     },
     margin: {
       type: String,

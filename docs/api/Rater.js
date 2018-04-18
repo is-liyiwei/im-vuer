@@ -1,27 +1,57 @@
 let api = [{
-  params: 'data',
-  instructions: '数据列表',
-  type: 'Array',
+  params: 'v-model',
+  instructions: '当前值',
+  type: '-',
   optional: '-',
   default: '-'
 },{
-  params: 'showStatus',
-  instructions: '控制组件显示',
+  params: 'min',
+  instructions: '最小值',
+  type: 'Number',
+  optional: '-',
+  default: '0'
+},{
+  params: 'max',
+  instructions: '最大值',
+  type: 'Number',
+  optional: '-',
+  default: '5'
+},{
+  params: 'disabled',
+  instructions: '是否禁用',
   type: 'Boolean',
-  optional: 'true, false',
+  optional: '-',
   default: 'false'
 },{
-  params: '@cancelBtn',
-  instructions: '取消按钮事件',
-  type: 'Function',
+  params: 'star',
+  instructions: 'html模板',
+  type: 'String',
   optional: '-',
-  default: '-'
+  default: '★'
 },{
-  params: '@confirmBtn',
-  instructions: '确定按钮事件',
-  type: 'Function',
+  params: 'activeColor',
+  instructions: '选中颜色',
+  type: 'String',
   optional: '-',
-  default: '-'
+  default: '#00bfff'
+},{
+  params: 'margin',
+  instructions: '边距',
+  type: 'String',
+  optional: '-',
+  default: '0.2rem'
+},{
+  params: 'fontSize',
+  instructions: '大小',
+  type: 'String',
+  optional: '-',
+  default: '0.4rem'
+},{
+  params: 'offColor',
+  instructions: '没选中颜色',
+  type: 'String',
+  optional: '-',
+  default: '#ccc'
 }]
 
 module.exports = api

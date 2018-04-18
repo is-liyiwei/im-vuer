@@ -1,27 +1,21 @@
 let api = [{
-  params: 'data',
-  instructions: '数据列表',
-  type: 'Array',
-  optional: '-',
-  default: '-'
+  params: 'scrollStatus',
+  instructions: '滚动方向',
+  type: 'String',
+  optional: 'up, down',
+  default: 'up'
 },{
-  params: 'showStatus',
-  instructions: '控制组件显示',
-  type: 'Boolean',
-  optional: 'true, false',
-  default: 'false'
+  params: 'duration',
+  instructions: '动画时长',
+  type: '[Number, String]',
+  optional: '',
+  default: '300'
 },{
-  params: '@cancelBtn',
-  instructions: '取消按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
-},{
-  params: '@confirmBtn',
-  instructions: '确定按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
+  params: 'interval',
+  instructions: '动画间隔时长',
+  type: '[Number, String]',
+  optional: '',
+  default: '3000'
 }]
 
 module.exports = api

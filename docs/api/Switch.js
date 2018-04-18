@@ -1,27 +1,21 @@
 let api = [{
-  params: 'data',
-  instructions: '数据列表',
-  type: 'Array',
-  optional: '-',
-  default: '-'
-},{
-  params: 'showStatus',
-  instructions: '控制组件显示',
+  params: 'v-model',
+  instructions: '当前值',
   type: 'Boolean',
-  optional: 'true, false',
+  optional: '-',
   default: 'false'
 },{
-  params: '@cancelBtn',
-  instructions: '取消按钮事件',
-  type: 'Function',
+  params: 'onColor',
+  instructions: '选中颜色',
+  type: 'String',
   optional: '-',
-  default: '-'
+  default: '#00bfff'
 },{
-  params: '@confirmBtn',
-  instructions: '确定按钮事件',
-  type: 'Function',
+  params: 'onBgColor',
+  instructions: '选中背景颜色',
+  type: 'String',
   optional: '-',
-  default: '-'
+  default: '#00bfff'
 }]
 
 module.exports = api

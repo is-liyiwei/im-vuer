@@ -29,6 +29,10 @@ export default {
     isCheck: {
     	type: Boolean,
     	default: false
+    },
+    circle: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -41,7 +45,8 @@ export default {
       return {
         backgroundColor: this.curIndex ? this.activeBgColor : '',
         color: this.activeColor,
-        border: `1px solid ${this.activeBgColor}`
+        border: `1px solid ${this.activeBgColor}`,
+        borderRadius: `${this.circle ? '50%' : '0.03rem'}`
       }
     }
   },

@@ -1,27 +1,45 @@
 let api = [{
-  params: 'data',
-  instructions: '数据列表',
-  type: 'Array',
+  params: 'progressWidth',
+  instructions: '进度条进度',
+  type: 'Number, String',
+  optional: '0-100',
+  default: '0'
+},{
+  params: 'progressHeight',
+  instructions: '进度条高度(宽度)',
+  type: 'Number, String',
+  optional: '-',
+  default: '2'
+},{
+  params: 'progressColor',
+  instructions: '进度条颜色',
+  type: 'String',
+  optional: '-',
+  default: '#00bfff'
+},{
+  params: 'color',
+  instructions: '进度条默认背景颜色',
+  type: 'String',
+  optional: '-',
+  default: '#5d5d5d'
+},{
+  params: 'startText',
+  instructions: '默认左边开始文本',
+  type: 'String',
   optional: '-',
   default: '-'
 },{
-  params: 'showStatus',
-  instructions: '控制组件显示',
+  params: 'endText',
+  instructions: '默认右边结束文本',
+  type: 'String',
+  optional: '-',
+  default: '-'
+},{
+  params: 'inTop',
+  instructions: '顶部进度条',
   type: 'Boolean',
-  optional: 'true, false',
+  optional: '-',
   default: 'false'
-},{
-  params: '@cancelBtn',
-  instructions: '取消按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
-},{
-  params: '@confirmBtn',
-  instructions: '确定按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
 }]
 
 module.exports = api

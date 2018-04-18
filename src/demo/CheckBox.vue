@@ -3,20 +3,38 @@
     <div style="display: flex;justify-content: space-around;flex-direction: column;">
       <im-checkbox v-model="result">
         <div class="demo-box">
-          <im-checkbox-item :isCheck="true" :val="'haha1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
+          <im-checkbox-item :isCheck="true" :val="'square1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="false" :val="'haha2'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="false" :val="'square2'" activeBgColor="#f00" activeColor="#fbff00"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="false" :val="'haha3'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="false" :val="'square3'"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="true" :val="'haha4'"></im-checkbox-item>
+          <im-checkbox-item :isCheck="true" :val="'square4'"></im-checkbox-item>
         </div>
       </im-checkbox>
     </div>
     <div class="result-box">当前选择：{{result}}</div>
+
+    <div style="display: flex;justify-content: space-around;flex-direction: column;">
+      <im-checkbox v-model="result1">
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle1'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle2'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle3'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :circle="false" :isCheck="true" :val="'circle4'"></im-checkbox-item>
+        </div>
+      </im-checkbox>
+    </div>
+    <div class="result-box">当前选择：{{result1}}</div>
   </div>
 </template>
 
@@ -25,18 +43,8 @@ export default {
   name: 'checkbox',
   data () {
     return {
-      result: []
-    }
-  },
-  components: {
-
-  },
-  created: function () {
-    console.log(this.result)
-  },
-  watch: {
-    result (newVal) {
-      console.log(newVal)
+      result: [],
+      result1: []
     }
   }
 }

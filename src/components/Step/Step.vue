@@ -28,15 +28,6 @@ export default {
       type: [Number, String],
       default: 0
     }
-  },
-  components: {
-
-  },
-  methods: {
-
-  },
-  mounted: function () {
-    
   }
 }
 </script>

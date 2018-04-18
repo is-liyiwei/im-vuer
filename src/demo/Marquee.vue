@@ -4,17 +4,21 @@
     <br>
     <im-marquee duration="300" interval="2000">
       <div 
-      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      class="single" 
       v-for="i in 5" :key="i" 
-      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+      @click="onClick(i)">single item up for {{i}}</div>
     </im-marquee>
 
     <br>
     <im-marquee scrollStatus="down">
       <div 
-      style="font-size: .37rem;height: .8rem;line-height: .8rem;background-color: #00bfff;color: #FFF;" 
+      class="double" 
       v-for="i in 5" :key="i" 
-      @click="onClick(i)">JavaScript is the best language{{i}}</div>
+      @click="onClick(i)">
+        <p>double item down for {{i}}</p>
+        <p>double item down for {{i}}</p>
+        <p>double item down for {{i}}</p>
+      </div>
     </im-marquee>
 
   </div>
@@ -38,5 +42,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-
+.single {
+  font-size: .37rem;
+  height: .8rem;
+  line-height: .8rem;
+  background-color: #00bfff;
+  color: #FFF;
+}
+.double {
+  font-size: .37rem;
+  height: 2.8rem;
+  background-color: #00bfff;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
 </style>

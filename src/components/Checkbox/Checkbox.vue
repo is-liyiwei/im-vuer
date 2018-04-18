@@ -78,9 +78,6 @@ export default {
       width: .4rem * @baseRem;
       height: .4rem * @baseRem;
       background: transparent;
-      -webkit-border-radius: .03rem * @baseRem;
-      -moz-border-radius: .03rem * @baseRem;
-      border-radius: .03rem * @baseRem;
       outline: none;
       cursor: pointer;
       /*增加动画*/   

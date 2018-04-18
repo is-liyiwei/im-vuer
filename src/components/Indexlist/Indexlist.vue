@@ -40,12 +40,6 @@ export default {
       default () {
         return []
       }
-    },
-    navList: {
-      type: Array,
-      default () {
-        return []
-      }
     }
   },
   mounted: function () {

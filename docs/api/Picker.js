@@ -3,12 +3,12 @@ let api = [{
   instructions: '数据列表',
   type: 'Array',
   optional: '-',
-  default: '-'
+  default: '[]'
 },{
   params: 'showStatus',
   instructions: '控制组件显示',
   type: 'Boolean',
-  optional: 'true, false',
+  optional: '-',
   default: 'false'
 },{
   params: '@cancelBtn',

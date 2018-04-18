@@ -6,10 +6,10 @@ let api = [{
   default: 'false'
 },{
   params: 'val',
-  instructions: '控制组件显示',
-  type: 'Boolean',
+  instructions: '文本',
+  type: 'String',
   optional: '-',
-  default: 'false'
+  default: '-'
 },{
   params: 'activeBgColor',
   instructions: '选中背景颜色',
@@ -22,6 +22,12 @@ let api = [{
   type: 'String',
   optional: '-',
   default: '#FFFFFF'
+},{
+  params: 'circle',
+  instructions: '是否圆形',
+  type: 'Boolean',
+  optional: '-',
+  default: 'false'
 }]
 
 module.exports = api

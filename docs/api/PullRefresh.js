@@ -1,27 +1,9 @@
 let api = [{
-  params: 'data',
-  instructions: '数据列表',
-  type: 'Array',
-  optional: '-',
-  default: '-'
-},{
-  params: 'showStatus',
-  instructions: '控制组件显示',
-  type: 'Boolean',
-  optional: 'true, false',
-  default: 'false'
-},{
-  params: '@cancelBtn',
-  instructions: '取消按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
-},{
-  params: '@confirmBtn',
-  instructions: '确定按钮事件',
-  type: 'Function',
-  optional: '-',
-  default: '-'
+  params: '测试中',
+  instructions: '测试中',
+  type: '测试中',
+  optional: '测试中',
+  default: '测试中'
 }]
 
 module.exports = api
