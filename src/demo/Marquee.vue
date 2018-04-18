@@ -2,7 +2,7 @@
   <div class="demo-marquee">
 
     <br>
-    <im-marquee duration="300" interval="2000">
+    <im-marquee>
       <div 
       class="single" 
       v-for="i in 5" :key="i" 
@@ -10,7 +10,7 @@
     </im-marquee>
 
     <br>
-    <im-marquee scrollStatus="down">
+    <im-marquee scrollStatus="down" duration="300" interval="1500">
       <div 
       class="double" 
       v-for="i in 5" :key="i" 
