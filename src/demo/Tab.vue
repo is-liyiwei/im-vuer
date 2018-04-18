@@ -2,7 +2,7 @@
   <div class="demo-tab">
     <im-tab textColorActive="green" activeCurrIndex="2" :list='list'></im-tab>
     <br>
-    <im-tab :list='list'></im-tab>
+    <im-tab @on-tab="tabHandle" :list='list'></im-tab>
     <br>
     <im-tab :list='list' labelColor="pink" labelTextColor="blue" lineColor="#f00" lineThickness="6px"></im-tab>
   </div>
@@ -31,20 +31,10 @@ export default {
       list
     }
   },
-  props: {
-
-  },
   methods: {
-
-  },
-  computed: {
-
-  },
-  components: {
-
-  },
-  created: function () {
-    
+    tabHandle (v) {
+      console.log(v)
+    }
   }
 }
 </script>

@@ -13,15 +13,6 @@ export default {
     return {
 
     }
-  },
-  props: {
-
-  },
-  components: {
-
-  },
-  created: function () {
-    
   }
 }
 </script>
