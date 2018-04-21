@@ -14,6 +14,7 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/babel-standalone"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-demo-box-vue/dist/docsify-demo-box-vue.min.js"></script>
+  <script src="//unpkg.com/docsify-edit-on-github@1.0.1/index.js"></script>
   <script>
     // var jsResources = '<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></scr' + 'ipt>'
     //                   + '\n<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/vue-orgchart/dist/vue-orgchart.min.js"></scr' + 'ipt>'
@@ -24,6 +25,22 @@
       loadSidebar: true,
       loadNavbar: true,
       repo: 'https://github.com/is-liyiwei/im-vuer',
+      plugins: [
+        EditOnGithubPlugin.create(
+          'https://github.com/is-liyiwei/im-vuer/tree/master/docs/'
+        ),
+        function (hook,vm) {
+          var footer = [
+            '<hr/>',
+            '<footer>',
+            '<span><a href="https://github.com/is-liyiwei">liyiwei</a> &copy;2018.</span>',
+            '</footer>'
+          ].join('')
+          hook.afterEach(function (html) {
+            return html + footer
+          })
+        }
+      ]
       // plugins: [
       //   DemoBoxVue.create(jsResources, cssResources)
       // ]
