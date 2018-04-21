@@ -1,21 +1,44 @@
-# im-vuer
+## 说明
 
-> A Vue.js project
+这是一个基于Vue2的个人开源项目，主要用于学习与交流
 
-## Build Setup
+项目主要开发了一些基本的Vue组件，鉴于个人水平，可能有很多的问题，喜欢的话可以用来玩玩
 
-``` bash
+- [在线示例](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/)
+
+- [文档](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer-docs.io/#/)
+
+- [github](https://github.com/is-liyiwei/im-vuer)
+
+```
 # install dependencies
-npm install
+# 安装依赖
+# npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# serve with hot reload at localhost:8081
+# 浏览器打开http://localhost:8081/#/
+# npm run dev
 
 # build for production with minification
-npm run build
+# 生成example示例demo
+# npm run build
+
+# build for production with minification
+# 生成im-vuer.js文件，可用此方法进行二次开发使用
+# npm run bnpm
 
 # build for production and view the bundle analyzer report
-npm run build --report
+# npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+项目参考了许多的文章以及开源项目，鉴于各种问题无法一一列举，只能列举部分参考较多的，如果有参考你的原创文章请与我联系添加，如有其它侵犯问题，也请与我联系，我会及时删除并向你道歉
+
+- [mint-ui](https://github.com/ElemeFE/mint-ui)
+
+- [ydui](https://github.com/ydcss/vue-ydui)
+
+- [vux](https://github.com/airyland/vux)
+
+- [muse-ui](https://github.com/museui/muse-ui)
+
+- [countup.js](https://github.com/inorganik/CountUp.js)

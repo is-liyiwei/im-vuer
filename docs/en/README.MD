@@ -4,9 +4,9 @@ This is a Vue2 based personal open source project, it is mainly used for learnin
 
 Project mainly developed some basic Vue components, in view of the individual level, there may be many problems, like it can be used to play
 
-- [live demo](https://github.com/is-liyiwei/im-vuer)
+- [live demo](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/)
 
-- [docs](https://github.com/is-liyiwei/im-vuer)
+- [docs](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer-docs.io/#/)
 
 - [github](https://github.com/is-liyiwei/im-vuer)
 
