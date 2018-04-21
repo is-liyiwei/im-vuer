@@ -2,8 +2,9 @@
 > 使用
 
 ```js
-import { Swiper } form 'im-vuer'
+import { Swiper, SwiperItem } from 'im-vuer'
 Vue.component(Swiper.name, Swiper)
+Vue.component(SwiperItem.name, SwiperItem)
 ```
 
 > 示例代码

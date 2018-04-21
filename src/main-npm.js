@@ -24,43 +24,44 @@ import { IndexList } from './components/IndexList'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
 import { PullRefresh } from './components/PullRefresh'
-import { Picker } from './components/Picker'
+import { Picker, PickerItem } from './components/Picker'
 
-let _Nid = 0;
-let _log = function (component) {
-	_Nid++;
-	console.log(component);
-}
+// let _Nid = 0;
+// let _log = function (component) {
+// 	_Nid++;
+// 	console.log(component);
+// }
 
-_log(Tab)
-_log(Step)
-_log(CountUp)
-_log(Marquee)
-_log(Rater)
-_log(Switch)
-_log(CheckBox)
-_log(CheckBoxItem)
-_log(SwiperOut)
-_log(Progress)
-_log(Radio)
-_log(RadioItem)
-_log(TimeLine)
-_log(TimeLineItem)
-_log(Swiper)
-_log(SwiperItem)
-_log(IndexList)
-_log(CityPicker)
-_log(DatePicker)
-_log(PullRefresh)
-_log(Picker)
+// _log(Tab)
+// _log(Step)
+// _log(CountUp)
+// _log(Marquee)
+// _log(Rater)
+// _log(Switch)
+// _log(CheckBox)
+// _log(CheckBoxItem)
+// _log(SwiperOut)
+// _log(Progress)
+// _log(Radio)
+// _log(RadioItem)
+// _log(TimeLine)
+// _log(TimeLineItem)
+// _log(Swiper)
+// _log(SwiperItem)
+// _log(IndexList)
+// _log(CityPicker)
+// _log(DatePicker)
+// _log(PullRefresh)
+// _log(Picker)
+// _log(PickerItem)
 
 
-_log(ConfirmPlugin)
-_log(ToastPlugin)
-_log(ActionSheetPlugin)
-_log(TipPlugin)
+// _log(ConfirmPlugin)
+// _log(ToastPlugin)
+// _log(ActionSheetPlugin)
+// _log(TipPlugin)
 
-console.log('all num', _Nid)
+// console.log('all num', _Nid)
 
 // if (window.Vue) {
 //   Vue.use(ConfirmPlugin);
@@ -91,6 +92,7 @@ export {
 	DatePicker,
 	PullRefresh,
 	Picker,
+	PickerItem,
 	ConfirmPlugin,
 	ToastPlugin,
 	ActionSheetPlugin,

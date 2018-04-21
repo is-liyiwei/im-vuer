@@ -62,7 +62,6 @@ Vue.component(`${DatePicker.name}`, DatePicker)
 Vue.component(`${PullRefresh.name}`, PullRefresh)
 Vue.component(`${Picker.name}`, Picker)
 Vue.component(`${PickerItem.name}`, PickerItem)
-
 Vue.component(`${Progress.name}`, Progress)
 Vue.component(`${Switch.name}`, Switch)
 
@@ -72,8 +71,10 @@ Vue.use(ActionSheetPlugin);
 Vue.use(TipPlugin);
 ```
 
-> In `*.vue`
+## 单文件项目中使用
 
-```js
+> `index.html`
 
-```
+参考dist目录下的index.html文件
+
+[https://github.com/is-liyiwei/im-vuer/blob/master/dist/index.html](https://github.com/is-liyiwei/im-vuer/blob/master/dist/index.html)

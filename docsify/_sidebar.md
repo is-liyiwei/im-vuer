@@ -1,6 +1,6 @@
-- Getting started
-  - [Quick Start](quickstart)
-- Components
+- 开始
+  - [快速启动](quickstart)
+- 组件
   - [CheckBox](CheckBox)
   - [CityPicker](CityPicker)
   - [CountUp](CountUp)

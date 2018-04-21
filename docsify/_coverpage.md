@@ -5,6 +5,6 @@
 > A Vue.js UI lib
 
 [GitHub](https://github.com/is-liyiwei/im-vuer)
-[Get Started](quickstart)
+[Get Started](#说明)
 
-![color](#b3daff)
+<!-- ![color](#b3daff) -->

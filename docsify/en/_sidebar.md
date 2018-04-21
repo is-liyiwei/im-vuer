@@ -22,3 +22,6 @@
   - [Tab](/en/Tab)
   - [TimeLine](/en/TimeLine)
  -->
+
+- Getting started
+- [Quick Start](/en/quickstart)
