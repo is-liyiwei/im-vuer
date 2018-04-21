@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { PullRefresh } form 'im-vuer'
-Vue.component(${PullRefresh.name}, PullRefresh)
+Vue.component(PullRefresh.name, PullRefresh)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="hello" style="height: 100vh;">

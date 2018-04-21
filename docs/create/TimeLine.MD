@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { TimeLine } form 'im-vuer'
-Vue.component(${TimeLine.name}, TimeLine)
+Vue.component(TimeLine.name, TimeLine)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-timeline">

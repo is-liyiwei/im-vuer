@@ -1,17 +1,19 @@
 
 > 使用
+
 ```js
 import { Marquee } form 'im-vuer'
-Vue.component(${Marquee.name}, Marquee)
+Vue.component(Marquee.name, Marquee)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-marquee">
 
     <br>
-    <im-marquee duration="300" interval="2000">
+    <im-marquee>
       <div 
       class="single" 
       v-for="i in 5" :key="i" 
@@ -19,7 +21,7 @@ Vue.component(${Marquee.name}, Marquee)
     </im-marquee>
 
     <br>
-    <im-marquee scrollStatus="down">
+    <im-marquee scrollStatus="down" duration="300" interval="1500">
       <div 
       class="double" 
       v-for="i in 5" :key="i" 

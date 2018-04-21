@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { Radio } form 'im-vuer'
-Vue.component(${Radio.name}, Radio)
+Vue.component(Radio.name, Radio)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-radio">

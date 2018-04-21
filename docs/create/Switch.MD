@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { Switch } form 'im-vuer'
-Vue.component(${Switch.name}, Switch)
+Vue.component(Switch.name, Switch)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-switch">

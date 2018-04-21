@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { demo } form 'im-vuer'
-Vue.component(${demo.name}, demo)
+Vue.component(demo.name, demo)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-step">

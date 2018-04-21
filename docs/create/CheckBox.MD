@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { CheckBox } form 'im-vuer'
-Vue.component(${CheckBox.name}, CheckBox)
+Vue.component(CheckBox.name, CheckBox)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-checkbox">

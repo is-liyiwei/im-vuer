@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { IndexList } form 'im-vuer'
-Vue.component(${IndexList.name}, IndexList)
+Vue.component(IndexList.name, IndexList)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-index-list">

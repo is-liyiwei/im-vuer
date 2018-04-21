@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { SwiperBox } form 'im-vuer'
-Vue.component(${SwiperBox.name}, SwiperBox)
+Vue.component(SwiperBox.name, SwiperBox)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-swiper-box">

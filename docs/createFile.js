@@ -29,12 +29,14 @@ function makeContent(data, componentName) {
   let _d = '`'
   let _data = `
 > 使用
+
 ${_d}${_d}${_d}js
 import { ${componentName} } form 'im-vuer'
-Vue.component(\${${componentName}.name}, ${componentName})
+Vue.component(${componentName}.name, ${componentName})
 ${_d}${_d}${_d}
 
 > 示例代码
+
 ${_d}${_d}${_d}js
 ${data}
 ${_d}${_d}${_d}

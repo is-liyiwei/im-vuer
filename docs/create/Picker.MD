@@ -1,11 +1,13 @@
 
 > 使用
+
 ```js
 import { Picker } form 'im-vuer'
-Vue.component(${Picker.name}, Picker)
+Vue.component(Picker.name, Picker)
 ```
 
 > 示例代码
+
 ```js
 <template>
   <div class="demo-picker">
