@@ -1,7 +1,22 @@
-- Getting started
-  - [Quick Start](quickstart)
-  - [Chart Props](props)
-- Charts
-  - [Basic Orgchart](basic)
+- 开始
+  - [快速启动](quickstart)
+- 组件
   - [CheckBox](CheckBox)
   - [CityPicker](CityPicker)
+  - [CountUp](CountUp)
+  - [DatePicker](DatePicker)
+  - [Dialog](Dialog)
+  - [IndexList](IndexList)
+  - [Marquee](Marquee)
+  - [Picker](Picker)
+  - [Progress](Progress)
+  - [PullRefresh](PullRefresh)
+  - [Radio](Radio)
+  - [Rater](Rater)
+  - [Step](Step)
+  - [Swiper](Swiper)
+  - [SwiperBox](SwiperBox)
+  - [SwiperOut](SwiperOut)
+  - [Switch](Switch)
+  - [Tab](Tab)
+  - [TimeLine](TimeLine)
