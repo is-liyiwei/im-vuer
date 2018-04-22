@@ -2,82 +2,78 @@
 > 使用
 
 ```js
-import { Swiper, SwiperItem } from 'im-vuer'
-Vue.component(Swiper.name, Swiper)
-Vue.component(SwiperItem.name, SwiperItem)
+import { sw, CheckBoxItem } from 'im-vuer'
+Vue.component(CheckBox.name, CheckBox)
+Vue.component(CheckBoxItem.name, CheckBoxItem)
 ```
 
 > 示例代码
 
 ```js
 <template>
-  <div class="demo-swiper" style="height: 5rem;">
+  <div class="demo-checkbox">
+    <div style="display: flex;justify-content: space-around;flex-direction: column;">
+      <im-checkbox v-model="result">
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="true" :val="'square1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="false" :val="'square2'" activeBgColor="#f00" activeColor="#fbff00"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="false" :val="'square3'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :isCheck="true" :val="'square4'"></im-checkbox-item>
+        </div>
+      </im-checkbox>
+    </div>
+    <div class="result-box">当前选择：{{result}}</div>
 
-    <im-swiper @tap-swiper="tapSwiper" @on-swiper="onSwiper" :speed="350" :loop="false" :autoPlay="0" :idx="2">
-     <im-swiper-item v-for="(v, k) in swipeList" :key="k">
-      <img :src="v.img" alt="">
-     </im-swiper-item>
-    </im-swiper>
-
-    <br>
-
-    <im-swiper @tap-swiper="tapSwiper" @on-swiper="onSwiper" :dotColor="'#FFF'" :dotActiveColor="'#00bfff'">
-     <im-swiper-item v-for="(v, k) in swipeList" :key="k">
-      <img :src="v.img" alt="">
-     </im-swiper-item>
-    </im-swiper>
-
+    <div style="display: flex;justify-content: space-around;flex-direction: column;">
+      <im-checkbox v-model="result1">
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle1'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle2'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item circle :isCheck="true" :val="'circle3'"></im-checkbox-item>
+        </div>
+        <div class="demo-box">
+          <im-checkbox-item :circle="false" :isCheck="true" :val="'circle4'"></im-checkbox-item>
+        </div>
+      </im-checkbox>
+    </div>
+    <div class="result-box">当前选择：{{result1}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'swiper',
+  name: 'checkbox',
   data () {
     return {
-      swipeList: [{
-        id: 1,
-        img: 'http://img15.3lian.com/2016/h1/75/d/210.jpg',
-        text: '这是个图片1'
-      },{
-        id: 2,
-        img: 'http://img15.3lian.com/2016/h1/75/d/211.jpg',
-        text: '这是个图片2'
-      },{
-        id: 3,
-        img: 'http://img15.3lian.com/2016/h1/75/d/212.jpg',
-        text: '这是个图片3'
-      },{
-        id: 4,
-        img: 'http://img15.3lian.com/2016/h1/75/d/213.jpg',
-        text: '这是个图片3'
-      },{
-        id: 5,
-        img: 'http://img15.3lian.com/2016/h1/75/d/214.jpg',
-        text: '这是个图片3'
-      }]
+      result: [],
+      result1: []
     }
-  },
-  methods: {
-    tapSwiper (idx) {
-      console.log(idx)
-    },
-    onSwiper (idx) {
-      console.log(idx)
-    }
-  },
-  components: {
-
-  },
-  created: function () {
-    
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+.demo-box {
+  border-bottom: 1px solid #777;
+  padding: 20px 50px;
+}
 
+.result-box {
+  font-size: .3rem;
+  text-align: center;
+  padding: .5rem;
+}
 </style>
 
 ```
@@ -96,67 +92,39 @@ export default {
     </thead> 
     <tbody>
     <tr>
-      <td>speed</td> 
-      <td>动画速度</td> 
-      <td>Number, String</td> 
-      <td>-</td> 
-      <td>350</td>
-    </tr>
-    <tr>
-      <td>loop</td> 
-      <td>是否循环</td> 
+      <td>isCheck</td> 
+      <td>是否选择</td> 
       <td>Boolean</td> 
       <td>-</td> 
-      <td>true</td>
-    </tr>
-    <tr>
-      <td>autoPlay</td> 
-      <td>自动播放时间间隔</td> 
-      <td>Number, String</td> 
-      <td>为0时不自动播放</td> 
-      <td>3000</td>
-    </tr>
-    <tr>
-      <td>idx</td> 
-      <td>当前图片索引</td> 
-      <td>Number, String</td> 
-      <td>-</td> 
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>dotColor</td> 
-      <td>点颜色</td> 
-      <td>String</td> 
-      <td>为0时不自动播放</td> 
-      <td>#fff</td>
-    </tr>
-    <tr>
-      <td>dotActiveColor</td> 
-      <td>点选中颜色</td> 
-      <td>String</td> 
-      <td>为0时不自动播放</td> 
-      <td>#f00</td>
-    </tr>
-    <tr>
-      <td>isTabView</td> 
-      <td>是否配合tab组件使用</td> 
-      <td>Boolean</td> 
-      <td>详情看demo</td> 
       <td>false</td>
     </tr>
     <tr>
-      <td>@on-swiper</td> 
-      <td>滑动事件</td> 
-      <td>Function</td> 
-      <td>返回1或-1代表正反向</td> 
+      <td>val</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
       <td>-</td>
     </tr>
     <tr>
-      <td>@tap-swiper</td> 
-      <td>点击事件</td> 
-      <td>Function</td> 
-      <td>返回索引值</td> 
-      <td>-</td>
+      <td>activeBgColor</td> 
+      <td>选中背景颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#00BFFF</td>
+    </tr>
+    <tr>
+      <td>activeColor</td> 
+      <td>选中图标颜色</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>#FFFFFF</td>
+    </tr>
+    <tr>
+      <td>circle</td> 
+      <td>是否圆形</td> 
+      <td>Boolean</td> 
+      <td>-</td> 
+      <td>false</td>
     </tr>
     </tbody>
    </table>
