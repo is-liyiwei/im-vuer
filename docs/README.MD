@@ -6,7 +6,7 @@
 
 - [在线示例](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/)
 
-- [文档](https://is-liyiwei.github.io/im-vuer/#/)
+- [文档](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer-docs.io/#/)
 
 - [github](https://github.com/is-liyiwei/im-vuer)
 
