@@ -1,3 +1,2 @@
 - Translations
-  - [:cn: 中文](/quickstart)
-  - [:uk: English](/README)
+  - [:cn: 中文](/)
