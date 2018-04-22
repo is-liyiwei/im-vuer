@@ -1,5 +1,4 @@
 - 开始
-  - [快速启动](./quickstart)
+  - [快速启动](quickstart)
 - 组件
-  - [CheckBox](./CheckBox)
-  - [Swiper](./swiper)
+  - [Swiper](swiper)
