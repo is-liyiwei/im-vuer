@@ -2,51 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>im-vuer</title>
+  <title>Document</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="im-vuer">
+  <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <!-- <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
   <div id="app"></div>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/babel-standalone"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-demo-box-vue/dist/docsify-demo-box-vue.min.js"></script>
-  <script src="//unpkg.com/docsify-edit-on-github@1.0.1/index.js"></script>
   <script>
-    // var jsResources = '<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></scr' + 'ipt>'
-    //                   + '\n<scr' + 'ipt src="https://cdn.jsdelivr.net/npm/vue-orgchart/dist/vue-orgchart.min.js"></scr' + 'ipt>'
-    // var cssResources = '@import url("https://cdn.jsdelivr.net/npm/vue-orgchart/dist/style.min.css");'
     window.$docsify = {
       coverpage: true,
       name: 'im-vuer',
       loadSidebar: true,
       loadNavbar: true,
-      repo: 'https://github.com/is-liyiwei/im-vuer',
-      plugins: [
-        EditOnGithubPlugin.create(
-          'https://github.com/is-liyiwei/im-vuer/tree/master/docs/'
-        ),
-        function (hook,vm) {
-          var footer = [
-            '<hr/>',
-            '<footer>',
-            '<span><a href="https://github.com/is-liyiwei">liyiwei</a> &copy;2018.</span>',
-            '</footer>'
-          ].join('')
-          hook.afterEach(function (html) {
-            return html + footer
-          })
-        }
-      ]
-      // plugins: [
-      //   DemoBoxVue.create(jsResources, cssResources)
-      // ]
+      repo: 'https://github.com/is-liyiwei/im-vuer'
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-alpha.10/dist/html2canvas.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
