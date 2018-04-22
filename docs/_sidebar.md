@@ -7,4 +7,3 @@
   - [Draggable Orgchart](drag)
   - [Export Picture Orgchart](exportpic)
   - [Editable Orgchart](edit)
-  - [CheckBox](CheckBox)
