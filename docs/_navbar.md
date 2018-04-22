@@ -1,3 +1,3 @@
 - Translations
-  - [:cn: 中文](https://github.com/is-liyiwei/im-vuer/blob/master/docs/README.MD)
+  - [:cn: 中文](/)
   - [:uk: English](/en/)
