@@ -1,4 +1,7 @@
-- 开始
-  - [快速启动](quickstart)
-- 组件
-  - [Swiper](swiper)
+- Getting started
+  - [Quick Start](quickstart)
+  - [Chart Props](props)
+- Charts
+  - [Basic Orgchart](basic)
+  - [CheckBox](CheckBox)
+  - [CityPicker](CityPicker)

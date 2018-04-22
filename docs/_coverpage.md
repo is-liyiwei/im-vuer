@@ -1,10 +1,16 @@
-![logo](_assets/SFont.CN.svg)
+![logo](_assets/tree.svg)
 
-# im-vuer <small>1.0.0</small>
+# vue-orgchart <small>1.0.0</small>
 
-> A Vue.js UI lib
+> A Vue.js wrapper for OrgChart.js.
 
-[GitHub](https://github.com/is-liyiwei/im-vuer)
-[Get Started](#说明)
+- Support import and export JSON
+- Supports exporting chart as a picture
+- Editable Orgchart
 
-<!-- ![color](#b3daff) -->
+
+[GitHub](https://github.com/spiritree/vue-orgchart)
+[Get Started](#vue-orgchart)
+
+
+![color](#b3daff)
