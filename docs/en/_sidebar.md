@@ -1,0 +1,27 @@
+- getting started
+  - [quick start](/en/quickstart)
+- components
+  - [checkbox](/en/checkbox)
+  - [citypicker](/en/citypicker)
+  - [countup](/en/countup)
+  - [datepicker](/en/datepicker)
+  - [dialog](/en/dialog)
+  - [home](/en/home)
+  - [indexlist](/en/indexlist)
+  - [marquee](/en/marquee)
+  - [picker](/en/picker)
+  - [progress](/en/progress)
+  - [pullrefresh](/en/pullrefresh)
+  - [radio](/en/radio)
+  - [rater](/en/rater)
+  - [step](/en/step)
+  - [swiper](/en/swiper)
+  - [swiperbox](/en/swiperbox)
+  - [swiperout](/en/swiperout)
+  - [switch](/en/switch)
+  - [tab](/en/tab)
+  - [timeline](/en/timeline)
+
+
+- getting started
+- [quick start](/en/quickstart)
