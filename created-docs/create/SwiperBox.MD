@@ -57,12 +57,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .swiper-box {
-	height: 90vh;
+	height: 40vh;
 	width: 100%;
 	font-size: .37rem;
 	background-color: #6f6dff;
 	color: #FFF;
 	font-weight: bold;
+  text-align: center;
+  line-height: 40vh;
 }
 </style>
 

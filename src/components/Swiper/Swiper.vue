@@ -153,6 +153,10 @@ export default {
         touchStatus.currentTx = touches.pageX - touchStatus.startTx;
         touchStatus.currentTy = touches.pageY - touchStatus.startTy;
 
+        if (Math.atan2(Math.abs(touchStatus.currentTy), Math.abs(touchStatus.currentTx)) * 180 / Math.PI > 30) {
+          return
+        }
+
         this.setTranslate(0, touchStatus.currentTx + -(this.$el.clientWidth * this.currentIndex));
 
       }, false);
@@ -161,6 +165,10 @@ export default {
         if(!isTouchMove) {
           this.$emit('tap-swiper', this.currentIndex);
           return;
+        }
+
+        if (Math.atan2(Math.abs(touchStatus.currentTy), Math.abs(touchStatus.currentTx)) * 180 / Math.PI > 30) {
+          return
         }
 
         touchStatus.endTime = new Date().getTime();
@@ -302,7 +310,7 @@ export default {
         display: block;
         width: .1rem * @baseRem;
         height: .1rem * @baseRem;
-        /*安卓机又bug，会有不圆的点出现，只能用px单位了*/
+        /*安卓机会有bug，会有不圆的点出现，只能用px单位了*/
         /*width: 6px;
         height: 6px;*/
         border-radius: 50%;

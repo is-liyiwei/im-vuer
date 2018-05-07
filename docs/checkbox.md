@@ -2,9 +2,8 @@
 > 使用
 
 ```js
-import { CheckBox, CheckBoxItem } from 'im-vuer'
+import { CheckBox } form 'im-vuer'
 Vue.component(CheckBox.name, CheckBox)
-Vue.component(CheckBoxItem.name, CheckBoxItem)
 ```
 
 > 示例代码

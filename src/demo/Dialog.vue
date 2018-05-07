@@ -14,10 +14,14 @@
     <button @click="openToast1('top')">toast top</button>
     <button @click="openToast1('center')">toast center</button>
     <button @click="openToast1('bottom')">toast bottom</button>
-    <h5>ActionSheet ↓</h5>
-    <button @click="openActionSheet1()">ActionSheet of default</button>
-    <button @click="openActionSheet2()">ActionSheet of no cancel</button>
-    <button @click="openActionSheet3()">ActionSheet of color</button>
+    <h5>ActionSheet for ios ↓</h5>
+    <button @click="openActionSheet1('ios')">ActionSheet of default</button>
+    <button @click="openActionSheet2('ios')">ActionSheet of with cancel</button>
+    <button @click="openActionSheet3('ios')">ActionSheet of color</button>
+    <h5>ActionSheet for android ↓</h5>
+    <button @click="openActionSheet1('android')">ActionSheet of default</button>
+    <button @click="openActionSheet2('android')">ActionSheet of with cancel</button>
+    <button @click="openActionSheet3('android')">ActionSheet of color</button>
     <h5>Tip ↓</h5>
     <button @click="openTip1('loading')">Tip of default</button>
     <button @click="openTip1('success')">Tip of success</button>
@@ -122,13 +126,39 @@ export default {
         time: 1500
       })
     },
-    openActionSheet1 () {
+    openActionSheet1 (styleFor) {
       this.$actionSheet({
-
+        styleFor,
+        opts: [{
+          txt: '回复',
+          cb: () => {
+            console.log(1)
+          }
+        },{
+          txt: '转发',
+          color: '#f00',
+          cb: () => {
+            console.log(2)
+          }
+        },{
+          txt: '打印',
+          color: '#009688',
+          cb: () => {
+            console.log(3)
+          }
+        },{
+          txt: '评论',
+          color: '#673ab7',
+          cb: () => {
+            console.log(4)
+          }
+        }],
+        hasCancel: true
       })
     },
-    openActionSheet2 () {
+    openActionSheet2 (styleFor) {
       this.$actionSheet({
+        styleFor,
         opts: [{
           txt: '拍照',
           cb: () => {
@@ -136,7 +166,7 @@ export default {
           }
         },{
           txt: '从本地选择',
-          color: '#00bFFF',
+          color: '#f00',
           cb: () => {
             console.log(2)
           }
@@ -144,8 +174,9 @@ export default {
         hasCancel: true
       })
     },
-    openActionSheet3 () {
+    openActionSheet3 (styleFor) {
       this.$actionSheet({
+        styleFor,
         opts: [{
           txt: '默认是没有取消按钮',
           cb: () => {

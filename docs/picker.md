@@ -2,9 +2,8 @@
 > 使用
 
 ```js
-import { Picker, PickerItem } from 'im-vuer'
+import { Picker } form 'im-vuer'
 Vue.component(Picker.name, Picker)
-Vue.component(PickerItem.name, PickerItem)
 ```
 
 > 示例代码

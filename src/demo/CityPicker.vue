@@ -4,7 +4,7 @@
   	<button class="picker-btn" @click="changeData">切换数据</button>
 
     <div style="font-size: .3rem;text-align: center;">当前数据结构</div>
-    <pre style="font-size: .3rem;height: 800px;overflow: scroll;background-color: #000f5a;color: #FFF;">{{data}}</pre>
+    <pre style="font-size: .3rem;height: 600px;overflow: scroll;background-color: #000f5a;color: #FFF;">{{data}}</pre>
     <pre style="font-size: .3rem;padding: 20px;overflow: scroll;background-color: #000f5a;color: #FFF;">城市数据来源: https://github.com/ydcss/ydui-district</pre>
 
     <div style="font-size: .3rem;text-align: center;">选择的是：{{test}}</div>
@@ -172,7 +172,7 @@ export default {
    background-color: #00bfff;
    color: #FFF;
    padding: .2rem;
-   margin: .2rem auto;
+   margin: .5rem auto;
    width: 90%;
    display: block;
    font-size: .37rem;

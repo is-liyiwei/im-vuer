@@ -20,13 +20,14 @@
           }
         },
         [
-          this.opts.map(v => {
+          this.opts.map((v, idx) => {
             return _c('div', {
               style: {
                 color: v.color
               },
               class: {
-                'im-action-sheet-box-item': true
+                'im-action-sheet-box-item': true,
+                'last-item': idx == this.opts.length - 1  // 这里添加一个判断，详细理由见下面的css注释
               },
               domProps: {
                 innerHTML: v.txt
@@ -46,7 +47,6 @@
                   
                 },
                 class: {
-                  'im-action-sheet-box-item': true,
                   'cancel': true
                 },
                 domProps: {
@@ -69,6 +69,13 @@
         type: Boolean,
         default: false
       },
+      styleFor: {
+        type: String,
+        default: 'ios',
+        validator: function(value) {
+          return ['ios', 'android'].indexOf(value) != -1
+        }
+      },
       opts: {
         type: Array,
         default () {
@@ -84,10 +91,6 @@
   @import '../../less/base.less';
   @import '../../less/dialog.less';
 
-  .action-sheet() {
-
-  }
-  
   .@{prefixClass} {
     &-action-sheet {
       .mask();
@@ -96,25 +99,65 @@
         padding: 0;
         box-sizing: border-box;
       }
+      .ios {
+        margin: 20px;
+        border-radius: .12rem;
+        color: #00bFFF;
+        .cancel {
+          margin-top: 12px;
+          border-radius: .12rem;
+        }
+      }
+      .ios .im-action-sheet-box-item:first-child {
+        border-top-left-radius: .12rem;
+        border-top-right-radius: .12rem;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .last-item {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: .12rem;
+        border-bottom-left-radius: .12rem;
+      }
+      /*下面这个类选择器没有效果，只好用上面的方法，然后上面的render方法也添加一个判断*/
+      /*这个问题参考demo是在目录created-docs/nth-last-of-type.html，但是这里却显示错误，暂时不知道原因*/
+      /*.ios .im-action-sheet-box-item:nth-last-of-type(1) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: .2rem;
+        border-bottom-left-radius: .2rem;
+      }*/
+      .android {
+        color: #00bFFF;
+        .cancel {
+          border-top: .12rem solid #efefef;
+        }
+      }
+      .cancel {
+        background-color: #FFF;
+        font-size: .37rem * @baseRem;
+        padding: .27rem * @baseRem 0;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        text-align: center;
+      }
       &-box {
         position: fixed;
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: #FFF;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         &-item {
+          background-color: #FFF;
           font-size: .37rem * @baseRem;
           padding: .27rem * @baseRem 0;
           border-top: 1px solid #ccc;
           width: 100%;
           text-align: center;
-          &.cancel {
-            border-top: 12px solid #efefef;
-          }
         }
       }
     }

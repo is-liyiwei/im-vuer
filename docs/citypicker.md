@@ -183,7 +183,7 @@ export default {
    background-color: #00bfff;
    color: #FFF;
    padding: .2rem;
-   margin: .2rem auto;
+   margin: .5rem auto;
    width: 90%;
    display: block;
    font-size: .37rem;

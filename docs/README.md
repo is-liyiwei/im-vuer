@@ -4,9 +4,13 @@
 
 项目主要开发了一些基本的Vue组件，鉴于个人水平，可能有很多的问题，喜欢的话可以用来玩玩
 
+文档生成使用[docsify](https://github.com/QingWei-Li/docsify/)
+
+感谢这位开发者提供了极其方便的文档开发工具
+
 - [在线示例](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer.io/#/)
 
-- [文档](https://is-liyiwei.github.io/is-liyiwei.github.im-vuer-docs.io/#/)
+- [文档](https://is-liyiwei.github.io/im-vuer/#/)
 
 - [github](https://github.com/is-liyiwei/im-vuer)
 

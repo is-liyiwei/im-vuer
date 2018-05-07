@@ -19,7 +19,7 @@ let ActionSheetPlugin = {
 
       pageScroll.unlock();
 
-      firstChild.className = 'im-action-sheet-box action-sheet-fadeOut';
+      firstChild.className = 'im-action-sheet-box ' + instance.styleFor + ' action-sheet-fadeOut';
 
       // 200ms from ActionSheet.vue file cssName 'fadeOut' animation time
       setTimeout( () => {
@@ -31,17 +31,16 @@ let ActionSheetPlugin = {
     Vue.prototype.$actionSheet = function (options) {
       
       instance.hasCancel = options.hasCancel || false;
+      instance.styleFor = ['ios', 'android'].indexOf(options.styleFor) != -1 ? options.styleFor : 'android';
       instance.opts = options.opts || [{
-            txt: 'hello world',
-            color: '#00bFFF',
+            txt: 'Hello World',
             cb: () => {}
           },{
-            txt: 'hello world',
-            color: '#f00',
+            txt: 'Hello World',
             cb: () => {}
           }];
 
-      firstChild.className = 'im-action-sheet-box action-sheet-fadeIn';
+      firstChild.className = 'im-action-sheet-box ' + instance.styleFor + ' action-sheet-fadeIn';
 
       document.body.appendChild(el);
       pageScroll.lock();

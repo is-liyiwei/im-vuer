@@ -2,9 +2,8 @@
 > 使用
 
 ```js
-import { TimeLine, TimeLineItem } from 'im-vuer'
+import { TimeLine } form 'im-vuer'
 Vue.component(TimeLine.name, TimeLine)
-Vue.component(TimeLineItem.name, TimeLineItem)
 ```
 
 > 示例代码

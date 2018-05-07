@@ -2,9 +2,8 @@
 > 使用
 
 ```js
-import { Radio, RadioItem } from 'im-vuer'
+import { Radio } form 'im-vuer'
 Vue.component(Radio.name, Radio)
-Vue.component(RadioItem.name, RadioItem)
 ```
 
 > 示例代码

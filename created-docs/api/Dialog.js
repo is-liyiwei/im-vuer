@@ -21,7 +21,7 @@ let api = [{
   instructions: '样式',
   type: 'String',
   optional: 'ios, android',
-  default: '-'
+  default: 'ios'
 },{
   params: 'opts',
   instructions: '配置',
@@ -58,6 +58,12 @@ let api = [{
   type: '-',
   optional: '-',
   default: '-'
+},{
+  params: 'styleFor',
+  instructions: '样式',
+  type: 'String',
+  optional: 'ios, android',
+  default: 'android'
 },{
   params: 'hasCancel',
   instructions: '是否有取消按钮',
