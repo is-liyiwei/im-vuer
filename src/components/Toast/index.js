@@ -34,16 +34,12 @@ let ToastPlugin = {
 
       el.className = `im-toast ${instance.position} toast-fadeIn`;
 
-      this.$nextTick( () => {
+      document.body.appendChild(el);
+      pageScroll.lock();
 
-        document.body.appendChild(el);
-        pageScroll.lock();
-
-        setTimeout( () => {
-          instance.closeToast();
-        }, instance.time)
-        
-      })
+      setTimeout( () => {
+        instance.closeToast();
+      }, instance.time)
 
     }
   }

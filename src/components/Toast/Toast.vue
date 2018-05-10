@@ -5,6 +5,7 @@
       return _c('div', {
         class: {
           'im-toast': true,
+          'toast-fadeIn': true,
           'top': this.position == 'top',
           'bottom': this.position == 'bottom',
           'center': this.position == 'center'
@@ -61,18 +62,21 @@
         color: #FFF;
         top: 0;
         width: 100%;
+        z-index: 9993;
         animation: vuer-toast-slide-in .3s cubic-bezier(.21, .75, .33, .79) 0s 1 forwards;
       }
       &.bottom {
         .toast();
         bottom: 10%;
         max-width: 50%;
+        z-index: 9993;
         /*animation: vuer-toast-fade-in .3s cubic-bezier(.21, .75, .33, .79) 0s 1 forwards;*/
       }
       &.center {
         .toast();
         top: 50%;
         width: 70%;
+        z-index: 9993;
         /*animation: vuer-toast-fade-in .3s cubic-bezier(.21, .75, .33, .79) 0s 1 forwards;*/
       }
     }

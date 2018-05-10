@@ -302,7 +302,7 @@ export default {
 }
 
 .now {
-	color: #00bfff;
+	color: @base-color;
 }
 
 .prev, .next {

@@ -27,7 +27,7 @@
               },
               class: {
                 'im-action-sheet-box-item': true,
-                'last-item': idx == this.opts.length - 1  // 这里添加一个判断，详细理由见下面的css注释
+                'last-item': idx == this.opts.length - 1 && this.styleFor == 'ios'  // 这里添加一个判断，详细理由见下面的css注释
               },
               domProps: {
                 innerHTML: v.txt
@@ -102,7 +102,7 @@
       .ios {
         margin: 20px;
         border-radius: .12rem;
-        color: #00bFFF;
+        color: @base-color;
         .cancel {
           margin-top: 12px;
           border-radius: .12rem;
@@ -129,7 +129,7 @@
         border-bottom-left-radius: .2rem;
       }*/
       .android {
-        color: #00bFFF;
+        color: @base-color;
         .cancel {
           border-top: .12rem solid #efefef;
         }

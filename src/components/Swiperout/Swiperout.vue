@@ -1,12 +1,13 @@
 <template>
-  <div class="im-swiper-out"
+<!--   <div class="im-swiper-out"
     @touchstart="start"
     @touchmove="move"
     @touchend="end"
     @mousedown="start"
     @mousemove="move"
     @mouseup="end"
-    @touchcancel="end">
+    @touchcancel="end"> -->
+  <div class="im-swiper-out">
     <div class="im-swiper-out-right box">
       <slot name="right-menu"></slot>
     </div>
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+
+import draggable from '../../helper/draggable.js';
 
 // touch事件的一个问题，就是点击不移动，也会有一个小的偏移量
 let checkTouchBug  = (distance) => 35 < Math.abs(distance) ? false : true
@@ -53,59 +56,114 @@ export default {
     }
   },
   methods: {
-    start (ev) {
+    // start (ev) {
 
-      const touch = ev.touches ? ev.touches[0] : ev;
-      this.pageX = touch.pageX;
-      this.pageY = touch.pageY;
+    //   const touch = ev.touches ? ev.touches[0] : ev;
+    //   this.pageX = touch.pageX;
+    //   this.pageY = touch.pageY;
 
-      this.rightWidth = this.$el.children["0"].offsetWidth;
-      this.leftWidth = this.$el.children["1"].offsetWidth;
+    //   this.rightWidth = this.$el.children["0"].offsetWidth;
+    //   this.leftWidth = this.$el.children["1"].offsetWidth;
 
-    },
-    move (ev) {
-      if (this.disabled) return
+    // },
+    // move (ev) {
+    //   if (this.disabled) return
 
-      const touch = ev.touches ? ev.touches[0] : ev;
-      this.distX = touch.pageX - this.pageX;
-      this.distY = touch.pageY - this.pageY;
+    //   const touch = ev.touches ? ev.touches[0] : ev;
+    //   this.distX = touch.pageX - this.pageX;
+    //   this.distY = touch.pageY - this.pageY;
 
-      this.setOffset(this.distX, false);
+    //   this.setOffset(this.distX, false);
       
-    },
-    end (ev) {
+    // },
+    // end (ev) {
 
-      if (this.distX == 0) return
+    //   if (this.distX == 0) return
 
-      this.swiperStatus = this.distX > 0 ? 'left' : 'right';
+    //   this.swiperStatus = this.distX > 0 ? 'left' : 'right';
       
-      if (this.swiperStatus == 'left') {
-        if (this.leftWidth * 0.5 >= -Math.abs(this.distX) && !checkTouchBug(this.distX)) {
-          console.log(this.distX)
-          this.tslX = this.leftWidth;
-        } else {
-          this.setOffset(0, false);
-        }
-      } else {
-        if (this.rightWidth * 0.5 <= Math.abs(this.distX) && !checkTouchBug(this.distX)) {
-          console.log(this.distX)
-          this.tslX = -this.rightWidth;
-        } else {
-          this.setOffset(0, false);
-        }
-      }
+    //   if (this.swiperStatus == 'left') {
+    //     if (this.leftWidth * 0.5 >= -Math.abs(this.distX) && !checkTouchBug(this.distX)) {
+    //       console.log(this.distX)
+    //       this.tslX = this.leftWidth;
+    //     } else {
+    //       this.setOffset(0, false);
+    //     }
+    //   } else {
+    //     if (this.rightWidth * 0.5 <= Math.abs(this.distX) && !checkTouchBug(this.distX)) {
+    //       console.log(this.distX)
+    //       this.tslX = -this.rightWidth;
+    //     } else {
+    //       this.setOffset(0, false);
+    //     }
+    //   }
 
-      this.distX = 0
+    //   this.distX = 0;
 
-    },
+    // },
     setOffset (x, animated = false) {
       this.tslX = x;
       this.isOpen = x == 0 ?  false : true;
      
+    },
+    initEvent () {
+      let el = this.$el;
+      let dragState = Object.create(null);
+      draggable(el, {
+        start: (touch, $event) => {
+          dragState = {
+            startTime: new Date(),
+            startX: touch.pageX,
+            startY: touch.pageY
+          };
+
+          this.rightWidth = el.children["0"].offsetWidth;
+          this.leftWidth = el.children["1"].offsetWidth;
+        },
+        drag: (touch, $event) => {
+          if (this.disabled) return
+
+          dragState.dragX = touch.pageX - dragState.startX;
+          dragState.dragY = touch.pageY - dragState.startY;
+
+          this.setOffset(dragState.dragX, false);
+        },
+        end: (touch, $event) => {
+          let duration = new Date() - dragState.startTime;
+
+          if (dragState.dragX == 0) return
+
+          this.swiperStatus = dragState.dragX > 0 ? 'left' : 'right';
+          
+          if (this.swiperStatus == 'left') {
+            if (duration < 100 && 
+              !this.isOpen || 
+              this.leftWidth * 0.5 >= -Math.abs(dragState.dragX) && 
+              !checkTouchBug(dragState.dragX)
+              ) {
+              this.tslX = this.leftWidth;
+            } else {
+              this.setOffset(0, false);
+            }
+          } else {
+            if (duration < 100 && 
+              !this.isOpen || 
+              this.rightWidth * 0.5 <= Math.abs(dragState.dragX) && 
+              !checkTouchBug(dragState.dragX)
+              ) {
+              this.tslX = -this.rightWidth;
+            } else {
+              this.setOffset(0, false);
+            }
+          }
+
+          dragState = Object.create(null);
+        }
+      });
     }
   },
   mounted () {
-
+    this.initEvent()
   }
 }
 </script>
@@ -130,7 +188,7 @@ export default {
     .box {
       button {
         border: 0;
-        background-color: #00BFFF;
+        background-color: @base-color;
         color: #fff;
         width: 1.2rem * @baseRem;
         font-size: .37rem * @baseRem;

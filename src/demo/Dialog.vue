@@ -15,13 +15,13 @@
     <button @click="openToast1('center')">toast center</button>
     <button @click="openToast1('bottom')">toast bottom</button>
     <h5>ActionSheet for ios ↓</h5>
-    <button @click="openActionSheet1('ios')">ActionSheet of default</button>
+    <button @click="openActionSheet1('ios')">ActionSheet of multiple</button>
     <button @click="openActionSheet2('ios')">ActionSheet of with cancel</button>
-    <button @click="openActionSheet3('ios')">ActionSheet of color</button>
+    <button @click="openActionSheet3('ios')">ActionSheet of default</button>
     <h5>ActionSheet for android ↓</h5>
-    <button @click="openActionSheet1('android')">ActionSheet of default</button>
+    <button @click="openActionSheet1('android')">ActionSheet of multiple</button>
     <button @click="openActionSheet2('android')">ActionSheet of with cancel</button>
-    <button @click="openActionSheet3('android')">ActionSheet of color</button>
+    <button @click="openActionSheet3('android')">ActionSheet of default</button>
     <h5>Tip ↓</h5>
     <button @click="openTip1('loading')">Tip of default</button>
     <button @click="openTip1('success')">Tip of success</button>
@@ -121,7 +121,7 @@ export default {
       }
       this.setFlag();
       this.$toast({
-        content: 'has bug: no animation for end',
+        content: '登录成功',
         position: position,
         time: 1500
       })
@@ -224,6 +224,11 @@ export default {
         </svg>`
       })
     }
+  },
+  destroyed () {
+    // let el = document.querySelectorAll('.im-action-sheet')[0]
+    // console.log(this.closeActionSheet)
+    // this.closeActionSheet();
   }
 }
 </script>

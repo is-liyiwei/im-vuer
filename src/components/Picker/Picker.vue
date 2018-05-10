@@ -99,7 +99,7 @@ export default {
       &-header {
         display: flex;
         height: .8rem * @baseRem;
-        background-color: #00bfff;
+        background-color: @base-color;
         display: flex;
         justify-content: space-between;
         align-items: center;

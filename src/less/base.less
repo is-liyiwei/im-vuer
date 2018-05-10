@@ -2,13 +2,19 @@
 
 @prefixClass: im;
 @base-zindex: 1;
-
-
+@base-color: #00bFFF;
 
 @baseRem: 1rem;
+/*@baseRem: 1px;*/
 
-
-
+@keyframes vuer-mask {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 /*遮罩层
 ----------------------------------------------------------------------------*/
@@ -32,4 +38,5 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  animation: vuer-mask .3s linear 0s 1 forwards;
 }
