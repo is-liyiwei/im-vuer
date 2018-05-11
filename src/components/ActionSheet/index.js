@@ -1,6 +1,8 @@
 import ActionSheet from './ActionSheet.vue'
 import { pageScroll } from '../../helper/pageScroll.js'
 
+import { hashChange } from '../../helper/hashChange.js'
+
 let ActionSheetPlugin = {
   install: function (Vue, options) {
     const ActionSheetConstructor = Vue.extend(ActionSheet);
@@ -24,6 +26,7 @@ let ActionSheetPlugin = {
       // 200ms from ActionSheet.vue file cssName 'fadeOut' animation time
       setTimeout( () => {
         el.parentNode && el.parentNode.removeChild(el);
+        window.removeEventListener("hashchange", hashChange.bind(this, el));
       }, 200)
 
     };
@@ -41,6 +44,8 @@ let ActionSheetPlugin = {
           }];
 
       firstChild.className = 'im-action-sheet-box ' + instance.styleFor + ' action-sheet-fadeIn';
+
+      window.addEventListener("hashchange", hashChange.bind(this, el));
 
       document.body.appendChild(el);
       pageScroll.lock();

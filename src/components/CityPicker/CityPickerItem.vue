@@ -1,5 +1,7 @@
 <template>
   <div class="im-picker-box-content-item" ref="wrapper">
+    <!-- bug问题，添加了样式后无法触发js事件 -->
+    <!-- <span class="im-picker-box-content-item-value" v-for="(v, k) in data" :style="{color: dev_currentIndex == k ? '#000' : '#666'}">{{v.n}}</span> -->
     <span class="im-picker-box-content-item-value" v-for="(v, k) in data">{{v.n}}</span>
   </div>
 </template>
@@ -41,7 +43,6 @@ export default {
   methods: {
     init () {
       this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight;
-      this.maxH = this.data.length * this.itemHeight;
     },
     setDefault () {
       // 本想选择之后保持下一联动的位置，但是有bug未能修复，只好先全部置0先

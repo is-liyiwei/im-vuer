@@ -224,11 +224,6 @@ export default {
         </svg>`
       })
     }
-  },
-  destroyed () {
-    // let el = document.querySelectorAll('.im-action-sheet')[0]
-    // console.log(this.closeActionSheet)
-    // this.closeActionSheet();
   }
 }
 </script>

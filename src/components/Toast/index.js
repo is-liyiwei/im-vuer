@@ -1,6 +1,8 @@
 import Toast from './Toast.vue'
 import { pageScroll } from '../../helper/pageScroll.js'
 
+import { hashChange } from '../../helper/hashChange.js'
+
 let ToastPlugin = {
   install: function (Vue, options) {
     const ToastConstructor = Vue.extend(Toast);
@@ -22,6 +24,7 @@ let ToastPlugin = {
       // 200ms from Toast.vue file cssName 'fadeOut' animation time
       setTimeout( () => {
         el.parentNode && el.parentNode.removeChild(el);
+        window.removeEventListener("hashchange", hashChange.bind(this, el));
       }, 200)
 
     };
@@ -33,6 +36,8 @@ let ToastPlugin = {
       instance.time = ~~options.time || 3000;
 
       el.className = `im-toast ${instance.position} toast-fadeIn`;
+
+      window.addEventListener("hashchange", hashChange.bind(this, el));
 
       document.body.appendChild(el);
       pageScroll.lock();

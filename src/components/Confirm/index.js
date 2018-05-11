@@ -1,6 +1,8 @@
 import Confirm from './Confirm.vue'
 import { pageScroll } from '../../helper/pageScroll.js'
 
+import { hashChange } from '../../helper/hashChange.js'
+
 let ConfirmPlugin = {
   install: function (Vue, options) {
     const ConfirmConstructor = Vue.extend(Confirm);
@@ -24,6 +26,7 @@ let ConfirmPlugin = {
       // 200ms from Confirm.vue file cssName 'fadeOut' animation time
       setTimeout( () => {
         el.parentNode && el.parentNode.removeChild(el);
+        window.removeEventListener("hashchange", hashChange.bind(this, el));
       }, 200)
 
     };
@@ -40,6 +43,8 @@ let ConfirmPlugin = {
         }];
 
       firstChild.className = 'im-confirm-box-' + instance.styleFor + ' confirm-fadeIn';
+
+      window.addEventListener("hashchange", hashChange.bind(this, el));
 
       document.body.appendChild(el);
 

@@ -1,6 +1,8 @@
 import Tip from './Tip.vue'
 import { pageScroll } from '../../helper/pageScroll.js'
 
+import { hashChange } from '../../helper/hashChange.js'
+
 let TipPlugin = {
   install: function (Vue, options) {
     const TipConstructor = Vue.extend(Tip);
@@ -22,6 +24,7 @@ let TipPlugin = {
       // 200ms from Tip.vue file cssName 'fadeOut' animation time
       setTimeout( () => {
         el.parentNode && el.parentNode.removeChild(el);
+        window.removeEventListener("hashchange", hashChange.bind(this, el));
       }, 200)
 
     };
@@ -34,6 +37,8 @@ let TipPlugin = {
       instance.tpl = options.tpl || '';
 
       el.className = 'im-tip tip-fadeIn';
+
+      window.addEventListener("hashchange", hashChange.bind(this, el));
 
       document.body.appendChild(el);
       pageScroll.lock();

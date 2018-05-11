@@ -1,6 +1,6 @@
 <template>
   <div class="im-picker-box-content-item" ref="wrapper">
-    <span class="im-picker-box-content-item-value" v-for="(v, k) in data">{{v}}</span>
+    <span class="im-picker-box-content-item-value" v-for="(v, k) in data" :style="{color: dev_currentIndex == k ? '#000' : '#666'}">{{v}}</span>
   </div>
 </template>
 
@@ -34,7 +34,6 @@ export default {
   methods: {
     init () {
       this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight;
-      this.maxH = this.data.length * this.itemHeight;
     },
     setDefault () {
       let _currentIndex = 0;
