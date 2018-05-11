@@ -8,7 +8,7 @@
 
     <div class="switch-box small">
       <span class="result">当前状态：{{data2}}</span>
-      <im-switch v-model="data2"></im-switch>
+      <im-switch v-model="data2" styleFor="ios"></im-switch>
     </div>
 
     <div class="switch-box">
@@ -21,6 +21,26 @@
       <im-switch v-model="data4" :onColor="'#eb9950'" :onBgColor="'#e67e22'"></im-switch>
     </div>
 
+    <div class="switch-box">
+      <span class="result">当前状态：{{data5}}</span>
+      <im-switch v-model="data5" :onColor="'#28e1bd'" :onBgColor="'#1abc9c'" styleFor="android"></im-switch>
+    </div>
+
+    <div class="switch-box small">
+      <span class="result">当前状态：{{data6}}</span>
+      <im-switch v-model="data6" styleFor="android"></im-switch>
+    </div>
+
+    <div class="switch-box">
+      <span class="result">当前状态：{{data7}}</span>
+      <im-switch v-model="data7" :onColor="'#ed7669'" :onBgColor="'#e74c3c'" styleFor="android"></im-switch>
+    </div>
+
+    <div class="switch-box small">
+      <span class="result">当前状态：{{data8}}</span>
+      <im-switch v-model="data8" :onColor="'#eb9950'" :onBgColor="'#e67e22'" styleFor="android"></im-switch>
+    </div>
+
   </div>
 </template>
 
@@ -29,10 +49,14 @@ export default {
   name: 'm-switch',
   data () {
     return {
-      data1: false,
+      data1: true,
       data2: true,
-      data3: false,
-      data4: false
+      data3: true,
+      data4: true,
+      data5: true,
+      data6: true,
+      data7: true,
+      data8: true
     }
   },
   watch: {

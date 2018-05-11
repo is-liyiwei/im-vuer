@@ -1,11 +1,21 @@
 <template>
   <div class="im-switch">
-    <div class="im-switch-box">
-      <input v-model="curIndex" :id="_uid" class="im-switch-box-input" type="checkbox" />
-      <label :for="_uid" class="im-switch-box-slider" :style="curIndex ? switchStyle : ''">
-        <span class="im-switch-box-slider-cur" :style="curIndex ? switchCurStyle : ''"></span>
-      </label>
+
+    <div class="im-switch-box-ios" v-if="styleFor == 'ios'">
+
+      <input v-model="curIndex" :id="_uid" class="im-switch-box-ios-input" type="checkbox" :style="curIndex ? switchStyle : ''" />
+      
     </div>
+
+    <div class="im-switch-box-android" v-else>
+
+      <input v-model="curIndex" :id="_uid" class="im-switch-box-android-input" type="checkbox" />
+      <label :for="_uid" class="im-switch-box-android-slider" :style="curIndex ? switchStyle : ''">
+        <span class="im-switch-box-android-slider-cur" :style="curIndex ? switchCurStyle : ''"></span>
+      </label>
+      
+    </div>
+
   </div>
 </template>
 
@@ -29,9 +39,13 @@ export default {
     value: {
       type: Boolean,
       default: false
+    },
+    styleFor: {
+      type: String,
+      default: 'ios'
     }
   },
-  created: function () {
+  created () {
     this.curIndex = this.value
   },
   computed: {
@@ -65,7 +79,7 @@ export default {
       padding: 0;
       box-sizing: border-box;
     }
-    &-box {
+    &-box-android {
       height: 100%;
       &-input {
         position: absolute;
@@ -76,7 +90,7 @@ export default {
         display: inline-block;
         height: .2rem * @baseRem;
         width: 1rem * @baseRem;
-        background: #d5d5d5;
+        background: #e8e8e8;
         border-radius: .08rem * @baseRem;
         cursor: pointer;
         -webkit-transition: all 0.3s cubic-bezier(.45,.25,.67,.86);
@@ -98,10 +112,56 @@ export default {
         }
       }
     }
+    &-box-ios {
+      &-input{
+        appearance: none;
+        -webkit-appearance: none;
+        position: relative;
+        width: 1rem;
+        height: .5rem;
+        background: #e8e8e8;
+        border-radius: 16rem;
+        border: 1px solid #d5d5d5;
+        outline: 0;
+        box-sizing: border-box;
+        &:checked {
+          &:before {
+            transform: scale(0);
+            -webkit-transform: scale(0);
+          }
+          &:after {
+            transform: translateX(1rem - .5rem);
+            -webkit-transform: translateX(1rem - .5rem);
+          }
+        }
+        &:before, &:after {
+          content: " ";
+          position: absolute;
+          top: -.01rem;
+          left: 0;
+          height: .5rem;
+          border-radius: 15rem;
+          transition: transform 0.3s;
+          transition: -webkit-transform 0.3s;
+          transition: transform 0.3s, -webkit-transform 0.3s;
+          -webkit-transition: -webkit-transform 0.3s;
+        }
+        &:before {
+          width: 1rem;
+          background-color: #fdfdfd;
+        }
+        &:after {
+          width: .5rem;
+          background-color: white;
+          box-shadow: 0 .01rem .03rem rgba(0, 0, 0, 0.4);
+        }
+      }
+    }
   }
 }
 
-.im-switch-box .im-switch-box-input:checked ~ .im-switch-box-slider .im-switch-box-slider-cur {
+.im-switch-box-android .im-switch-box-android-input:checked ~ .im-switch-box-android-slider .im-switch-box-android-slider-cur {
   left: 1-0.3rem * @baseRem;
 }
+
 </style>

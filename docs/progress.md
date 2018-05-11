@@ -30,7 +30,7 @@ Vue.component(Progress.name, Progress)
     <br>
     <button id="btn-progress" @click="top">顶部进度条</button>
     <br>
-    <im-progress :inTop="true" v-show="data5 != 0 && data5 != 100" progress-height="5" :progress-width="data5"></im-progress>
+    <im-progress progress-color="#b503ff" :inTop="true" v-show="data5 != 0 && data5 != 100" progress-height="5" :progress-width="data5"></im-progress>
   </div>
 </template>
 

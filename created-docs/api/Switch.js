@@ -16,6 +16,12 @@ let api = [{
   type: 'String',
   optional: '-',
   default: '#00bfff'
+},{
+  params: 'styleFor',
+  instructions: '样式风格',
+  type: 'String',
+  optional: 'ios, android',
+  default: 'ios'
 }]
 
 module.exports = api

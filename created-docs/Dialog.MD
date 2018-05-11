@@ -34,10 +34,14 @@ Vue.use(TipPlugin);
     <button @click="openToast1('top')">toast top</button>
     <button @click="openToast1('center')">toast center</button>
     <button @click="openToast1('bottom')">toast bottom</button>
-    <h5>ActionSheet ↓</h5>
-    <button @click="openActionSheet1()">ActionSheet of default</button>
-    <button @click="openActionSheet2()">ActionSheet of no cancel</button>
-    <button @click="openActionSheet3()">ActionSheet of color</button>
+    <h5>ActionSheet for ios ↓</h5>
+    <button @click="openActionSheet1('ios')">ActionSheet of multiple</button>
+    <button @click="openActionSheet2('ios')">ActionSheet of with cancel</button>
+    <button @click="openActionSheet3('ios')">ActionSheet of default</button>
+    <h5>ActionSheet for android ↓</h5>
+    <button @click="openActionSheet1('android')">ActionSheet of multiple</button>
+    <button @click="openActionSheet2('android')">ActionSheet of with cancel</button>
+    <button @click="openActionSheet3('android')">ActionSheet of default</button>
     <h5>Tip ↓</h5>
     <button @click="openTip1('loading')">Tip of default</button>
     <button @click="openTip1('success')">Tip of success</button>
@@ -137,18 +141,44 @@ export default {
       }
       this.setFlag();
       this.$toast({
-        content: 'has bug: no animation for end',
+        content: '登录成功',
         position: position,
         time: 1500
       })
     },
-    openActionSheet1 () {
+    openActionSheet1 (styleFor) {
       this.$actionSheet({
-
+        styleFor,
+        opts: [{
+          txt: '回复',
+          cb: () => {
+            console.log(1)
+          }
+        },{
+          txt: '转发',
+          color: '#f00',
+          cb: () => {
+            console.log(2)
+          }
+        },{
+          txt: '打印',
+          color: '#009688',
+          cb: () => {
+            console.log(3)
+          }
+        },{
+          txt: '评论',
+          color: '#673ab7',
+          cb: () => {
+            console.log(4)
+          }
+        }],
+        hasCancel: true
       })
     },
-    openActionSheet2 () {
+    openActionSheet2 (styleFor) {
       this.$actionSheet({
+        styleFor,
         opts: [{
           txt: '拍照',
           cb: () => {
@@ -156,7 +186,7 @@ export default {
           }
         },{
           txt: '从本地选择',
-          color: '#00bFFF',
+          color: '#f00',
           cb: () => {
             console.log(2)
           }
@@ -164,8 +194,9 @@ export default {
         hasCancel: true
       })
     },
-    openActionSheet3 () {
+    openActionSheet3 (styleFor) {
       this.$actionSheet({
+        styleFor,
         opts: [{
           txt: '默认是没有取消按钮',
           cb: () => {
@@ -265,10 +296,10 @@ h5 {
     <tbody>
     <tr>
       <td>Confirm组件</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td>
     </tr>
     <tr>
       <td>title</td> 
@@ -289,7 +320,7 @@ h5 {
       <td>样式</td> 
       <td>String</td> 
       <td>ios, android</td> 
-      <td>-</td>
+      <td>ios</td>
     </tr>
     <tr>
       <td>opts</td> 
@@ -300,10 +331,10 @@ h5 {
     </tr>
     <tr>
       <td>Toast组件</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>Toast组件</td> 
+      <td>Toast组件</td> 
+      <td>Toast组件</td> 
+      <td>Toast组件</td>
     </tr>
     <tr>
       <td>content</td> 
@@ -328,10 +359,17 @@ h5 {
     </tr>
     <tr>
       <td>ActionSheet组件</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td>
+    </tr>
+    <tr>
+      <td>styleFor</td> 
+      <td>样式</td> 
+      <td>String</td> 
+      <td>ios, android</td> 
+      <td>android</td>
     </tr>
     <tr>
       <td>hasCancel</td> 
@@ -349,10 +387,10 @@ h5 {
     </tr>
     <tr>
       <td>Tip组件</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td>
+      <td>Tip组件</td> 
+      <td>Tip组件</td> 
+      <td>Tip组件</td> 
+      <td>Tip组件</td>
     </tr>
     <tr>
       <td>txt</td> 
