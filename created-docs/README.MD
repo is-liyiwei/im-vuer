@@ -21,7 +21,7 @@ Dialog.MD要手动改下，特殊引入方式
 
 3、example里面的文件更新到github.io上面(另一个git)，更新示例
 
-4、如果修改了文档什么的，还要更改docs目录，使用本目录的createFile.js自动生成
+4、如果修改了文档什么的，还要更改docs目录，使用本目录的createFile.js自动生成，然后create目录全部覆盖docs目录
 
 5、然后修改package.json的version，然后发布到npm上
 

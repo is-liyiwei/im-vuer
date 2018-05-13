@@ -15,13 +15,13 @@ export default {
   data () {
     return {
     	list: [{
-			  name: '分类1'
+			  name: '电影'
 			},{
-			  name: '分类2'
+			  name: '电视剧'
 			},{
-			  name: '分类3'
+			  name: '音乐'
 			},{
-			  name: '分类4'
+			  name: '动漫'
 			}],
 			activeCurrIndex: 1
     }

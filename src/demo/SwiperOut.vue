@@ -14,7 +14,7 @@
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
         </template>
 
-        <div slot="content">滑我{{v}} 两边都有两边都有</div>
+        <div slot="content">滑我{{v}} 两边都有两边都有两边都有</div>
     </im-swiper-out>
 
     <im-swiper-out v-for="v in [4,5,6]" style="padding: 20px 0;" :key="v">
@@ -25,7 +25,7 @@
           <button @click="clickHandle">{{'Ignore'}}</button>
         </template>
 
-        <div slot="content">滑我{{v}} 没有左边没有左边</div>
+        <div slot="content">滑我{{v}} 没有左边没有左边没有左边</div>
     </im-swiper-out>
 
     <im-swiper-out v-for="v in [7,8,9]" style="padding: 20px 0;" :key="v">
@@ -35,7 +35,7 @@
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
         </template>
 
-        <div slot="content">滑我{{v}} 没有右边没有右边</div>
+        <div slot="content">滑我{{v}} 没有右边没有右边没有右边</div>
     </im-swiper-out>
 
   </div>
@@ -48,12 +48,6 @@ export default {
     return {
       
     }
-  },
-  components: {
-
-  },
-  created: function () {
-    
   },
   methods: {
     clickHandle () {

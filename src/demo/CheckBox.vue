@@ -3,10 +3,10 @@
     <div style="display: flex;justify-content: space-around;flex-direction: column;">
       <im-checkbox v-model="result">
         <div class="demo-box">
-          <im-checkbox-item :isCheck="true" :val="'square1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
+          <im-checkbox-item :isCheck="false" :val="'square1'" activeBgColor="#ff71e0" activeColor="#00ff37"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :isCheck="false" :val="'square2'" activeBgColor="#f00" activeColor="#fbff00"></im-checkbox-item>
+          <im-checkbox-item :isCheck="true" :val="'square2'" activeBgColor="#f00" activeColor="#fbff00"></im-checkbox-item>
         </div>
         <div class="demo-box">
           <im-checkbox-item :isCheck="false" :val="'square3'"></im-checkbox-item>
@@ -30,7 +30,7 @@
           <im-checkbox-item circle :isCheck="true" :val="'circle3'"></im-checkbox-item>
         </div>
         <div class="demo-box">
-          <im-checkbox-item :circle="false" :isCheck="true" :val="'circle4'"></im-checkbox-item>
+          <im-checkbox-item circle :isCheck="true" :val="'circle4'"></im-checkbox-item>
         </div>
       </im-checkbox>
     </div>
@@ -54,7 +54,7 @@ export default {
 <style lang="less" scoped>
 .demo-box {
   border-bottom: 1px solid #777;
-  padding: 20px 50px;
+  padding: 10px 50px;
 }
 
 .result-box {

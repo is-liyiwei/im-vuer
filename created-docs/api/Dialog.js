@@ -1,9 +1,9 @@
 let api = [{
   params: 'Confirm组件',
-  instructions: '-',
-  type: '-',
-  optional: '-',
-  default: '-'
+  instructions: 'Confirm组件',
+  type: 'Confirm组件',
+  optional: 'Confirm组件',
+  default: 'Confirm组件'
 },{
   params: 'title',
   instructions: '标题',
@@ -30,10 +30,10 @@ let api = [{
   default: 'ios'
 },{
   params: 'Toast组件',
-  instructions: '-',
-  type: '-',
-  optional: '-',
-  default: '-'
+  instructions: 'Toast组件',
+  type: 'Toast组件',
+  optional: 'Toast组件',
+  default: 'Toast组件'
 },{
   params: 'content',
   instructions: '文本',
@@ -54,10 +54,10 @@ let api = [{
   default: '3000'
 },{
   params: 'ActionSheet组件',
-  instructions: '-',
-  type: '-',
-  optional: '-',
-  default: '-'
+  instructions: 'ActionSheet组件',
+  type: 'ActionSheet组件',
+  optional: 'ActionSheet组件',
+  default: 'ActionSheet组件'
 },{
   params: 'styleFor',
   instructions: '样式',
@@ -78,10 +78,10 @@ let api = [{
   default: ''
 },{
   params: 'Tip组件',
-  instructions: '-',
-  type: '-',
-  optional: '-',
-  default: '-'
+  instructions: 'Tip组件',
+  type: 'Tip组件',
+  optional: 'Tip组件',
+  default: 'Tip组件'
 },{
   params: 'txt',
   instructions: '文本',

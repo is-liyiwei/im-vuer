@@ -38,7 +38,7 @@ export default {
         top: '已发货',
         bottom: '广州市'
       },{
-        top: '运输',
+        top: '运输中',
       },{
         top: '已收货',
         bottom: ''
@@ -111,10 +111,11 @@ export default {
 }
 .btn {
    border: none;
-   background-color: #f00;
+   background-color: #00bfff;
    color: #FFF;
    padding: .2rem;
    margin: .2rem;
+   width: 100%;
    display: block;
    font-size: .37rem;
    border-radius: 2rem;

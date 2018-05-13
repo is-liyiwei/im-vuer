@@ -12,25 +12,25 @@
 <script>
 
 const list = [
-'Tab',
-'Step',
-'TimeLine',
-'Marquee',
-'CountUp',
-'Rater',
-'Switch',
 'CheckBox',
-'Radio',
-'Swiper',
-'IndexList',
 'CityPicker',
-'Progress',
+'CountUp',
 'DatePicker',
-'PullRefresh',
-'Picker',
-'SwiperBox',
 'Dialog',
-'SwiperOut'
+'IndexList',
+'Marquee',
+'Picker',
+'Progress',
+'PullRefresh',
+'Radio',
+'Rater',
+'Step',
+'Swiper',
+'SwiperBox',
+'SwiperOut',
+'Switch',
+'Tab',
+'TimeLine'
 ]
 
 export default {
@@ -40,11 +40,19 @@ export default {
       list
     }
   },
-  components: {
-
-  },
-  created: function () {
-    
+  created () {
+    this.$confirm({
+      title: 'Welcome',
+      content: '欢迎使用im-vuer',
+      styleFor: 'ios',
+      opts: [{
+        txt: '确定',
+        color: '#00bfff',
+        cb: () => {
+          
+        }
+      }]
+    })
   }
 }
 </script>

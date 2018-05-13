@@ -22,13 +22,13 @@ Vue.component(Progress.name, Progress)
     <br>
     <im-progress :progress-width="data3" color="#39ff39" progress-height="5"></im-progress>
     <br>
-    <button id="btn-progress" @click="upFile">点击上传</button>
+    <button class="btn-progress" @click="upFile">点击上传</button>
     <br>
     <im-progress v-show="data4 != 0 && data4 != 100" :progress-width="data4">
       <span class="im-progress-start progress-text" slot="endText">{{data4}}%</span>
     </im-progress>
     <br>
-    <button id="btn-progress" @click="top">顶部进度条</button>
+    <button class="btn-progress" @click="top">顶部进度条</button>
     <br>
     <im-progress progress-color="#b503ff" :inTop="true" v-show="data5 != 0 && data5 != 100" progress-height="5" :progress-width="data5"></im-progress>
   </div>
@@ -111,7 +111,7 @@ Vue.component(Progress.name, Progress)
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-#btn-progress {
+.btn-progress {
    border: none;
    background-color: #00bfff;
    color: #FFF;
@@ -119,7 +119,7 @@ Vue.component(Progress.name, Progress)
    margin: .2rem auto;
    width: 90%;
    display: block;
-   font-size: .2rem;
+   font-size: .37rem;
 }
 </style>
 ```

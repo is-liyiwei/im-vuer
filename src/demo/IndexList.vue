@@ -262,7 +262,18 @@ export default {
   },
   methods: {
     myClick (item) {
-      console.log(item)
+      this.$confirm({
+        title: '点击的是',
+        content: item.name,
+        styleFor: 'ios',
+        opts: [{
+          txt: '确定',
+          color: '#f00',
+          cb: () => {
+
+          }
+        }]
+      })
     }
   }
 }

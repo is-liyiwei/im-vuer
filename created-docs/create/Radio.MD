@@ -54,12 +54,6 @@ export default {
       radio4: '大号字体1'
     }
   },
-  components: {
-
-  },
-  created: function () {
-    
-  },
   watch: {
   	radio1 (newVal, oldVal) {
   		console.log(newVal, oldVal)
@@ -82,6 +76,7 @@ export default {
 .demo-radio .result {
   font-size: .37rem;
   padding: .2rem;
+  margin: 0;
 }
 </style>
 
