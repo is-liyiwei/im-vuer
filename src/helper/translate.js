@@ -1,85 +1,86 @@
-var exportObj = {};
+var exportObj = {}
 // import Vue from 'vue';
 // if (!Vue.prototype.$isServer) {
-if (true) {
-  var docStyle = document.documentElement.style;
-  var engine;
-  var translate3d = false;
+let flag = true
+if (flag) {
+  var docStyle = document.documentElement.style
+  var engine
+  var translate3d = false
 
   if (window.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
-    engine = 'presto';
+    engine = 'presto'
   } else if ('MozAppearance' in docStyle) {
-    engine = 'gecko';
+    engine = 'gecko'
   } else if ('WebkitAppearance' in docStyle) {
-    engine = 'webkit';
+    engine = 'webkit'
   } else if (typeof navigator.cpuClass === 'string') {
-    engine = 'trident';
+    engine = 'trident'
   }
 
-  var cssPrefix = {trident: '-ms-', gecko: '-moz-', webkit: '-webkit-', presto: '-o-'}[engine];
+  var cssPrefix = {trident: '-ms-', gecko: '-moz-', webkit: '-webkit-', presto: '-o-'}[engine]
 
-  var vendorPrefix = {trident: 'ms', gecko: 'Moz', webkit: 'Webkit', presto: 'O'}[engine];
+  var vendorPrefix = {trident: 'ms', gecko: 'Moz', webkit: 'Webkit', presto: 'O'}[engine]
 
-  var helperElem = document.createElement('div');
-  var perspectiveProperty = vendorPrefix + 'Perspective';
-  var transformProperty = vendorPrefix + 'Transform';
-  var transformStyleName = cssPrefix + 'transform';
-  var transitionProperty = vendorPrefix + 'Transition';
-  var transitionStyleName = cssPrefix + 'transition';
-  var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd';
+  var helperElem = document.createElement('div')
+  var perspectiveProperty = vendorPrefix + 'Perspective'
+  var transformProperty = vendorPrefix + 'Transform'
+  var transformStyleName = cssPrefix + 'transform'
+  var transitionProperty = vendorPrefix + 'Transition'
+  var transitionStyleName = cssPrefix + 'transition'
+  var transitionEndProperty = vendorPrefix.toLowerCase() + 'TransitionEnd'
 
   if (helperElem.style[perspectiveProperty] !== undefined) {
-    translate3d = true;
+    translate3d = true
   }
 
-  var getTranslate = function(element) {
-    var result = {left: 0, top: 0};
-    if (element === null || element.style === null) return result;
+  var getTranslate = function (element) {
+    var result = {left: 0, top: 0}
+    if (element === null || element.style === null) return result
 
-    var transform = element.style[transformProperty];
-    var matches = /translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/ig.exec(transform);
+    var transform = element.style[transformProperty]
+    var matches = /translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/ig.exec(transform)
     if (matches) {
-      result.left = +matches[1];
-      result.top = +matches[3];
+      result.left = +matches[1]
+      result.top = +matches[3]
     }
 
-    return result;
-  };
+    return result
+  }
 
-  var translateElement = function(element, x, y) {
-    if (x === null && y === null) return;
+  var translateElement = function (element, x, y) {
+    if (x === null && y === null) return
 
-    if (element === null || element === undefined || element.style === null) return;
+    if (element === null || element === undefined || element.style === null) return
 
-    if (!element.style[transformProperty] && x === 0 && y === 0) return;
+    if (!element.style[transformProperty] && x === 0 && y === 0) return
 
     if (x === null || y === null) {
-      var translate = getTranslate(element);
+      var translate = getTranslate(element)
       if (x === null) {
-        x = translate.left;
+        x = translate.left
       }
       if (y === null) {
-        y = translate.top;
+        y = translate.top
       }
     }
 
-    cancelTranslateElement(element);
+    cancelTranslateElement(element)
 
     if (translate3d) {
-      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ') translateZ(0px)';
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ') translateZ(0px)'
     } else {
-      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ')';
+      element.style[transformProperty] += ' translate(' + (x ? (x + 'px') : '0px') + ',' + (y ? (y + 'px') : '0px') + ')'
     }
-  };
+  }
 
-  var cancelTranslateElement = function(element) {
-    if (element === null || element.style === null) return;
-    var transformValue = element.style[transformProperty];
+  var cancelTranslateElement = function (element) {
+    if (element === null || element.style === null) return
+    var transformValue = element.style[transformProperty]
     if (transformValue) {
-      transformValue = transformValue.replace(/translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/g, '');
-      element.style[transformProperty] = transformValue;
+      transformValue = transformValue.replace(/translate\(\s*(-?\d+(\.?\d+?)?)px,\s*(-?\d+(\.\d+)?)px\)\s*translateZ\(0px\)/g, '')
+      element.style[transformProperty] = transformValue
     }
-  };
+  }
   exportObj = {
     transformProperty: transformProperty,
     transformStyleName: transformStyleName,
@@ -89,7 +90,7 @@ if (true) {
     getElementTranslate: getTranslate,
     translateElement: translateElement,
     cancelTranslateElement: cancelTranslateElement
-  };
+  }
 };
 
-export default exportObj ;
+export default exportObj

@@ -1,13 +1,14 @@
 <template>
   <div class="im-rater">
     <div class="im-rater-box" :style="{ fontSize: fontSize }">
-      <span 
-      class="im-rater-box-item" 
-      v-for="(v, k) in ~~max" 
-      :key="k"
-      :style="[starStyle, k < currentIndex || min > k ? activeColorStyle : offColorStyle]" 
-      v-html="star"
-      @click="clickHandle(k + 1)"></span>
+      <span
+        class="im-rater-box-item"
+        v-for="(v, k) in ~~max"
+        :key="k"
+        :style="[starStyle, k < currentIndex || min > k ? activeColorStyle : offColorStyle]"
+        v-html="star"
+        @click="clickHandle(k + 1)">
+      </span>
     </div>
   </div>
 </template>
@@ -15,12 +16,6 @@
 <script>
 export default {
   name: 'im-rater',
-  created () {
-    this.currentIndex = this.value;
-  },
-  mounted () {
-    
-  },
   props: {
     min: {
       type: Number,
@@ -56,6 +51,9 @@ export default {
       default: '#ccc'
     }
   },
+  created () {
+    this.currentIndex = this.value
+  },
   computed: {
     starStyle () {
       return {
@@ -75,26 +73,21 @@ export default {
   },
   methods: {
     clickHandle (k) {
-
       if (this.disabled) return
 
-      if (this.currentIndex == k) {
-        this.currentIndex = (k - 1) < this.min ? this.min : (k - 1);
+      if (+this.currentIndex === k) {
+        this.currentIndex = (k - 1) < this.min ? this.min : (k - 1)
       } else {
-        this.currentIndex = k < this.min ? this.min : k;
+        this.currentIndex = k < this.min ? this.min : k
       }
 
       this.$emit('input', this.currentIndex)
-
     }
   },
   data () {
     return {
       currentIndex: 0
     }
-  },
-  watch: {
-
   }
 }
 </script>

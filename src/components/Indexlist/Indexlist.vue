@@ -2,18 +2,18 @@
   <div id="list-box" class="im-index-list">
 
     <ul class="im-index-list-content">
-      <li v-for="(v, k) in dataList" :id="v.title" class="im-index-list-content-item">
+      <li v-for="(v, k) in dataList" :key="k" :id="v.title" class="im-index-list-content-item">
         <p class="im-index-list-content-item-title">{{v.title}}</p>
-        <p class="im-index-list-content-item-text" v-for="(vv, kk) in v.list" @click="handleClick(vv)">{{vv.name}}</p>
+        <p class="im-index-list-content-item-text" v-for="(vv, kk) in v.list" :key="kk" @click="handleClick(vv)">{{vv.name}}</p>
       </li>
     </ul>
 
-    <ul 
+    <ul
       class="im-index-list-idx"
       @touchstart="start"
       @touchmove="move"
       @touchend="end">
-      <li v-for="(v, k) in dataList" class="im-index-list-idx-item">{{v.title}}</li>
+      <li v-for="(v, k) in dataList" :key="k" class="im-index-list-idx-item">{{v.title}}</li>
     </ul>
 
     <div class="im-index-list-indicator" v-if="showIndicator">{{indicator}}</div>
@@ -31,7 +31,8 @@ export default {
       targetInnerText: null,
       navOffsetX: null,
       indicator: '',
-      showIndicator: false
+      showIndicator: false,
+      offsetTopForBox: 0
     }
   },
   props: {
@@ -44,45 +45,45 @@ export default {
   },
   mounted: function () {
     this.box = document.getElementById('list-box')
+    this.offsetTopForBox = this.box.getBoundingClientRect().top
   },
   methods: {
     start (evt) {
-      if (evt.target.tagName.toLowerCase() == 'li') {
-        this.targetInnerText = evt.target.innerText;
+      if (evt.target.tagName.toLowerCase() === 'li') {
+        this.targetInnerText = evt.target.innerText
       } else {
-        this.targetInnerText = null;
+        this.targetInnerText = null
       }
 
-      this.scrollTo(0, evt.touches[0].clientY);
+      this.scrollTo(0, evt.touches[0].clientY)
 
-      this.navOffsetX = evt.changedTouches[0].clientX;
+      this.navOffsetX = evt.changedTouches[0].clientX
     },
     move (evt) {
-      evt.preventDefault();
+      evt.preventDefault()
 
-      if (evt.target.tagName.toLowerCase() == 'li') {
-        this.targetInnerText = evt.target.innerText;
+      if (evt.target.tagName.toLowerCase() === 'li') {
+        this.targetInnerText = evt.target.innerText
       } else {
-        this.targetInnerText = null;
+        this.targetInnerText = null
       }
 
-      this.scrollTo(0, evt.touches[0].clientY);
+      this.scrollTo(0, evt.touches[0].clientY)
     },
     end (evt) {
-      this.showIndicator = false;
+      this.showIndicator = false
     },
     scrollTo (distX, distY) {
-      let moveTargetDom = document.elementFromPoint(this.navOffsetX, distY);
+      let moveTargetDom = document.elementFromPoint(this.navOffsetX, distY)
 
-      if (moveTargetDom.nodeName.toLowerCase() == 'li') {
+      if (moveTargetDom.nodeName.toLowerCase() === 'li') {
+        this.showIndicator = true
 
-        this.showIndicator = true;
+        this.indicator = moveTargetDom.innerText
 
-        this.indicator = moveTargetDom.innerText;
-
-        let scroll_Y = document.getElementById(moveTargetDom.innerText).getBoundingClientRect().top;
-        if (Math.abs(scroll_Y) > 0) {
-          this.box.scrollTop += document.getElementById(moveTargetDom.innerText).getBoundingClientRect().top
+        let scrollY = document.getElementById(moveTargetDom.innerText).getBoundingClientRect().top
+        if (Math.abs(scrollY) > 0) {
+          this.box.scrollTop += document.getElementById(moveTargetDom.innerText).getBoundingClientRect().top - this.offsetTopForBox
         }
       }
     },
@@ -116,24 +117,24 @@ export default {
       right: 0;
       top: 0;
       background-color: rgba(0, 0, 0, .3);
-      width: .4rem * @baseRem;
+      width: .4px * @baseRem;
       height: 100%;
-      font-size: .26rem * @baseRem;
+      font-size: .26px * @baseRem;
       color: #FFF;
       &-item {
-        padding: .03rem * @baseRem .1rem * @baseRem;
+        padding: .03px * @baseRem .1px * @baseRem;
       }
     }
     &-content {
       &-item {
         &-title {
           background-color: #e9e9e9;
-          font-size: .37rem * @baseRem;
-          padding: .2rem * @baseRem;
+          font-size: .37px * @baseRem;
+          padding: .2px * @baseRem;
         }
         &-text {
-          font-size: .27rem * @baseRem;
-          padding: .2rem * @baseRem;
+          font-size: .27px * @baseRem;
+          padding: .2px * @baseRem;
           border-bottom: 1px solid #c1c1c1;
         }
       }
@@ -145,9 +146,9 @@ export default {
       -webkit-transform: translate3d(-50%, -50%, 0);
       transform: translate3d(-50%, -50%, 0);
       background-color: rgba(0, 0, 0, .3);
-      width: 1rem * @baseRem;
-      height: 1rem * @baseRem;
-      font-size: .6rem * @baseRem;
+      width: 1px * @baseRem;
+      height: 1px * @baseRem;
+      font-size: .6px * @baseRem;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -159,8 +160,8 @@ export default {
 
 #list-box {
   overflow-y: scroll;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  position: absolute;  
+  position: absolute;
 }
 </style>

@@ -6,12 +6,11 @@
 
 <script>
 import CountUp from './countUp.js'
-
 export default {
   name: 'im-countup',
   data () {
     return {
-      
+
     }
   },
   props: {
@@ -69,9 +68,9 @@ export default {
   watch: {
     start (val) {
       if (val) {
-        this._countup.start();
+        this._countup.start()
       } else {
-        this._countup.pauseResume();
+        this._countup.pauseResume()
       }
     },
     endVal (val) {

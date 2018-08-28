@@ -24,18 +24,12 @@ export default {
       duration: 3
     }
   },
-  components: {
-
-  },
-  mounted: function () {
-
-  },
   methods: {
     startHandle () {
-      this.start = !this.start;
+      this.start = !this.start
     },
     reset () {
-      this.$refs.c._countup.reset();
+      this.$refs.c._countup.reset()
     }
   }
 }
@@ -49,11 +43,11 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  font-size: .3rem;
+  font-size: 32px;
   height: 5rem;
   p {
     color: red;
-    font-size: .27rem;
+    font-size: 26px;
   }
 }
 
@@ -65,6 +59,6 @@ export default {
   margin: .2rem auto;
   width: 90%;
   display: block;
-  font-size: .37rem;
+  font-size: 32px;
 }
 </style>

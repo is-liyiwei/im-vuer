@@ -2,7 +2,7 @@
   <div class="im-tab">
 
     <div class="im-tab-box">
-      <div v-for="(v, k) in list" class="im-tab-box-item" @click="clickItem(k)">
+      <div v-for="(v, k) in list" :key="k" class="im-tab-box-item" @click="clickItem(k)">
         <div :style="{ color: currIndex === k ? textColorActive : textColorDefault }">{{v.name}}</div>
         <span class="im-tab-box-label" v-if="v.label" :style="{ backgroundColor: labelColor, color: labelTextColor }">{{v.label}}</span>
       </div>
@@ -60,13 +60,13 @@ export default {
   },
   methods: {
     clickItem (idx) {
-      this.currIndex = idx;
+      this.currIndex = idx
       this.$emit('on-tab', idx)
     }
   },
   computed: {
     innerBarStyle () {
-      let x = 100 * (this.currIndex);
+      let x = 100 * (this.currIndex)
       let styleObj = {
         transform: `translate(${x}%, 0)`,
         height: `${this.lineThickness}`,
@@ -76,15 +76,9 @@ export default {
       return styleObj
     }
   },
-  components: {
-
-  },
-  created: function () {
-    
-  },
   watch: {
     activeCurrIndex (newVal) {
-      this.currIndex = newVal;
+      this.currIndex = newVal
     }
   }
 }
@@ -111,8 +105,7 @@ export default {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      /*padding: .3rem * @baseRem 0;*/
-      border-bottom: 1px solid #e2e2e2;
+      border-bottom: .01px * @baseRem solid #e2e2e2;
       &-item {
         display: -webkit-flex;
         display: flex;
@@ -121,18 +114,18 @@ export default {
         flex: 1;
         width: 100%;
         height: 100%;
-        font-size: .3rem * @baseRem;
-        padding: .2rem * @baseRem .1rem * @baseRem;
+        font-size: .3px * @baseRem;
+        padding: .2px * @baseRem .1px * @baseRem;
       }
       &-label {
-        margin-left: .1rem * @baseRem;
+        margin-left: .1px * @baseRem;
         border-radius: 50%;
-        width: .35rem * @baseRem;
-        height: .35rem * @baseRem;
-        line-height: .35rem * @baseRem;
+        width: .35px * @baseRem;
+        height: .35px * @baseRem;
+        line-height: .35px * @baseRem;
         color: #FFF;
         text-align: center;
-        font-size: .3rem * @baseRem;
+        font-size: .3px * @baseRem;
       }
     }
     &-line {

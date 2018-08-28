@@ -10,19 +10,13 @@ export default {
   name: 'im-timeline-item',
   data () {
     return {
-      
+
     }
   },
   props: {
     item: {
       type: Object
     }
-  },
-  components: {
-
-  },
-  created: function () {
-    
   }
 }
 </script>

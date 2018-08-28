@@ -1,3 +1,3 @@
-import PullRefresh from './PullRefresh.vue';
+import PullRefresh from './PullRefresh.vue'
 
-export { PullRefresh };
+export { PullRefresh }

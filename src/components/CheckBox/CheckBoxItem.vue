@@ -27,8 +27,8 @@ export default {
       default: '#FFFFFF'
     },
     isCheck: {
-    	type: Boolean,
-    	default: false
+      type: Boolean,
+      default: false
     },
     circle: {
       type: Boolean,
@@ -37,9 +37,9 @@ export default {
   },
   methods: {
     changeHandler () {
-    	this.$parent.update()
+      this.$parent.update()
     }
-	},
+  },
   computed: {
     checkboxStyle () {
       return {
@@ -60,5 +60,3 @@ export default {
 <style lang="less" scoped>
 
 </style>
-
-

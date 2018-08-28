@@ -9,11 +9,11 @@ export default {
   name: 'im-swiper-item',
   data () {
     return {
-      
+
     }
   },
   mounted () {
-    this.$parent.init();
+    this.$parent.init()
   }
 }
 </script>

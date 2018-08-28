@@ -71,9 +71,9 @@ export default {
     }
   },
   watch: {
-  	data1 () {
-  		console.log('data1 change', this.data1)
-  	}
+    data1 () {
+      console.log('data1 change', this.data1)
+    }
   }
 }
 </script>

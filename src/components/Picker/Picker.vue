@@ -8,7 +8,7 @@
       </div>
 
       <div class="im-picker-box-content">
- 
+
         <slot></slot>
 
         <div class="line-box"></div>
@@ -42,19 +42,15 @@ export default {
       this.$emit('confirmBtn', this.resultData)
     },
     updateValue () {
-      this.resultData = [];
-      this.childrens = this.$children.filter(item => item.$options.name === 'im-picker-item');
+      this.resultData = []
+      this.childrens = this.$children.filter(item => item.$options.name === 'im-picker-item')
       for (let i = 0; i < this.childrens.length; i++) {
-        
         this.resultData.push(this.childrens[i].resultItem)
       }
     }
   },
-  computed: {
-
-  },
   mounted () {
-    this.updateValue();
+    this.updateValue()
   }
 }
 </script>
@@ -75,12 +71,12 @@ export default {
       bottom: 0;
       width: 100%;
       background-color: #fff;
-      font-size: .3rem * @baseRem;
+      font-size: .3px * @baseRem;
       transition: all .3s;
       &-content {
         display: flex;
         /*height: 400px;*/
-        height: 4.8rem * @baseRem;
+        height: 4.8px * @baseRem;
         overflow: hidden;
         justify-content: space-around;
         position: relative;
@@ -90,21 +86,21 @@ export default {
           flex: 1;
           &-value {
             text-align: center;
-            height: .8rem * @baseRem;
-            line-height: .8rem * @baseRem;
+            height: .8px * @baseRem;
+            line-height: .8px * @baseRem;
             display: block;
           }
         }
       }
       &-header {
         display: flex;
-        height: .8rem * @baseRem;
+        height: .8px * @baseRem;
         background-color: @base-color;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 40px;
-        font-size: .37rem * @baseRem;
+        font-size: .37px * @baseRem;
         div {
           color: #FFF;
         }
@@ -115,8 +111,8 @@ export default {
 .line-box {
   position: absolute;
   width: 100%;
-  height: .8rem * @baseRem;
-  top: 1.6rem * @baseRem;
+  height: .8px * @baseRem;
+  top: 1.6px * @baseRem;
   border-color: #5d5d5d;
   border-style: solid;
   border-width: 1px;

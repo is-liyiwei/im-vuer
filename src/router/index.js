@@ -1,112 +1,91 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '@/demo/Home.vue'
-import Tab from '@/demo/Tab.vue'
-import TimeLine from '@/demo/TimeLine.vue'
-import Step from '@/demo/Step.vue'
-import CountUp from '@/demo/CountUp.vue'
-import Marquee from '@/demo/Marquee.vue'
-import Rater from '@/demo/Rater.vue'
-import Switch from '@/demo/Switch.vue'
-import CheckBox from '@/demo/CheckBox.vue'
-import Radio from '@/demo/Radio.vue'
-import Progress from '@/demo/Progress.vue'
-import IndexList from '@/demo/IndexList.vue'
-import CityPicker from '@/demo/CityPicker.vue'
-import Swiper from '@/demo/Swiper.vue'
-import SwiperOut from '@/demo/SwiperOut.vue'
-import DatePicker from '@/demo/DatePicker.vue'
-import SwiperBox from '@/demo/SwiperBox.vue'
-import Dialog from '@/demo/Dialog.vue'
-import PullRefresh from '@/demo/PullRefresh.vue'
-import Picker from '@/demo/Picker.vue'
-
 Vue.use(Router)
 
-let myRouter =  new Router({
-  // mode: 'history',
+Router.prototype.goBack = function () {
+  this.isBack = true
+  window.history.go(-1)
+}
+
+export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
-    },{
+      name: 'Home',
+      component: () => import('@/demo/Home')
+    }, {
       path: '/tab',
-      name: 'tab',
-      component: Tab
-    },{
-      path: '/timeLine',
-      name: 'timeLine',
-      component: TimeLine
-    },{
-      path: '/step',
-      name: 'step',
-      component: Step
-    },{
-      path: '/marquee',
-      name: 'marquee',
-      component: Marquee
-    },{
-      path: '/countUp',
-      name: 'countUp',
-      component: CountUp
-    },{
+      name: 'Tab',
+      component: () => import('@/demo/Tab')
+    }, {
       path: '/rater',
-      name: 'rater',
-      component: Rater
-    },{
-      path: '/switch',
-      name: 'switch',
-      component: Switch
-    },{
-      path: '/checkBox',
-      name: 'checkBox',
-      component: CheckBox
-    },{
-      path: '/swiperOut',
-      name: 'swiperOut',
-      component: SwiperOut
-    },{
+      name: 'Rater',
+      component: () => import('@/demo/Rater')
+    }, {
       path: '/radio',
-      name: 'radio',
-      component: Radio
-    },{
+      name: 'Radio',
+      component: () => import('@/demo/Radio')
+    }, {
+      path: '/checkBox',
+      name: 'CheckBox',
+      component: () => import('@/demo/CheckBox')
+    }, {
+      path: '/step',
+      name: 'Step',
+      component: () => import('@/demo/Step')
+    }, {
+      path: '/switch',
+      name: 'Switch',
+      component: () => import('@/demo/Switch')
+    }, {
       path: '/swiper',
-      name: 'swiper',
-      component: Swiper
-    },{
-      path: '/progress',
-      name: 'progress',
-      component: Progress
-    },{
-      path: '/indexList',
-      name: 'indexList',
-      component: IndexList
-    },{
-      path: '/cityPicker',
-      name: 'cityPicker',
-      component: CityPicker
-    },{
-      path: '/datePicker',
-      name: 'datePicker',
-      component: DatePicker
-    },{
-      path: '/swiperBox',
-      name: 'swiperBox',
-      component: SwiperBox
-    },{
+      name: 'Swiper',
+      component: () => import('@/demo/Swiper')
+    }, {
+      path: '/timeLine',
+      name: 'TimeLine',
+      component: () => import('@/demo/TimeLine')
+    }, {
       path: '/dialog',
-      name: 'dialog',
-      component: Dialog
-    },{
-      path: '/pullRefresh',
-      name: 'pullRefresh',
-      component: PullRefresh
-    },{
+      name: 'Dialog',
+      component: () => import('@/demo/Dialog')
+    }, {
+      path: '/IndexList',
+      name: 'IndexList',
+      component: () => import('@/demo/IndexList')
+    }, {
+      path: '/marquee',
+      name: 'Marquee',
+      component: () => import('@/demo/Marquee')
+    }, {
+      path: '/progress',
+      name: 'Progress',
+      component: () => import('@/demo/Progress')
+    }, {
+      path: '/swiperout',
+      name: 'Swiperout',
+      component: () => import('@/demo/Swiperout')
+    }, {
       path: '/picker',
-      name: 'picker',
-      component: Picker
+      name: 'Picker',
+      component: () => import('@/demo/Picker')
+    }, {
+      path: '/swiperBox',
+      name: 'SwiperBox',
+      component: () => import('@/demo/SwiperBox')
+    }, {
+      path: '/countUp',
+      name: 'CountUp',
+      component: () => import('@/demo/CountUp')
+    }, {
+      path: '/cityPicker',
+      name: 'CityPicker',
+      component: () => import('@/demo/CityPicker')
+    }, {
+      path: '/datepicker',
+      name: 'Datepicker',
+      component: () => import('@/demo/Datepicker')
     }
   ],
   scrollBehavior (to, from, savedPosition) {
@@ -122,6 +101,3 @@ let myRouter =  new Router({
     }
   }
 })
-
-
-export default myRouter

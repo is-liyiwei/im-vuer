@@ -18,16 +18,15 @@ export default {
       type: [Number, String]
     }
   },
-  components: {
-
-  },
   mounted: function () {
-    this.$nextTick(this.updadeView);
+    this.$nextTick(this.updadeView)
   },
   methods: {
     updadeView (childVal = this.value) {
-      this.$children.forEach(item => item.checked = childVal == item.val);
-      this.$emit('input', childVal);
+      this.$children.forEach(item => {
+        item.checked = childVal === item.val
+      })
+      this.$emit('input', childVal)
     }
   }
 }
@@ -54,13 +53,13 @@ export default {
       display: flex;
       align-items: center;
       position: relative;
-      padding: .2rem * @baseRem;
+      padding: .2px * @baseRem;
       &-input {
         position: absolute;
         left: -9999em;
       }
       &-text {
-        padding-left: .2rem * @baseRem;
+        padding-left: .2px * @baseRem;
       }
       &-label {
         border-radius: 50%;
@@ -72,11 +71,7 @@ export default {
           height: 0%;
           border-radius: 50%;
           display: block;
-          -webkit-transform: scale(0);
-          -moz-transform: scale(0);
           transform: scale(0);
-          -webkit-transition : all ease-in-out 300ms;
-          -moz-transition : all ease-in-out 300ms;
           transition : all ease-in-out 300ms;
         }
       }

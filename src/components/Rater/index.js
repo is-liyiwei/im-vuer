@@ -1,3 +1,3 @@
-import Rater from './Rater.vue';
+import Rater from './Rater.vue'
 
-export { Rater };
+export { Rater }

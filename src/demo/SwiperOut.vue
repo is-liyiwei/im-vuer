@@ -2,7 +2,6 @@
   <div class="demo-swiper-out">
 
     <im-swiper-out v-for="v in [1,2,3]" style="padding: 20px 0;" :key="v">
-    
         <template slot="right-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
@@ -18,7 +17,6 @@
     </im-swiper-out>
 
     <im-swiper-out v-for="v in [4,5,6]" style="padding: 20px 0;" :key="v">
-
         <template slot="right-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
@@ -29,7 +27,6 @@
     </im-swiper-out>
 
     <im-swiper-out v-for="v in [7,8,9]" style="padding: 20px 0;" :key="v">
-
         <template slot="left-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
@@ -46,7 +43,7 @@ export default {
   name: 'swiper-out',
   data () {
     return {
-      
+
     }
   },
   methods: {

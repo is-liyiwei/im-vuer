@@ -1,3 +1,3 @@
-import Progress from './Progress.vue';
+import Progress from './Progress.vue'
 
-export { Progress };
+export { Progress }

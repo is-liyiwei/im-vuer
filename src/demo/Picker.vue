@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-picker">
+  <div class="demo-picker" style="height: calc(100vh - 100px);">
 
     <button id="btn" @click="togglePicker">open</button>
 
@@ -16,12 +16,12 @@
 </template>
 
 <script>
-let i = 1;
-let _hour = Array.apply(null, Array(12)).map(() => i++ + '时');
-let j = 1;
-let _minutes = Array.apply(null, Array(60)).map(() => j++ + '分');
-let k = 1;
-let _seconds = Array.apply(null, Array(60)).map(() => k++ + '秒');
+let i = 1
+let _hour = Array.apply(null, Array(12)).map(() => i++ + '时')
+let j = 1
+let _minutes = Array.apply(null, Array(60)).map(() => j++ + '分')
+let k = 1
+let _seconds = Array.apply(null, Array(60)).map(() => k++ + '秒')
 
 export default {
   name: 'picker',
@@ -37,13 +37,13 @@ export default {
   },
   methods: {
     togglePicker () {
-      this.showPicker = !this.showPicker;
-      this.showLayer = !this.showLayer;
+      this.showPicker = !this.showPicker
+      this.showLayer = !this.showLayer
     },
     confirm (value) {
-      this.result = value;
-      this.showPicker = !this.showPicker;
-      this.showLayer = !this.showLayer;
+      this.result = value
+      this.showPicker = !this.showPicker
+      this.showLayer = !this.showLayer
     }
   }
 }

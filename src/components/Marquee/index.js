@@ -1,3 +1,3 @@
-import Marquee from './Marquee.vue';
+import Marquee from './Marquee.vue'
 
-export { Marquee };
+export { Marquee }

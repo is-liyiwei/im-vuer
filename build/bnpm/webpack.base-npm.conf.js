@@ -1,14 +1,12 @@
 'use strict'
 const path = require('path')
 const utils = require('../utils')
-const config = require('../../config')
+const bnpm = require('../../config/bnpm')
 const vueLoaderConfig = require('./vue-loader-npm.conf')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -16,11 +14,9 @@ module.exports = {
     app: '../src/main-npm.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: bnpm.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: bnpm.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

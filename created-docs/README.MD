@@ -15,7 +15,7 @@ Dialog.MD要手动改下，特殊引入方式
 
 备注：更新步骤
 
-1、先删除example和dist，再打包example，即npm run build然后改名字成example
+1、先删除example和dist，再打包example，即npm run build
 
 2、打包js，即npm run bnpm生成dist目录
 

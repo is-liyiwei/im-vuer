@@ -1,7 +1,7 @@
 <template>
   <div class="im-step">
     <div class="im-step-box">
-      <div class="im-step-box-item" v-for="(v, k) in list" :class="current == (k + 1) ? 'on' : ''">
+      <div class="im-step-box-item" v-for="(v, k) in list" :key="k" :class="current == (k + 1) ? 'on' : ''">
         <p v-if="v.top" class="im-step-box-item-text">{{v.top}}</p>
         <p v-else>&nbsp;</p>
         <div class="im-step-box-item-status"></div>
@@ -45,30 +45,30 @@ export default {
     }
     &-box {
       display: flex;
-      font-size: .22rem * @baseRem;
+      font-size: .22px * @baseRem;
       justify-content: space-around;
-      padding: .1rem * @baseRem;
+      padding: .1px * @baseRem;
       &-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         position: relative;
-        height: 1.2rem * @baseRem;
+        height: 1.2px * @baseRem;
         flex: 1;
         letter-spacing: 1px;
         &:before {
           content: '';
           width: 80%;
-          height: .02rem * @baseRem;
+          height: .02px * @baseRem;
           position: absolute;
           background-color: #a7a7a7;
           top: 50%;
-          transform: translate3d(-63%, -.01rem * @baseRem, 0);
+          transform: translate3d(-63%, -.01px * @baseRem, 0);
         }
         &-status {
-          width: .2rem * @baseRem;
-          height: .2rem * @baseRem;
+          width: .2px * @baseRem;
+          height: .2px * @baseRem;
           background-color: #a7a7a7;
           border-radius: 50%;
           position: relative;
@@ -81,9 +81,11 @@ export default {
 .on {
   .im-step-box-item-text {
     color: red;
+    transition: all .6s;
   }
   .im-step-box-item-status {
     background-color: red;
+    transition: all .6s;
   }
 }
 

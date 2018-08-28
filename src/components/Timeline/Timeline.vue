@@ -21,8 +21,8 @@ export default {
 <style lang="less">
 @import '../../less/base.less';
 
-@circleHeight: 0.2rem * @baseRem;
-@circleWidth: 0.2rem * @baseRem;
+@circleHeight: 0.2px * @baseRem;
+@circleWidth: 0.2px * @baseRem;
 
 .@{prefixClass} {
   &-timeline {
@@ -32,17 +32,17 @@ export default {
       box-sizing: border-box;
     }
     &-box {
-      font-size: .26rem * @baseRem;
-      margin: .3rem * @baseRem 0 0 .2rem * @baseRem;
-      border-left: 1px solid #9c9c9c;
+      font-size: .26px * @baseRem;
+      margin: .3px * @baseRem 0 0 .2px * @baseRem;
+      border-left: .01px * @baseRem solid #9c9c9c;
       &-item {
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #e1e1e3;
-        margin: .3rem * @baseRem 0 0 0;
-        padding-bottom: .3rem * @baseRem;
-        line-height: .38rem * @baseRem;
-        margin-left: .3rem * @baseRem;
+        margin: .3px * @baseRem 0 0 0;
+        padding-bottom: .3px * @baseRem;
+        line-height: .38px * @baseRem;
+        margin-left: .3px * @baseRem;
         padding-top: 0;
         position: relative;
         &:first-child:after {
@@ -52,55 +52,55 @@ export default {
           border-radius: 50%;
           background-color: red;
           position: absolute;
-          left: -0.1rem * @baseRem;
-          top: .05rem * @baseRem;
-          margin-left: -.3rem * @baseRem;
+          left: -0.1px * @baseRem;
+          top: .05px * @baseRem;
+          margin-left: -.3px * @baseRem;
           z-index: 999;
         }
         &:first-child:before {
           content: '';
-          height: @circleHeight + 0.1rem * @baseRem;
-          width: @circleWidth + 0.1rem * @baseRem;
+          height: @circleHeight + 0.1px * @baseRem;
+          width: @circleWidth + 0.1px * @baseRem;
           border-radius: 50%;
           background-color: red;
           opacity: 0.3;
           position: absolute;
-          left: -.15rem * @baseRem;
-          margin-left: -.3rem * @baseRem;
+          left: -.15px * @baseRem;
+          margin-left: -.3px * @baseRem;
           z-index: 999;
         }
         &:after {
           content: '';
-          height: @circleHeight - 0.06rem * @baseRem;
-          width: @circleWidth - 0.06rem * @baseRem;
+          height: @circleHeight - 0.06px * @baseRem;
+          width: @circleWidth - 0.06px * @baseRem;
           border-radius: 50%;
           background-color: #cacaca;
           position: absolute;
-          left: -0.08rem * @baseRem;
-          top: .13rem * @baseRem;
-          margin-left: -.3rem * @baseRem;
+          left: -0.08px * @baseRem;
+          top: .13px * @baseRem;
+          margin-left: -.3px * @baseRem;
           z-index: 999;
         }
         &:last-child:before {
           content: '';
           height: 85%;
-          width: 0.05rem * @baseRem;
+          width: 0.07px * @baseRem;
           background-color: #FFF;
           position: absolute;
-          left: -0.05rem * @baseRem;
-          bottom: -0.02rem * @baseRem;
-          margin-left: -.3rem * @baseRem;
+          left: -0.05px * @baseRem;
+          bottom: -0.02px * @baseRem;
+          margin-left: -.3px * @baseRem;
           z-index: 999;
         }
         &-text {
-          margin: 0 0 .02rem * @baseRem 0;
+          margin: 0 0 .02px * @baseRem 0;
           color: #5d5d5d;
-          font-size: .2rem * @baseRem;
+          font-size: .2px * @baseRem;
         }
         &-time {
-          margin: .1rem * @baseRem 0 .1rem * @baseRem 0;
+          margin: .1px * @baseRem 0 .1px * @baseRem 0;
           color: #5d5d5d;
-          font-size: .2rem * @baseRem;
+          font-size: .2px * @baseRem;
         }
       }
     }

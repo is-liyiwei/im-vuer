@@ -1,3 +1,3 @@
-import SwiperOut from './SwiperOut.vue';
+import SwiperOut from './SwiperOut.vue'
 
-export { SwiperOut };
+export { SwiperOut }

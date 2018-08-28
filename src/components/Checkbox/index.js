@@ -1,4 +1,4 @@
-import CheckBox from './CheckBox.vue';
-import CheckBoxItem from './CheckBoxItem.vue';
+import CheckBox from './CheckBox.vue'
+import CheckBoxItem from './CheckBoxItem.vue'
 
-export { CheckBox, CheckBoxItem };
+export { CheckBox, CheckBoxItem }

@@ -35,18 +35,12 @@ export default {
       duration: 3
     }
   },
-  components: {
-
-  },
-  mounted: function () {
-
-  },
   methods: {
     startHandle () {
-      this.start = !this.start;
+      this.start = !this.start
     },
     reset () {
-      this.$refs.c._countup.reset();
+      this.$refs.c._countup.reset()
     }
   }
 }

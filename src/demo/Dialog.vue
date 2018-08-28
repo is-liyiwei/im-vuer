@@ -36,9 +36,9 @@
 let mixin = {
   methods: {
     setFlag () {
-      this.flag = true;
-      setTimeout( () => {
-        this.flag = false;
+      this.flag = true
+      setTimeout(() => {
+        this.flag = false
       }, 1800)
     }
   }
@@ -67,13 +67,16 @@ export default {
           cb: () => {
             console.log(1)
           }
-        },{
+        }, {
           txt: '确定',
           color: '#00bFFF',
           cb: () => {
             console.log(2)
           }
-        }]
+        }],
+        complete: () => {
+          console.log('complete')
+        }
       })
     },
     openConfirm2 (styleFor) {
@@ -101,7 +104,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        },{
+        }, {
           txt: '确定',
           color: '#00bFFF',
           cb: () => {
@@ -111,15 +114,16 @@ export default {
       })
     },
     openConfirm4 (styleFor) {
+      // 默认是ios
       this.$confirm({
-        styleFor: styleFor  // 默认是ios
+        styleFor: styleFor
       })
     },
     openToast1 (position) {
       if (this.flag) {
         return
       }
-      this.setFlag();
+      this.setFlag()
       this.$toast({
         content: '登录成功',
         position: position,
@@ -134,26 +138,29 @@ export default {
           cb: () => {
             console.log(1)
           }
-        },{
+        }, {
           txt: '转发',
           color: '#f00',
           cb: () => {
             console.log(2)
           }
-        },{
+        }, {
           txt: '打印',
           color: '#009688',
           cb: () => {
             console.log(3)
           }
-        },{
+        }, {
           txt: '评论',
           color: '#673ab7',
           cb: () => {
             console.log(4)
           }
         }],
-        hasCancel: true
+        hasCancel: true,
+        complete: () => {
+          console.log('actionSheet complete')
+        }
       })
     },
     openActionSheet2 (styleFor) {
@@ -164,7 +171,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        },{
+        }, {
           txt: '从本地选择',
           color: '#f00',
           cb: () => {
@@ -182,7 +189,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        },{
+        }, {
           txt: '我是红色',
           color: '#f00',
           cb: () => {
@@ -195,7 +202,7 @@ export default {
       if (this.flag) {
         return
       }
-      this.setFlag();
+      this.setFlag()
       this.$tip({
         txt: iconStatus,
         icon: iconStatus,
@@ -206,7 +213,7 @@ export default {
       if (this.flag) {
         return
       }
-      this.setFlag();
+      this.setFlag()
       this.$tip({
         txt: '自定义',
         time: 1800,
@@ -238,14 +245,14 @@ export default {
 }
 
 .dialog-button button {
-  font-size: .35rem;
+  font-size: 32px;
   background-color: #00bfff;
   border: none;
   outline:none;
   text-align: center;
   display: block;
   width: 90%;
-  margin: 1rem 0;
+  margin: 1px 0;
   height: 80px;
   color: #fff;
   margin: 20px;
@@ -254,7 +261,7 @@ export default {
 
 h5 {
   margin: 10px;
-  font-size: .37rem;
+  font-size: 30px;
   color: #3d3d3d;
 }
 </style>

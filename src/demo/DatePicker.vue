@@ -1,23 +1,18 @@
 <template>
   <div class="demo-date-picker">
-    
-    <div style="font-size: .3rem;margin: 30px;text-align: center;">选择的是：{{date_user_style}}</div>
-    <button id="btn" @click="showCtrl_user_style = !showCtrl_user_style">showCtrl_user_style</button>
-
-    <im-date-picker 
-    @confirm="datePickerConfirm_user_style"
-    headerColor="#ff9c9c" 
-    itemColor="#673ab7" 
-    cancelBtn="#888" 
-    confirmBtn="#f00"
-    v-model="showCtrl_user_style"></im-date-picker>
-
-    <div style="font-size: .3rem;margin: 30px;text-align: center;">选择的是：{{date_default_style}}</div>
-    <button id="btn" @click="showCtrl_default_style = !showCtrl_default_style">showCtrl_default_style</button>
-
-    <im-date-picker 
-    @confirm="datePickerConfirm_default_style"
-    v-model="showCtrl_default_style"></im-date-picker>
+    <div class="result-txt">选择的是：{{date_user_style}}</div>
+    <button id="btn" @click="showCtrl_user_style = !showCtrl_user_style">自定义颜色</button>
+    <im-date-picker
+      @confirm="datePickerConfirm_user_style"
+      headerColor="#ff9c9c"
+      itemColor="#673ab7"
+      cancelBtn="#888"
+      confirmBtn="#f00"
+      v-model="showCtrl_user_style">
+    </im-date-picker>
+    <div class="result-txt">选择的是：{{date_default_style}}</div>
+    <button id="btn" @click="showCtrl_default_style = !showCtrl_default_style">默认颜色</button>
+    <im-date-picker @confirm="datePickerConfirm_default_style" v-model="showCtrl_default_style"></im-date-picker>
   </div>
 </template>
 
@@ -48,6 +43,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+.result-txt {
+ font-size: 32px;
+ margin: 30px;
+ text-align: center;
+}
+
 #btn {
    border: none;
    background-color: #00bfff;
@@ -56,6 +57,6 @@ export default {
    margin: .2rem auto;
    width: 90%;
    display: block;
-   font-size: .37rem;
+   font-size: 32px;
 }
 </style>

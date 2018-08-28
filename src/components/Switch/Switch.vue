@@ -4,7 +4,7 @@
     <div class="im-switch-box-ios" v-if="styleFor == 'ios'">
 
       <input v-model="curIndex" :id="_uid" class="im-switch-box-ios-input" type="checkbox" :style="curIndex ? switchStyle : ''" />
-      
+
     </div>
 
     <div class="im-switch-box-android" v-else>
@@ -13,7 +13,7 @@
       <label :for="_uid" class="im-switch-box-android-slider" :style="curIndex ? switchStyle : ''">
         <span class="im-switch-box-android-slider-cur" :style="curIndex ? switchCurStyle : ''"></span>
       </label>
-      
+
     </div>
 
   </div>
@@ -63,6 +63,10 @@ export default {
   watch: {
     curIndex (newVal) {
       this.$emit('input', newVal)
+    },
+    value (newVal) {
+      this.curIndex = this.value
+      this.$emit('input', newVal)
     }
   }
 }
@@ -88,21 +92,21 @@ export default {
       &-slider {
         position: relative;
         display: inline-block;
-        height: .2rem * @baseRem;
-        width: 1rem * @baseRem;
+        height: .2px * @baseRem;
+        width: 1px * @baseRem;
         background: #e8e8e8;
-        border-radius: .08rem * @baseRem;
+        border-radius: .08px * @baseRem;
         cursor: pointer;
         -webkit-transition: all 0.3s cubic-bezier(.45,.25,.67,.86);
         transition: all 0.3s cubic-bezier(.45,.25,.67,.86);
-        margin: .3rem * @baseRem;
+        margin: .3px * @baseRem;
         &-cur {
           position: absolute;
-          left: -.2rem * @baseRem;
-          top: -.2rem * @baseRem;
+          left: -.2px * @baseRem;
+          top: -.2px * @baseRem;
           display: block;
-          width: 0.6rem * @baseRem;
-          height: 0.6rem * @baseRem;
+          width: 0.6px * @baseRem;
+          height: 0.6px * @baseRem;
           border-radius: 50%;
           background: #ffffff;
           box-shadow: 1px 2px 6px rgba(0, 0, 0, .4);
@@ -117,10 +121,10 @@ export default {
         appearance: none;
         -webkit-appearance: none;
         position: relative;
-        width: 1rem;
-        height: .5rem;
+        width: 1px * @baseRem;
+        height: .5px * @baseRem;
         background: #e8e8e8;
-        border-radius: 16rem;
+        border-radius: 16px * @baseRem;
         border: 1px solid #d5d5d5;
         outline: 0;
         box-sizing: border-box;
@@ -130,30 +134,30 @@ export default {
             -webkit-transform: scale(0);
           }
           &:after {
-            transform: translateX(1rem - .5rem);
-            -webkit-transform: translateX(1rem - .5rem);
+            transform: translateX(1px * @baseRem - .5px * @baseRem);
+            -webkit-transform: translateX(1px * @baseRem - .5px * @baseRem);
           }
         }
         &:before, &:after {
-          content: " ";
+          content: '';
           position: absolute;
-          top: -.01rem;
+          top: -.01px * @baseRem;
           left: 0;
-          height: .5rem;
-          border-radius: 15rem;
+          height: .5px * @baseRem;
+          border-radius: 15px * @baseRem;
           transition: transform 0.3s;
           transition: -webkit-transform 0.3s;
           transition: transform 0.3s, -webkit-transform 0.3s;
           -webkit-transition: -webkit-transform 0.3s;
         }
         &:before {
-          width: 1rem;
+          width: 1px * @baseRem;
           background-color: #fdfdfd;
         }
         &:after {
-          width: .5rem;
+          width: .5px * @baseRem;
           background-color: white;
-          box-shadow: 0 .01rem .03rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 .01px * @baseRem .03px * @baseRem rgba(0, 0, 0, 0.4);
         }
       }
     }
@@ -161,7 +165,7 @@ export default {
 }
 
 .im-switch-box-android .im-switch-box-android-input:checked ~ .im-switch-box-android-slider .im-switch-box-android-slider-cur {
-  left: 1-0.3rem * @baseRem;
+  left: 1 * @baseRem - 0.3px * @baseRem;
 }
 
 </style>

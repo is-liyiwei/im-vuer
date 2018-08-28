@@ -93,7 +93,10 @@ export default {
           cb: () => {
             console.log(2)
           }
-        }]
+        }],
+        complete: () => {
+          console.log('complete')
+        }
       })
     },
     openConfirm2 (styleFor) {
@@ -173,7 +176,10 @@ export default {
             console.log(4)
           }
         }],
-        hasCancel: true
+        hasCancel: true,
+        complete: () => {
+          console.log('actionSheet complete')
+        }
       })
     },
     openActionSheet2 (styleFor) {
@@ -330,6 +336,13 @@ h5 {
       <td>ios</td>
     </tr>
     <tr>
+      <td>complete</td> 
+      <td>完成回调</td> 
+      <td>function</td> 
+      <td>参考demo</td> 
+      <td>-</td>
+    </tr>
+    <tr>
       <td>Toast组件</td> 
       <td>Toast组件</td> 
       <td>Toast组件</td> 
@@ -384,6 +397,13 @@ h5 {
       <td>Array</td> 
       <td>参考demo</td> 
       <td></td>
+    </tr>
+    <tr>
+      <td>complete</td> 
+      <td>完成回调</td> 
+      <td>function</td> 
+      <td>参考demo</td> 
+      <td>-</td>
     </tr>
     <tr>
       <td>Tip组件</td> 

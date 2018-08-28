@@ -1,4 +1,4 @@
-import TimeLine from './TimeLine.vue';
-import TimeLineItem from './TimeLineItem.vue';
+import TimeLine from './TimeLine.vue'
+import TimeLineItem from './TimeLineItem.vue'
 
-export { TimeLine, TimeLineItem };
+export { TimeLine, TimeLineItem }

@@ -1,3 +1,3 @@
-import IndexList from './IndexList.vue';
+import IndexList from './IndexList.vue'
 
-export { IndexList };
+export { IndexList }

@@ -1,12 +1,12 @@
 <template>
   <div class="im-radio-item">
-		<input
-		 :id="_uid" 
-		 @change="changeHandler" 
-		 :disabled="disabled" 
-		 :checked="checked" 
-		 class="im-radio-item-input" 
-		 type="radio" />
+    <input
+      :id="_uid"
+      @change="changeHandler"
+      :disabled="disabled"
+      :checked="checked"
+      class="im-radio-item-input"
+      type="radio" />
     <label :for="_uid" class="im-radio-item-label" :style="labelStyle">
       <span class="im-radio-item-label-cur" :style="curStyle"></span>
     </label>
@@ -24,58 +24,55 @@ export default {
     }
   },
   props: {
-  	val: {
-  		type: [Number, String]
-  	},
-  	disabled: {
-  		type: Boolean,
-  		default: false
-  	},
-  	bgColor: {
-  		type: String,
-  		default: '#00BFFF'
-  	},
-  	size: {
-  		type: String,
-  		default: '.37rem'
-  	},
-  	textFz: {
-  		type: String,
-  		default: '.27rem'
-  	},
-  	textColor: {
-  		type: String,
-  		default: '#666'
-  	}
+    val: {
+      type: [Number, String]
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    bgColor: {
+      type: String,
+      default: '#00BFFF'
+    },
+    size: {
+      type: String,
+      default: '.37rem'
+    },
+    textFz: {
+      type: String,
+      default: '.27rem'
+    },
+    textColor: {
+      type: String,
+      default: '#666'
+    }
   },
   methods: {
-  	changeHandler () {
-  		if (this.disabled) return
-  		this.$parent.updadeView(this.val);
-  	}
+    changeHandler () {
+      if (this.disabled) return
+      this.$parent.updadeView(this.val)
+    }
   },
   computed: {
-  	labelStyle () {
-  		return {
-  			border: `1px solid ${this.bgColor}`,
-  			width: this.size,
-  			height: this.size
-  		}
-  	},
-  	curStyle () {
-  		return {
-  			backgroundColor: this.bgColor
-  		}
-  	},
-  	textStyle () {
-  		return {
-  			'font-size': this.textFz,
-  			'color': this.textColor
-  		}
-  	}
-  },
-  mounted: function () {
-  	
+    labelStyle () {
+      return {
+        border: `1px solid ${this.bgColor}`,
+        width: this.size,
+        height: this.size
+      }
+    },
+    curStyle () {
+      return {
+        backgroundColor: this.bgColor
+      }
+    },
+    textStyle () {
+      return {
+        'font-size': this.textFz,
+        'color': this.textColor
+      }
+    }
   }
 }
 </script>

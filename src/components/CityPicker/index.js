@@ -1,3 +1,3 @@
-import CityPicker from './CityPicker.vue';
+import CityPicker from './CityPicker.vue'
 
-export { CityPicker };
+export { CityPicker }
