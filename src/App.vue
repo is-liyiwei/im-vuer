@@ -15,7 +15,7 @@ export default {
   name: 'app',
   data () {
     return {
-      transitionName: 'slide-left'
+      transitionName: 'slide-right'
     }
   },
   computed: {
@@ -36,10 +36,10 @@ export default {
     '$route' (to, from) {
       let isBack = this.$router.isBack
       if (isBack) {
-        this.transitionName = 'slide-right'
+        this.transitionName = 'slide-left'
         this.$router.isBack = false
       } else {
-        this.transitionName = 'slide-left'
+        this.transitionName = 'slide-right'
         this.$router.isBack = true
       }
     }

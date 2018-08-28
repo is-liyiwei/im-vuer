@@ -17,7 +17,7 @@ Dialog.MD要手动改下，特殊引入方式
 
 1、先删除example和dist，再打包example，即npm run build
 
-2、打包js，即npm run bnpm生成dist目录
+2、打包js，即npm run bnpm生成dist目录，这里要把浏览器使用的demo放到里面来，文件在/src/index.html
 
 3、example里面的文件更新到github.io上面(另一个git)，更新示例
 

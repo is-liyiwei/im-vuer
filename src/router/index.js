@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 Router.prototype.goBack = function () {
-  this.isBack = true
+  this.isBack = false
   window.history.go(-1)
 }
 

@@ -10,7 +10,6 @@
   - [marquee](marquee)
   - [picker](picker)
   - [progress](progress)
-  - [pullrefresh](pullrefresh)
   - [radio](radio)
   - [rater](rater)
   - [step](step)

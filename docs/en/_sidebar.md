@@ -11,7 +11,6 @@
   - [marquee](/en/marquee)
   - [picker](/en/picker)
   - [progress](/en/progress)
-  - [pullrefresh](/en/pullrefresh)
   - [radio](/en/radio)
   - [rater](/en/rater)
   - [step](/en/step)
