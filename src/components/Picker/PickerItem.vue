@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     init () {
-      this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight
+      this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').getBoundingClientRect().height
     },
     setDefault () {
       let _currentIndex = 0

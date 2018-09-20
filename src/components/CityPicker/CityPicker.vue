@@ -35,7 +35,7 @@
           :data="areaData">
         </im-city-picker-item>
 
-        <div class="line-box"></div>
+        <div class="im-line-box"></div>
 
       </div>
 
@@ -150,7 +150,7 @@ export default {
       bottom: 0;
       width: 100%;
       background-color: #fff;
-      font-size: .3px * @baseRem;
+      font-size: .26px * @baseRem;
       transition: all .3s;
       &-content {
         display: flex;
@@ -162,8 +162,10 @@ export default {
         &-item {
           z-index: 10;
           transition: all .18s;
-          flex: 1;
+          max-width: calc(100% / 3);
+          min-width: calc(100% / 3);
           &-value {
+            .text-overflow();
             text-align: center;
             height: .8px * @baseRem;
             line-height: .8px * @baseRem;
@@ -180,19 +182,20 @@ export default {
         padding: 0 40px;
         font-size: .37px * @baseRem;
         div {
-          font-size: .37px * @baseRem;
+          color: #FFF;
+          font-size: .27px * @baseRem;
         }
       }
     }
   }
 }
 
-.line-box {
+.im-line-box {
   position: absolute;
   width: 100%;
   height: .8px * @baseRem;
   top: 1.6px * @baseRem;
-  border-color: #5d5d5d;
+  border-color: #e8e8e8;
   border-style: solid;
   border-width: 1px;
   border-left: none;

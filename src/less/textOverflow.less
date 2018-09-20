@@ -1,0 +1,16 @@
+/*使用text-overflow或text-overflow-more，text标签不能分行，分行text-overflow-more没有效果*/
+.text-overflow() {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-overflow-more(@line: 2) {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}

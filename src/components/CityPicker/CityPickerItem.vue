@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     init () {
-      this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').clientHeight
+      this.itemHeight = document.querySelector('.im-picker-box-content-item-value') && document.querySelector('.im-picker-box-content-item-value').getBoundingClientRect().height
     },
     setDefault () {
       // 本想选择之后保持下一联动的位置，但是有bug未能修复，只好先全部置0先
