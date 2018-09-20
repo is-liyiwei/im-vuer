@@ -126,21 +126,21 @@ export default {
       <td>大小</td> 
       <td>String</td> 
       <td>-</td> 
-      <td>.37rem</td>
+      <td>22px</td>
     </tr>
     <tr>
       <td>textFz</td> 
       <td>文本大小</td> 
       <td>String</td> 
       <td>-</td> 
-      <td>.27rem</td>
+      <td>.2rem</td>
     </tr>
     <tr>
       <td>textColor</td> 
       <td>文本颜色</td> 
       <td>String</td> 
       <td>-</td> 
-      <td>#666</td>
+      <td>#888</td>
     </tr>
     </tbody>
    </table>

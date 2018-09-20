@@ -76,8 +76,6 @@ export default {
       outline: none;
       cursor: pointer;
       /*增加动画*/
-      -webkit-transition: all ease-in-out 300ms;
-      -moz-transition: all ease-in-out 300ms;
       transition: all ease-in-out 300ms;
     }
     input[type = checkbox]:after {

@@ -1,53 +1,47 @@
 <template>
-  <div class="im-date-picker" v-if="value" @click.stop="cancel">
+    <div class="im-date-picker" v-if="value" @click.stop="cancel">
 
-    <div class="im-date-picker-box">
+      <div class="im-date-picker-box">
 
-      <div class="im-date-picker-box-value" :style="{ backgroundColor: headerColor}">
-        <span :class="{ 'im-txt-in': setAnimate }">{{todayText}}</span>
-      </div>
+        <div class="im-date-picker-box-value" :style="{ backgroundColor: headerColor}">
+          <span :class="{ 'im-txt-in': setAnimate }">{{todayText}}</span>
+        </div>
 
-      <div class="im-date-picker-box-ctrl">
-        <svg viewBox="0 0 24 24" class="im-date-picker-box-ctrl-prev arrow" @click.stop="_prev">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-        </svg>
-        <div class="im-date-picker-box-ctrl-date">{{oHeadDate}}</div>
-        <svg viewBox="0 0 24 24" class="im-date-picker-box-ctrl-next arrow" @click.stop="_next">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-        </svg>
-      </div>
+        <div class="im-date-picker-box-ctrl">
+          <svg viewBox="0 0 24 24" class="im-date-picker-box-ctrl-prev arrow" @click.stop="_prev">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          </svg>
+          <div class="im-date-picker-box-ctrl-date">{{oHeadDate}}</div>
+          <svg viewBox="0 0 24 24" class="im-date-picker-box-ctrl-next arrow" @click.stop="_next">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+          </svg>
+        </div>
+        <table class="im-date-picker-box-title">
+          <tr class="im-date-picker-box-header">
+            <th v-for="(v, k) in weekArr" :key="k">{{v.substring(2, v.length)}}</th>
+          </tr>
+          <tr class="im-date-picker-box-content" v-for="(v, k) in allDate" :key="k">
+            <td
+              v-for="(vv, kk) in v"
+              :key="kk"
+              :style="currentItem == (7 * k + kk) ? currentDate : vv.disabled ? '' : currentDateNot"
+              :class="[vv.disabled ? 'im-disabled-true' : 'im-disabled-flase', 'im-date-picker-box-content-item']"
+              @click.stop="tapItem(7 * k + kk)">{{vv.date}}</td>
+          </tr>
+        </table>
 
-      <table class="im-date-picker-box-title">
-        <tr class="im-date-picker-box-header">
-          <th>日</th>
-          <th>一</th>
-          <th>二</th>
-          <th>三</th>
-          <th>四</th>
-          <th>五</th>
-          <th>六</th>
-        </tr>
-        <tr class="im-date-picker-box-content" v-for="(v, k) in allDate" :key="k">
-          <td
-            v-for="(vv, kk) in v"
-            :key="kk"
-            :style="currentItem == (7 * k + kk) ? currentDate : vv.disabled ? '' : currentDateNot "
-            :class="[vv.disabled ? 'im-out' : 'im-in', 'im-date-picker-box-content-item']"
-            @click.stop="tapItem(7 * k + kk)">{{vv.date}}</td>
-        </tr>
-      </table>
+        <div class="im-date-picker-box-btns">
+          <div class="im-date-picker-box-btns-item" :style="{ color: cancelBtn }" @click.stop="cancel">取消</div>
+          <div class="im-date-picker-box-btns-item" :style="{ color: confirmBtn }" @click.stop="confirm">确定</div>
+        </div>
 
-      <div class="im-date-picker-box-btns">
-        <div class="im-date-picker-box-btns-item" :style="{ color: cancelBtn }" @click.stop="cancel">取消</div>
-        <div class="im-date-picker-box-btns-item" :style="{ color: confirmBtn }" @click.stop="confirm">确定</div>
       </div>
 
     </div>
-
-  </div>
 </template>
 
 <script>
+import sliceArray from '@/helper/sliceArray'
 export default {
   name: 'im-date-picker',
   data () {
@@ -138,18 +132,6 @@ export default {
         ...this.nowDate,
         ...this.nextDate
       ])
-
-      function sliceArray (array, size) {
-        let result = []
-        let x = 0
-        let len = array.length
-        for (; x < Math.ceil(len / size); x++) {
-          let start = x * size
-          let end = start + size
-          result.push(array.slice(start, end))
-        }
-        return result
-      }
 
       this.allDate = sliceArray(this.allDate, 7)
 
@@ -262,12 +244,14 @@ export default {
   0% {
     opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
 }
 
 .@{prefixClass} {
   &-date-picker {
     .mask();
-    animation: vuer-txt-in 100ms linear 0s 1 forwards;
     * {
       margin: 0;
       padding: 0;
@@ -275,19 +259,21 @@ export default {
     }
     &-box {
       position: fixed;
+      animation: vuer-txt-in 100ms ease-in 0s 1 forwards;
       top: 50%;
       left: 50%;
       width: 6px * @baseRem;
       height: 9.5px * @baseRem;
       transform: translate3d(-50%, -50%, 0);
-      -webkit-transform: translate3d(-50%, -50%, 0);
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 1px 19px 60px rgba(0, 0, 0, 0.3),
-        2px 15px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 1px 19px 60px rgba(0, 0, 0, 0.3), 2px 15px 20px rgba(0, 0, 0, 0.2);
       z-index: 1501;
       background-color: #fff;
+      .im-txt-in {
+        animation: vuer-txt-in 300ms ease-in 0s 1 forwards;
+      }
       &-value {
         padding: 0.6px * @baseRem 0.2px * @baseRem;
         width: 100%;
@@ -317,7 +303,7 @@ export default {
         width: 100%;
         padding: 0.2px * @baseRem;
         text-align: center;
-        color: #333;
+        color: @base-color-txt-title;
       }
       &-header {
         height: 0.7px * @baseRem;
@@ -326,8 +312,10 @@ export default {
         text-align: center;
         font-size: 0.3px * @baseRem;
         &-item {
-          /*padding: .2px * @baseRem 0;*/
           height: 77px;
+        }
+        .im-disabled-true {
+          color: @base-color-txt-fuzzy;
         }
       }
       &-btns {
@@ -345,15 +333,4 @@ export default {
   }
 }
 
-.im-txt-in {
-  animation: vuer-txt-in 300ms ease-in 0s 1 forwards;
-}
-
-.im-in {
-  color: @base-color;
-}
-
-.im-out {
-  color: #5d5d5d;
-}
 </style>

@@ -18,8 +18,16 @@ export default {
       type: [Number, String]
     }
   },
+  provide () {
+    return {
+      rootRadio: this
+    }
+  },
   mounted: function () {
-    this.$nextTick(this.updadeView)
+    this.$nextTick(() => {
+      this.updadeView()
+      this.width = ~~(this.$el.querySelector('.im-radio-item-label') && this.$el.querySelector('.im-radio-item-label').getBoundingClientRect().width)
+    })
   },
   methods: {
     updadeView (childVal = this.value) {
@@ -63,28 +71,20 @@ export default {
       }
       &-label {
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative;
         &-cur {
-          width: 0%;
-          height: 0%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0px;
+          height: 0px;
           border-radius: 50%;
           display: block;
-          transform: scale(0);
+          transform: translate3d(-50%, -50%, 0) scale(0);
           transition : all ease-in-out 300ms;
         }
       }
     }
   }
 }
-
-.im-radio-item-input:checked + .im-radio-item-label .im-radio-item-label-cur {
-  width: 60%;
-  height: 60%;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  transform: scale(1);
-}
-
 </style>
