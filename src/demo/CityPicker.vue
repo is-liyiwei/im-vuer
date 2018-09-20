@@ -1,13 +1,13 @@
 <template>
   <div class="demo-picker">
     <button class="picker-btn" @click="showPickerFn">open</button>
-    <button class="picker-btn" @click="changeData">切换数据</button>
+    <!-- <button class="picker-btn" @click="changeData">切换数据</button> -->
 
     <div style="font-size: .3rem;text-align: center;">当前数据结构</div>
-    <pre style="font-size: .3rem;height: 600px;overflow: scroll;background-color: #000f5a;color: #FFF;">{{data}}</pre>
-    <pre style="font-size: .3rem;padding: 20px;overflow: scroll;background-color: #000f5a;color: #FFF;">城市数据来源: https://github.com/ydcss/ydui-district</pre>
+    <pre style="font-size: .3rem;height: 10rem;overflow: scroll;background-color: #000f5a;color: #FFF;">{{data}}</pre>
 
-    <div style="font-size: .3rem;text-align: center;">选择的是：{{test}}</div>
+    <div style="font-size: .3rem;text-align: center;">城市数据来源: https://github.com/ydcss/ydui-district</div>
+    <div style="font-size: .3rem;text-align: center;margin: 20px 0;">选择的是：{{test}}</div>
 
     <div @click="clockLayer" v-if="showLayer" class="layer"></div>
 

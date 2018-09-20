@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -80,69 +79,68 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>v-model</td> 
-      <td>获取的值</td> 
-      <td>-</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>val</td> 
-      <td>item值</td> 
-      <td>Number, String</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>disabled</td> 
-      <td>是否禁用</td> 
-      <td>Boolean</td> 
-      <td>-</td> 
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>bgColor</td> 
-      <td>颜色</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>#00BFFF</td>
-    </tr>
-    <tr>
-      <td>size</td> 
-      <td>大小</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>22px</td>
-    </tr>
-    <tr>
-      <td>textFz</td> 
-      <td>文本大小</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>.2rem</td>
-    </tr>
-    <tr>
-      <td>textColor</td> 
-      <td>文本颜色</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>#888</td>
-    </tr>
+      <tr>
+        <td>v-model</td> 
+        <td>获取的值</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>val</td> 
+        <td>item值</td> 
+        <td>Number, String</td> 
+        <td>-</td> 
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>disabled</td> 
+        <td>是否禁用</td> 
+        <td>Boolean</td> 
+        <td>-</td> 
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>bgColor</td> 
+        <td>颜色</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>#00BFFF</td>
+      </tr>
+      <tr>
+        <td>size</td> 
+        <td>大小</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>22px</td>
+      </tr>
+      <tr>
+        <td>textFz</td> 
+        <td>文本大小</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>.2rem</td>
+      </tr>
+      <tr>
+        <td>textColor</td> 
+        <td>文本颜色</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>#888</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

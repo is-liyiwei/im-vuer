@@ -20,7 +20,6 @@ export default {
   },
   computed: {
     title () {
-      console.log(this.$route)
       return this.$route.name
     }
   },

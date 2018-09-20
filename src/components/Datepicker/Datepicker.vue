@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import sliceArray from '@/helper/sliceArray'
+import sliceArray from '../../helper/sliceArray'
 export default {
   name: 'im-date-picker',
   data () {

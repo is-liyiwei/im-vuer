@@ -27,19 +27,19 @@ let api = [{
   instructions: '大小',
   type: 'String',
   optional: '-',
-  default: '.37rem'
+  default: '22px'
 },{
   params: 'textFz',
   instructions: '文本大小',
   type: 'String',
   optional: '-',
-  default: '.27rem'
+  default: '.2rem'
 },{
   params: 'textColor',
   instructions: '文本颜色',
   type: 'String',
   optional: '-',
-  default: '#666'
+  default: '#888'
 }]
 
 module.exports = api

@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -406,34 +405,33 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>dataList</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
-      <td>参考demo</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>@handleClick</td> 
-      <td>点击每一项事件</td> 
-      <td>Function</td> 
-      <td>返回item数据</td> 
-      <td>-</td>
-    </tr>
+      <tr>
+        <td>dataList</td> 
+        <td>数据列表</td> 
+        <td>Array</td> 
+        <td>参考demo</td> 
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>@handleClick</td> 
+        <td>点击每一项事件</td> 
+        <td>Function</td> 
+        <td>返回item数据</td> 
+        <td>-</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

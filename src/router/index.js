@@ -89,6 +89,7 @@ export default new Router({
     }
   ],
   scrollBehavior (to, from, savedPosition) {
+    // 这里使用了模拟webview的div所以这个变得有点问题了，不准确
     if (savedPosition) {
       return savedPosition
       // return new Promise((resolve, reject) => {

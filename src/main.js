@@ -63,6 +63,8 @@ Vue.use(TipPlugin)
 
 Vue.config.productionTip = false
 
+console.log(require('../package.json').version)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

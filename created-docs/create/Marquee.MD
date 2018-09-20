@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -110,41 +109,40 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>scrollStatus</td> 
-      <td>滚动方向</td> 
-      <td>String</td> 
-      <td>up, down</td> 
-      <td>up</td>
-    </tr>
-    <tr>
-      <td>duration</td> 
-      <td>动画时长</td> 
-      <td>[Number, String]</td> 
-      <td></td> 
-      <td>300</td>
-    </tr>
-    <tr>
-      <td>interval</td> 
-      <td>动画间隔时长</td> 
-      <td>[Number, String]</td> 
-      <td></td> 
-      <td>3000</td>
-    </tr>
+      <tr>
+        <td>scrollStatus</td> 
+        <td>滚动方向</td> 
+        <td>String</td> 
+        <td>up, down</td> 
+        <td>up</td>
+      </tr>
+      <tr>
+        <td>duration</td> 
+        <td>动画时长</td> 
+        <td>[Number, String]</td> 
+        <td></td> 
+        <td>300</td>
+      </tr>
+      <tr>
+        <td>interval</td> 
+        <td>动画间隔时长</td> 
+        <td>[Number, String]</td> 
+        <td></td> 
+        <td>3000</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

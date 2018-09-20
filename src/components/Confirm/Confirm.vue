@@ -112,49 +112,48 @@ export default {
 @import "../../less/base.less";
 @import "../../less/dialog.less";
 
-.box() {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 0.08px * @baseRem;
-}
-
-.title() {
-  font-size: 0.37px * @baseRem;
-  font-weight: bold;
-  color: #333;
-}
-
-.btns() {
-  display: flex;
-  margin-top: 0.3px * @baseRem;
-  position: relative;
-}
-
-.line() {
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background-color: #ccc;
-}
-
-.button() {
-  font-size: 0.35px * @baseRem;
-  display: block;
-  background-color: #fff;
-  border: none;
-  outline: none;
-}
-
-.content() {
-  font-size: 0.35px * @baseRem;
-  color: #5d5d5d;
-  text-align: center;
-}
-
 .@{prefixClass} {
   &-confirm {
     .mask(rgba(0, 0, 0, 0.4), @base-zindex * 2000);
+    .box() {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 0.08px * @baseRem;
+    }
+
+    .title() {
+      font-size: 0.37px * @baseRem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .btns() {
+      display: flex;
+      margin-top: 0.3px * @baseRem;
+      position: relative;
+    }
+
+    .line() {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background-color: #ccc;
+    }
+
+    .button() {
+      font-size: 0.35px * @baseRem;
+      display: block;
+      background-color: #fff;
+      border: none;
+      outline: none;
+    }
+
+    .content() {
+      font-size: 0.35px * @baseRem;
+      color: #5d5d5d;
+      text-align: center;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -179,7 +178,8 @@ export default {
         width: 100%;
         border-top: 1px solid #ccc;
         button {
-          padding: 0.3px * @baseRem 0.6px * @baseRem;
+          padding: 0.2px * @baseRem 0.6px * @baseRem;
+          margin: 0.1px * @baseRem 0;
           font-weight: bold;
           .button();
         }

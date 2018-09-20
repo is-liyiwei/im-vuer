@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -77,55 +76,54 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>isCheck</td> 
-      <td>是否选择</td> 
-      <td>Boolean</td> 
-      <td>-</td> 
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>val</td> 
-      <td>文本</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>activeBgColor</td> 
-      <td>选中背景颜色</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>#00BFFF</td>
-    </tr>
-    <tr>
-      <td>activeColor</td> 
-      <td>选中图标颜色</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>#FFFFFF</td>
-    </tr>
-    <tr>
-      <td>circle</td> 
-      <td>是否圆形</td> 
-      <td>Boolean</td> 
-      <td>-</td> 
-      <td>false</td>
-    </tr>
+      <tr>
+        <td>isCheck</td> 
+        <td>是否选择</td> 
+        <td>Boolean</td> 
+        <td>-</td> 
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>val</td> 
+        <td>文本</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>activeBgColor</td> 
+        <td>选中背景颜色</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>#00BFFF</td>
+      </tr>
+      <tr>
+        <td>activeColor</td> 
+        <td>选中图标颜色</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>#FFFFFF</td>
+      </tr>
+      <tr>
+        <td>circle</td> 
+        <td>是否圆形</td> 
+        <td>Boolean</td> 
+        <td>-</td> 
+        <td>false</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>
