@@ -149,7 +149,7 @@ export default {
       background-color: #fff;
       font-size: 0.37px * @baseRem;
       padding: 0.27px * @baseRem 0;
-      border-top: 1px solid #ccc;
+      border-top: 2px solid @base-color-txt-fuzzy;
       width: 100%;
       text-align: center;
     }
@@ -166,7 +166,7 @@ export default {
         background-color: #fff;
         font-size: 0.37px * @baseRem;
         padding: 0.27px * @baseRem 0;
-        border-top: 1px solid #ccc;
+        border-top: 2px solid @base-color-txt-fuzzy;
         width: 100%;
         text-align: center;
       }

@@ -10,13 +10,14 @@
         class="im-swipe-dots-box-dot"
         v-for="(v, k) in itemsArr.length"
         :key="k"
-        :style="{ backgroundColor: k === dotIndex ? dotActiveColor : dotColor }">
+        :style="[{ backgroundColor: k === dotIndex ? dotActiveColor : dotColor }, wh]">
       </span>
     </div>
   </div>
 </template>
 
 <script>
+import getDocumentFontSize from '../../helper/getDocumentFontSize'
 export default {
   name: 'im-swiper',
   data () {
@@ -80,6 +81,15 @@ export default {
   },
   destroyed () {
     clearTimeout(this.timerByAutoPlay)
+  },
+  computed: {
+    wh () {
+      let fz = parseInt(getDocumentFontSize())
+      return {
+        width: ~~(fz * 0.2) + 'px',
+        height: ~~(fz * 0.2) + 'px'
+      }
+    }
   },
   methods: {
     init () {
@@ -295,11 +305,9 @@ export default {
       align-items: center;
       &-dot {
         display: block;
-        width: .1px * @baseRem;
-        height: .1px * @baseRem;
-        /*安卓机会有bug，会有不圆的点出现，只能用px单位了*/
-        /*width: 6px;
-        height: 6px;*/
+        /*安卓上面如果px单位带有小数，则会出现圆形变形的情况，使用计算属性动态计算取整*/
+        /*width: .1px * @baseRem;*/
+        /*height: .1px * @baseRem;*/
         border-radius: 50%;
         margin: 0 .1px * @baseRem;
       }

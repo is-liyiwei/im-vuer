@@ -1,7 +1,9 @@
 <template>
   <div class="im-picker">
 
-    <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)` }">
+    <div @click="clockLayer" v-if="showLayer" class="layer"></div>
+
+    <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.value ? 0 : 110}%, 0)` }">
 
       <div class="im-picker-box-header" :style="{ backgroundColor: bgColor }">
         <div :style="{ color: cancelBtnColor }" @click="cancelBtn">取消</div>
@@ -60,7 +62,7 @@ export default {
     'im-city-picker-item': CityPickerItem
   },
   props: {
-    showStatus: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -89,6 +91,9 @@ export default {
   methods: {
     cancelBtn () {
       this.$emit('cancelBtn')
+    },
+    clockLayer () {
+      this.$emit('input', false)
     },
     confirmBtn () {
       let result = []
@@ -123,12 +128,10 @@ export default {
       } else {
         return []
       }
+    },
+    showLayer () {
+      return this.value
     }
-  },
-  watch: {
-    // provinceIndex () {
-    //   this.cityIndex = 0
-    // }
   }
 }
 </script>
@@ -143,6 +146,14 @@ export default {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    .layer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
     }
     &-box {
       position: fixed;
