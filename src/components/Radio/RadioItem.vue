@@ -41,7 +41,7 @@ export default {
     },
     textFz: {
       type: String,
-      default: '.2rem'
+      default: '.3rem'
     },
     textColor: {
       type: String,

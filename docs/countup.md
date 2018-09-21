@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -54,11 +53,11 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  font-size: .3rem;
+  font-size: 32px;
   height: 5rem;
   p {
     color: red;
-    font-size: .27rem;
+    font-size: 26px;
   }
 }
 
@@ -70,75 +69,74 @@ export default {
   margin: .2rem auto;
   width: 90%;
   display: block;
-  font-size: .37rem;
+  font-size: 32px;
 }
 </style>
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>start</td> 
-      <td>是否开始</td> 
-      <td>Boolean</td> 
-      <td>-</td> 
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>startVal</td> 
-      <td>开始值</td> 
-      <td>Number</td> 
-      <td>-</td> 
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>endVal</td> 
-      <td>结束值</td> 
-      <td>Number</td> 
-      <td>-</td> 
-      <td>100</td>
-    </tr>
-    <tr>
-      <td>decimals</td> 
-      <td>保留小数位</td> 
-      <td>Number</td> 
-      <td>-</td> 
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>duration</td> 
-      <td>动画时间</td> 
-      <td>Number</td> 
-      <td>-</td> 
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>txtColor</td> 
-      <td>文本颜色</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>#00bfff</td>
-    </tr>
-    <tr>
-      <td>fz</td> 
-      <td>文本大小</td> 
-      <td>String</td> 
-      <td>-</td> 
-      <td>.37rem</td>
-    </tr>
+      <tr>
+        <td>start</td> 
+        <td>是否开始</td> 
+        <td>Boolean</td> 
+        <td>-</td> 
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>startVal</td> 
+        <td>开始值</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>endVal</td> 
+        <td>结束值</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>decimals</td> 
+        <td>保留小数位</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>duration</td> 
+        <td>动画时间</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>txtColor</td> 
+        <td>文本颜色</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>#00bfff</td>
+      </tr>
+      <tr>
+        <td>fz</td> 
+        <td>文本大小</td> 
+        <td>String</td> 
+        <td>-</td> 
+        <td>.37rem</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

@@ -5,7 +5,7 @@ let api = [{
   optional: '-',
   default: '[]'
 },{
-  params: 'showStatus',
+  params: 'v-model',
   instructions: '控制组件显示',
   type: 'Boolean',
   optional: '-',

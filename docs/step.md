@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -11,19 +10,21 @@ Vue.component(Step.name, Step)
 ```js
 <template>
   <div class="demo-step">
-    <im-step :current="currentFor_A" :list="list_A"></im-step>
+    <im-step :current="currentForA" :list="listA"></im-step>
 
     <br><br>
 
-    <im-step :current="currentFor_B" :list="list_B"></im-step>
+    <div style="font-size: .5rem;text-align: center;">上下文字，初始化index = 3</div>
+
+    <im-step :current="currentForB" :list="listB"></im-step>
 
     <br><br>
 
-    <div style="font-size: .3rem;text-align: center;">两秒后会跳转</div>
+    <div style="font-size: .5rem;text-align: center;">两秒后会跳转</div>
 
     <br><br>
 
-    <im-step :current="currentFor_C" :list="list_C"></im-step>
+    <im-step :current="currentForC" :list="listC" activeColor="#f00"></im-step>
 
     <br><br>
 
@@ -35,73 +36,72 @@ Vue.component(Step.name, Step)
 </template>
 
 <script>
+const listA = [{
+  top: '已发货',
+  bottom: '广州市'
+}, {
+  top: '运输中'
+}, {
+  top: '已收货',
+  bottom: ''
+}, {
+  top: '完成订单',
+  bottom: '阳江市'
+}]
+
+const listB = [{
+  bottom: '步骤一'
+}, {
+  bottom: '步骤二'
+}, {
+  bottom: '步骤三'
+}, {
+  bottom: '步骤四'
+}]
+
+const listC = [{
+  top: '手动一',
+  bottom: '手动一'
+}, {
+  top: '手动二',
+  bottom: '手动二'
+}, {
+  bottom: '手动三'
+}, {
+  top: '手动四',
+  bottom: '手动四'
+}]
 export default {
   name: 'step',
   data () {
     return {
-      list_A: [{
-        top: '已发货',
-        bottom: '广州市'
-      }, {
-        top: '运输中'
-      }, {
-        top: '已收货',
-        bottom: ''
-      }, {
-        top: '完成订单',
-        bottom: '阳江市'
-      }],
-      list_B: [{
-        bottom: '步骤一'
-      }, {
-        bottom: '步骤二'
-      }, {
-        bottom: '步骤三'
-      }, {
-        bottom: '步骤四'
-      }],
-      list_C: [{
-        top: '手动一',
-        bottom: '手动一'
-      }, {
-        top: '手动二',
-        bottom: '手动二'
-      }, {
-        bottom: '手动三'
-      }, {
-        top: '手动四',
-        bottom: '手动四'
-      }],
-      currentFor_A: 3,
-      currentFor_B: '2',
-      currentFor_C: 1
+      listA,
+      listB,
+      listC,
+      currentForA: 3,
+      currentForB: '2',
+      currentForC: 1
     }
   },
   components: {
 
   },
   methods: {
-    addA () {
-      setTimeout(() => {
-        this.currentFor_A++
-      }, 2000)
-    },
     addB () {
       setTimeout(() => {
-        this.currentFor_B++
-      }, 3000)
+        this.currentForB++
+      }, 2000)
     },
     nextHandle () {
-      if (this.currentFor_C >= this.list_C.length) return
-      this.currentFor_C++
+      if (this.currentForC >= this.listC.length) return
+      this.currentForC++
     },
     prevHandle () {
-      if (this.currentFor_C <= 1) return
-      this.currentFor_C--
+      if (this.currentForC <= 1) return
+      this.currentForC--
     }
   },
   mounted: function () {
-    this.addA()
     this.addB()
   }
 }
@@ -130,34 +130,40 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>list</td> 
-      <td>数据列表</td> 
-      <td>Array</td> 
-      <td>参考demo</td> 
-      <td>-</td>
-    </tr>
-    <tr>
-      <td>current</td> 
-      <td>控制组件显示</td> 
-      <td>Number, String</td> 
-      <td></td> 
-      <td>0</td>
-    </tr>
+      <tr>
+        <td>list</td> 
+        <td>数据列表</td> 
+        <td>Array</td> 
+        <td>参考demo</td> 
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>current</td> 
+        <td>控制active项</td> 
+        <td>Number, String</td> 
+        <td></td> 
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>activeColor</td> 
+        <td>控制active颜色</td> 
+        <td>String</td> 
+        <td></td> 
+        <td>#00bFFF</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

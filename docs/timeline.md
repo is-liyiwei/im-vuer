@@ -1,4 +1,3 @@
-
 > 使用
 
 ```js
@@ -50,27 +49,26 @@ export default {
 
 ```
 > 参数说明
-
-  <div>
-   <table>
+<div>
+  <table>
     <thead>
-     <tr>
-      <th>参数</th> 
-      <th>说明</th> 
-      <th>类型</th> 
-      <th>可选值/备注</th> 
-      <th>默认值</th>
-     </tr>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
     </thead> 
     <tbody>
-    <tr>
-      <td>item</td> 
-      <td>数据项</td> 
-      <td>Object</td> 
-      <td>参考demo</td> 
-      <td>-</td>
-    </tr>
+      <tr>
+        <td>item</td> 
+        <td>数据项</td> 
+        <td>Object</td> 
+        <td>参考demo</td> 
+        <td>-</td>
+      </tr>
+      
     </tbody>
-   </table>
-  </div>
-  
+  </table>
+</div>

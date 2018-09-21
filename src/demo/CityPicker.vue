@@ -2,7 +2,7 @@
   <div class="demo-picker">
     <button class="picker-btn" @click="showPickerFn">open</button>
 
-    <div style="font-size: .3rem;text-align: center;">当前数据结构</div>
+    <div style="font-size: .3rem;text-align: center;">当前数据结构(异步获取)</div>
     <pre style="font-size: .3rem;height: 10rem;overflow: scroll;background-color: #000f5a;color: #FFF;">{{data}}</pre>
 
     <div style="font-size: .3rem;text-align: center;">城市数据来源: https://github.com/ydcss/ydui-district</div>

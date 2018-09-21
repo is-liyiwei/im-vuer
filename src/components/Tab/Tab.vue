@@ -4,7 +4,7 @@
     <div class="im-tab-box">
       <div v-for="(v, k) in list" :key="k" class="im-tab-box-item" @click="clickItem(k)">
         <div :style="{ color: currIndex === k ? textColorActive : textColorDefault }">{{v.name}}</div>
-        <span class="im-tab-box-label" v-if="v.label" :style="{ backgroundColor: labelColor, color: labelTextColor }">{{v.label}}</span>
+        <span class="im-tab-box-label" v-if="v.label" :style="[{ backgroundColor: labelColor, color: labelTextColor }, wh]">{{v.label}}</span>
       </div>
     </div>
 
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import getDocumentFontSize from '../../helper/getDocumentFontSize'
+
 export default {
   name: 'im-tab',
   data () {
@@ -74,6 +76,13 @@ export default {
         backgroundColor: this.lineColor
       }
       return styleObj
+    },
+    wh () {
+      let fz = parseInt(getDocumentFontSize())
+      return {
+        width: ~~(fz * 0.5) + 'px',
+        height: ~~(fz * 0.5) + 'px'
+      }
     }
   },
   watch: {
@@ -120,12 +129,15 @@ export default {
       &-label {
         margin-left: .1px * @baseRem;
         border-radius: 50%;
-        width: .35px * @baseRem;
-        height: .35px * @baseRem;
-        line-height: .35px * @baseRem;
+        /*安卓上面如果px单位带有小数，则会出现圆形变形的情况，使用计算属性动态计算取整*/
+        /*width: .35px * @baseRem;*/
+        /*height: .35px * @baseRem;*/
+        /*line-height: .35px * @baseRem;*/
         color: #FFF;
-        text-align: center;
-        font-size: .3px * @baseRem;
+        font-size: .22px * @baseRem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
     &-line {
