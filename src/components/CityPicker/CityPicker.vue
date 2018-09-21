@@ -148,12 +148,7 @@ export default {
       box-sizing: border-box;
     }
     .layer {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      .mask();
     }
     &-box {
       position: fixed;
@@ -163,6 +158,7 @@ export default {
       background-color: #fff;
       font-size: .26px * @baseRem;
       transition: all .3s;
+      z-index: 1501;
       &-content {
         display: flex;
         /*height: 400px;*/

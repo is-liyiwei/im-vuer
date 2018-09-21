@@ -122,7 +122,7 @@ export default {
       border-radius: 0.15px * @baseRem;
       &-txt {
         color: #fff;
-        font-size: 0.5px * @baseRem;
+        font-size: 0.37px * @baseRem;
         margin: 0.15px * @baseRem 0 0 0;
         letter-spacing: 2px;
       }

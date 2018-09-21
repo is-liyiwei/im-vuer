@@ -1,7 +1,9 @@
 <template>
   <div class="im-picker">
 
-    <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.showStatus ? 0 : 110}%, 0)` }">
+    <div @click="clockLayer" v-if="showLayer" class="layer"></div>
+
+    <div class="im-picker-box" :style="{ transform: `translate3d(0, ${this.value ? 0 : 110}%, 0)` }">
       <div class="im-picker-box-header">
         <div @click="cancelBtn">取消</div>
         <div @click="confirmBtn">确定</div>
@@ -29,7 +31,7 @@ export default {
     }
   },
   props: {
-    showStatus: {
+    value: {
       type: Boolean,
       default: false
     }
@@ -37,6 +39,9 @@ export default {
   methods: {
     cancelBtn () {
       this.$emit('cancelBtn')
+    },
+    clockLayer () {
+      this.$emit('input', false)
     },
     confirmBtn () {
       this.$emit('confirmBtn', this.resultData)
@@ -51,6 +56,11 @@ export default {
   },
   mounted () {
     this.updateValue()
+  },
+  computed: {
+    showLayer () {
+      return this.value
+    }
   }
 }
 </script>
@@ -65,6 +75,9 @@ export default {
       padding: 0;
       box-sizing: border-box;
     }
+    .layer {
+      .mask();
+    }
     &-box {
       position: fixed;
       left: 0;
@@ -73,6 +86,7 @@ export default {
       background-color: #fff;
       font-size: .3px * @baseRem;
       transition: all .3s;
+      z-index: 1501;
       &-content {
         display: flex;
         /*height: 400px;*/
