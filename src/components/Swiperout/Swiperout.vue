@@ -7,7 +7,7 @@
     @mousemove="move"
     @mouseup="end"
     @touchcancel="end"> -->
-  <div class="im-swiper-out">
+  <div class="im-swiper-out" :style="wh">
     <div class="im-swiper-out-right box">
       <slot name="right-menu"></slot>
     </div>
@@ -25,6 +25,8 @@
 <script>
 
 import draggable from '../../helper/draggable.js'
+import getDocumentFontSize from '../../helper/getDocumentFontSize'
+import getDocumentDpr from '../../helper/getDocumentDpr'
 
 // touch事件的一个问题，就是点击不移动，也会有一个小的偏移量
 let checkTouchBug = (distance) => 35 < Math.abs(distance) ? false : true // eslint-disable-line
@@ -49,6 +51,15 @@ export default {
     boxStyle () {
       return {
         transform: `translate3d(${this.tslX}px, 0, 0)`
+      }
+    },
+    wh () {
+      const fz = parseInt(getDocumentFontSize())
+      const dpr = getDocumentDpr()
+      return {
+        'min-height': ~~(fz * 2) + 'px',
+        'border-bottom': `${dpr}px solid #d0d0d0`,
+        'margin-bottom': `${dpr}px`
       }
     }
   },
@@ -152,30 +163,34 @@ export default {
 <style lang="less" scoped>
 @import '../../less/base.less';
 
-/*@media screen and (-webkit-min-device-pixel-ratio: 2) {
+/*@media screen and (-webkit-min-device-pixel-ratio: 1) {
   .im-swiper-out {
-    border: 0.5px solid red;
-    margin-bottom: 0.5px;
+    border-bottom: 1px solid #d0d0d0 !important;
+    margin-bottom: 1px !important;
   }
-}*/
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .im-swiper-out {
+    border-bottom: 0.5px solid #d0d0d0 !important;
+    margin-bottom: 0.5px !important;
+  }
+}
 
 @media screen and (-webkit-min-device-pixel-ratio: 3) {
   .im-swiper-out {
-    border-bottom: 0 !important;
+    border-bottom: 0 solid red !important;
     margin-bottom: 0 !important;
   }
-}
+}*/
 
 .@{prefixClass} {
   &-swiper-out {
     display: flex;
     position: relative;
-    height: 1px * @baseRem;
     font-size: .37px * @baseRem;
     overflow: hidden;
     width: 100%;
-    border-bottom: 1px solid #d0d0d0;
-    margin-bottom: 1px;
     * {
       margin: 0;
       padding: 0;
@@ -187,8 +202,7 @@ export default {
         background-color: @base-color;
         color: #fff;
         width: 1.2px * @baseRem;
-        font-size: .37px * @baseRem;
-        height: 100%;
+        /*transform: translate3d(0, 5px, 0);*/
       }
     }
     &-right {
@@ -214,17 +228,18 @@ export default {
       z-index: 98;
     }
     &-content {
-      position: absolute;
+/*      position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      left: 0;
+      left: 0;*/
+      width: 100%;
       display: flex;
       font-size: .3px * @baseRem;
       align-items: center;
       background-color: #fff;
       transition: transform .1s;
-      padding: .2px * @baseRem;
+      padding: 0 .2px * @baseRem;
       z-index: 99;
     }
   }

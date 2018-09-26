@@ -1,7 +1,7 @@
 <template>
   <div class="demo-swiper-out">
 
-    <im-swiper-out v-for="v in [1,2,3]" style="padding: 20px 0;" :key="v">
+    <im-swiper-out v-for="v in [1,2,3]" :key="v">
         <template slot="right-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
@@ -14,9 +14,10 @@
         </template>
 
         <div slot="content">滑我{{v}} 两边都有两边都有两边都有</div>
+
     </im-swiper-out>
 
-    <im-swiper-out v-for="v in [4,5,6]" style="padding: 20px 0;" :key="v">
+    <im-swiper-out v-for="v in [4,5,6]" :key="v">
         <template slot="right-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
@@ -26,7 +27,7 @@
         <div slot="content">滑我{{v}} 没有左边没有左边没有左边</div>
     </im-swiper-out>
 
-    <im-swiper-out v-for="v in [7,8,9]" style="padding: 20px 0;" :key="v">
+    <im-swiper-out v-for="v in [7,8,9]" :key="v">
         <template slot="left-menu">
           <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
           <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
