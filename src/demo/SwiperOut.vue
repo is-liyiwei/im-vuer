@@ -3,14 +3,14 @@
 
     <im-swiper-out v-for="v in [1,2,3]" :key="v">
         <template slot="right-menu">
-          <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
-          <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
-          <button @click="clickHandle">{{'Ignore'}}</button>
+          <button @click="clickHandle(v)" style="background-color: gray;">{{'Fav'}}</button>
+          <button @click="clickHandle(v)" style="background-color: red;">{{'Delete'}}</button>
+          <button @click="clickHandle(v)">{{'Ignore'}}</button>
         </template>
 
         <template slot="left-menu">
-          <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
-          <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
+          <button @click="clickHandle(v)" style="background-color: gray;">{{'Fav'}}</button>
+          <button @click="clickHandle(v)" style="background-color: red;">{{'Delete'}}</button>
         </template>
 
         <div slot="content">滑我{{v}} 两边都有两边都有两边都有</div>
@@ -19,9 +19,9 @@
 
     <im-swiper-out v-for="v in [4,5,6]" :key="v">
         <template slot="right-menu">
-          <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
-          <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
-          <button @click="clickHandle">{{'Ignore'}}</button>
+          <button @click="clickHandle(v)" style="background-color: gray;">{{'Fav'}}</button>
+          <button @click="clickHandle(v)" style="background-color: red;">{{'Delete'}}</button>
+          <button @click="clickHandle(v)">{{'Ignore'}}</button>
         </template>
 
         <div slot="content">滑我{{v}} 没有左边没有左边没有左边</div>
@@ -29,8 +29,8 @@
 
     <im-swiper-out v-for="v in [7,8,9]" :key="v">
         <template slot="left-menu">
-          <button @click="clickHandle" style="background-color: gray;">{{'Fav'}}</button>
-          <button @click="clickHandle" style="background-color: red;">{{'Delete'}}</button>
+          <button @click="clickHandle(v)" style="background-color: gray;">{{'Fav'}}</button>
+          <button @click="clickHandle(v)" style="background-color: red;">{{'Delete'}}</button>
         </template>
 
         <div slot="content">滑我{{v}} 没有右边没有右边没有右边</div>
@@ -48,8 +48,8 @@ export default {
     }
   },
   methods: {
-    clickHandle () {
-      alert(new Date())
+    clickHandle (v) {
+      alert(v)
     }
   }
 }

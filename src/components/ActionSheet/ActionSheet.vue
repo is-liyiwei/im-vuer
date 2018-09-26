@@ -1,4 +1,7 @@
 <script>
+import getDocumentFontSize from '../../helper/getDocumentFontSize'
+import getDocumentDpr from '../../helper/getDocumentDpr'
+
 export default {
   name: 'im-action-sheet',
   render: function (_c) {
@@ -25,9 +28,13 @@ export default {
           },
           [
             this.opts.map((v, idx) => {
+              const fz = parseInt(getDocumentFontSize())
+              const dpr = getDocumentDpr()
               return _c('div', {
                 style: {
-                  color: v.color
+                  color: v.color,
+                  height: ~~(fz * 1.5) + 'px',
+                  borderTop: `${dpr}px solid #e8e8e8`
                 },
                 class: {
                   'im-action-sheet-box-item': true,
@@ -166,9 +173,10 @@ export default {
         background-color: #fff;
         font-size: 0.37px * @baseRem;
         padding: 0.27px * @baseRem 0;
-        border-top: 2px solid @base-color-txt-fuzzy;
         width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
