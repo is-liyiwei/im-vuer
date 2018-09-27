@@ -24,6 +24,9 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-mixed-operators': 'off',
+    // 引号，是单的还是双的
+    'quotes': ['error', 'single']
   }
 }

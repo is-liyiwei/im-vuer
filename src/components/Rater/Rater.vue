@@ -7,13 +7,14 @@
         :key="k"
         :style="[starStyle, k < currentIndex || min > k ? activeColorStyle : offColorStyle]"
         v-html="star"
-        @click="clickHandle(k + 1)">
+        @click="clickHandle(k + 1, $event)">
       </span>
     </div>
   </div>
 </template>
 
 <script>
+import { setStyle, hasClass } from '../../helper/dom'
 export default {
   name: 'im-rater',
   props: {
@@ -72,8 +73,12 @@ export default {
     }
   },
   methods: {
-    clickHandle (k) {
-      if (this.disabled) return
+    clickHandle (k, e) {
+      if (this.disabled) {
+        return
+      }
+
+      this.cloneItem(e.target)
 
       if (+this.currentIndex === k) {
         this.currentIndex = (k - 1) < this.min ? this.min : (k - 1)
@@ -82,6 +87,36 @@ export default {
       }
 
       this.$emit('input', this.currentIndex)
+    },
+    cloneItem (dom) {
+      function findFirstParentNodeDomByClassName (dom, className) {
+        let $d = dom
+        while ($d) {
+          if (!hasClass($d, className)) {
+            $d = $d.parentNode
+          } else {
+            return $d
+          }
+        }
+        return false
+      }
+      let parentDom = findFirstParentNodeDomByClassName(dom, 'im-rater-box')
+      let targetCloneDom = findFirstParentNodeDomByClassName(dom, 'im-rater-box-item')
+      let cloneDom = targetCloneDom.cloneNode(true)
+      // cloneDom.id = 'ttt'
+      setStyle(cloneDom, {
+        transition: '3s',
+        opacity: '1',
+        transform: 'scale(2, 2)',
+        // transform不支持inline的问题，必须要block
+        display: 'inline-block'
+      })
+      
+      setTimeout(() => {
+      parentDom.appendChild(cloneDom)
+        console.log(cloneDom)
+        // dom.parentNode && dom.parentNode.removeChild(cloneDom)
+      }, 350)
     }
   },
   data () {
@@ -95,18 +130,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @import '../../less/base.less';
-
+.test {
+  transition: .3s;
+  transform: translate3d(0, -10px, 0);
+}
 .@{prefixClass} {
   &-rater {
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    &-box {
-      &-item {
-
-      }
     }
   }
 }

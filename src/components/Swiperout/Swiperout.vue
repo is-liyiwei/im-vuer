@@ -29,7 +29,7 @@ import getDocumentFontSize from '../../helper/getDocumentFontSize'
 import getDocumentDpr from '../../helper/getDocumentDpr'
 
 // touch事件的一个问题，就是点击不移动，也会有一个小的偏移量
-let checkTouchBug = (distance) => 35 < Math.abs(distance) ? false : true // eslint-disable-line
+let checkTouchBug = (distance) => Math.abs(distance) < 35
 
 export default {
   name: 'im-swiper-out',
@@ -125,13 +125,12 @@ export default {
           let duration = new Date() - dragState.startTime
           if (+dragState.dragX === 0) return
           this.swiperStatus = dragState.dragX > 0 ? 'left' : 'right'
-          /* eslint-disable */
           if (this.swiperStatus === 'left') {
             if (duration < 100 &&
               !this.isOpen ||
               this.leftWidth * 0.5 >= -Math.abs(dragState.dragX) &&
               !checkTouchBug(dragState.dragX)
-              ) {
+            ) {
               this.tslX = this.leftWidth
             } else {
               this.setOffset(0, false)
@@ -141,13 +140,12 @@ export default {
               !this.isOpen ||
               this.rightWidth * 0.5 <= Math.abs(dragState.dragX) &&
               !checkTouchBug(dragState.dragX)
-              ) {
+            ) {
               this.tslX = -this.rightWidth
             } else {
               this.setOffset(0, false)
             }
           }
-          /* eslint-enable */
           dragState = Object.create(null)
         }
       })
