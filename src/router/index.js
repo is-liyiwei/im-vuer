@@ -63,6 +63,10 @@ export default new Router({
       name: 'Progress',
       component: () => import('@/demo/Progress')
     }, {
+      path: '/previewImage',
+      name: 'PreviewImage',
+      component: () => import('@/demo/PreviewImage')
+    }, {
       path: '/swiperout',
       name: 'Swiperout',
       component: () => import('@/demo/Swiperout')

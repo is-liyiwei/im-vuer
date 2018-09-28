@@ -40,6 +40,9 @@ const list = [{
   name: 'Progress',
   icon: 'icon-Progress'
 }, {
+  name: 'PreviewImage',
+  icon: 'icon-Progress'
+}, {
   name: 'Radio',
   icon: 'icon-Radio'
 }, {

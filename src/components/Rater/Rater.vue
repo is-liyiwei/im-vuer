@@ -103,20 +103,25 @@ export default {
       let parentDom = findFirstParentNodeDomByClassName(dom, 'im-rater-box')
       let targetCloneDom = findFirstParentNodeDomByClassName(dom, 'im-rater-box-item')
       let cloneDom = targetCloneDom.cloneNode(true)
-      // cloneDom.id = 'ttt'
       setStyle(cloneDom, {
-        transition: '3s',
-        opacity: '1',
+        transition: '.6s',
+        // transform不支持inline的问题，必须要block
+        display: 'inline-block',
+        position: 'fixed',
+        margin: 0
+      })
+      parentDom.appendChild(cloneDom)
+      setStyle(cloneDom, {
+        opacity: '0',
         transform: 'scale(2, 2)',
         // transform不支持inline的问题，必须要block
-        display: 'inline-block'
+        top: Math.ceil(dom.getBoundingClientRect().top) + 'px',
+        left: Math.ceil(dom.getBoundingClientRect().left) + 'px',
+        color: this.activeColor
       })
-      
       setTimeout(() => {
-      parentDom.appendChild(cloneDom)
-        console.log(cloneDom)
-        // dom.parentNode && dom.parentNode.removeChild(cloneDom)
-      }, 350)
+        dom.parentNode && dom.parentNode.removeChild(cloneDom)
+      }, 800)
     }
   },
   data () {
@@ -132,7 +137,7 @@ export default {
 @import '../../less/base.less';
 .test {
   transition: .3s;
-  transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0) rotate3d(0,0,1,45deg);
 }
 .@{prefixClass} {
   &-rater {
@@ -140,6 +145,13 @@ export default {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    &-box {
+      &-item {
+        /*display: inline-block;*/
+        /*width: 60px;
+        height: 60px;*/
+      }
     }
   }
 }
