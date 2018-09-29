@@ -1,8 +1,11 @@
 <template>
   <div class="im-previewImage">
+    <span style="position: fixed;top: 80vh;left: 10vh;">{{log}}</span>
     <!-- <img v-for="(v, k) in list" :key="k" :src="v.url"> -->
-    <img ref="aaa" src="http://img15.3lian.com/2016/h1/75/d/210.jpg" alt="" :style="imgStyle">
-    <p style="margin-top: 100px;">{{log}}</p>
+    <img src="http://img15.3lian.com/2016/h1/75/d/210.jpg" alt="" :style="imgStyle">
+    <img src="http://img15.3lian.com/2016/h1/75/d/211.jpg" alt="" :style="imgStyle">
+    <img src="http://img15.3lian.com/2016/h1/75/d/212.jpg" alt="" :style="imgStyle">
+    <img src="http://img15.3lian.com/2016/h1/75/d/213.jpg" alt="" :style="imgStyle">
   </div>
 </template>
 
@@ -28,7 +31,7 @@ export default {
         y: 0
       },
       imgW: '100%',
-      imgH: '5rem',
+      imgH: '100%',
       imgScale: 0
     }
   },
@@ -57,7 +60,7 @@ export default {
   },
   methods: {
     init () {
-      const dom = this.$refs.aaa
+      const dom = this.$el
       AlloyTransform(dom)
       var af = new AlloyFinger(dom, {
         touchStart: () => {
@@ -80,9 +83,11 @@ export default {
 
           const touchEndValue = dom.getBoundingClientRect()
 
-          if (touchEndValue.left > 0) {
+          this.log = touchEndValue.left + '&' + touchEndValue.width
+
+          if (touchEndValue.left < touchEndValue.width / 2) {
             dom.style.transition = '300ms'
-            dom.translateX = 0
+            dom.translateX = 750
           }
           if (touchEndValue.top > 0) {
             dom.style.transition = '300ms'
@@ -142,7 +147,7 @@ export default {
           // console.log(evt.deltaY)
           // this.log = evt.deltaX
           dom.translateX += evt.deltaX
-          dom.translateY += evt.deltaY
+          // dom.translateY += evt.deltaY
           evt.preventDefault()
         },
         swipe: (evt) => {
@@ -162,13 +167,15 @@ export default {
 .@{prefixClass} {
   &-previewImage {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    white-space: nowrap;
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    img {
+      width: 100%;
     }
   }
 }
