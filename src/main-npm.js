@@ -29,7 +29,7 @@ import { CountUp } from './components/CountUp'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
 
-console.log('lib ' + require('../package.json').version)
+console.log('lib version：' + require('../package.json').version)
 
 // let _Nid = 0;
 // let _log = function (component) {

@@ -73,7 +73,7 @@ Vue.use(TipPlugin)
 
 Vue.config.productionTip = false
 
-console.log('demo ' + require('../package.json').version)
+console.log('demo version：' + require('../package.json').version)
 
 /* eslint-disable no-new */
 new Vue({
