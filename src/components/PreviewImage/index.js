@@ -27,7 +27,7 @@ let PreviewImagePlugin = {
 
 
     Vue.prototype.$openPreviewImage = function (options) {
-
+      
       const instance = new PreviewImageConstructor({
         el: document.createElement('div'),
         data () {

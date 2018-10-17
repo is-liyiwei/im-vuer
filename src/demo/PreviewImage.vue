@@ -11,12 +11,13 @@ export default {
   name: 'previewImage',
   data () {
     return {
-      // 这里使用这个配合html切换横图或者长竖图
-      testImgArr: [
-        'http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg',
-        'http://pic9.nipic.com/20100831/2167235_164504023490_2.jpg',
-        'http://pic.58pic.com/58pic/15/70/34/93P58PIC82K_1024.jpg'
-      ]
+      testImgArr: [{
+        src: 'http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg'
+      }, {
+        src: 'http://pic9.nipic.com/20100831/2167235_164504023490_2.jpg'
+      }, {
+        src: 'http://pic.58pic.com/58pic/15/70/34/93P58PIC82K_1024.jpg'
+      }]
     }
   },
   components: {

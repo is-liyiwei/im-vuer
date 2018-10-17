@@ -1,34 +1,35 @@
 <template>
   <transition name="vuer-fade-in">
     <div class="im-previewImage">
+      <template v-for="(v, k) in imgArr">
+        <div id="container-horizontal" v-if="v.imgDirection === 'horizontal'">
+          <img
+            v-transform
+            v-finger:pinch="handlePinch"
+            v-finger:multipoint-start="handleMultipointStart"
+            v-finger:press-move="handlePressMove"
+            v-finger:touch-start="handleTouchStart"
+            v-finger:touch-end="handleTouchEnd"
+            v-finger:double-tap="handleDoubleTap"
+            v-finger:rotate="handleRotate"
+            id="box-horizontal"
+            :src="v.src">
+        </div>
 
-      <div id="container-horizontal" v-if="imgDirection === 'horizontal'">
-        <img
-          v-transform
-          v-finger:pinch="handlePinch"
-          v-finger:multipoint-start="handleMultipointStart"
-          v-finger:press-move="handlePressMove"
-          v-finger:touch-start="handleTouchStart"
-          v-finger:touch-end="handleTouchEnd"
-          v-finger:double-tap="handleDoubleTap"
-          v-finger:rotate="handleRotate"
-          id="box-horizontal"
-          :src="currSrc">
-      </div>
-
-      <div id="container-vertical" v-else>
-        <img
-          v-transform
-          v-finger:pinch="handlePinch"
-          v-finger:multipoint-start="handleMultipointStart"
-          v-finger:press-move="handlePressMove"
-          v-finger:touch-start="handleTouchStart"
-          v-finger:touch-end="handleTouchEnd"
-          v-finger:double-tap="handleDoubleTap"
-          v-finger:rotate="handleRotate"
-          id="box-vertical"
-          :src="currSrc">
-      </div>
+        <div id="container-vertical" v-else>
+          <img
+            v-transform
+            v-finger:pinch="handlePinch"
+            v-finger:multipoint-start="handleMultipointStart"
+            v-finger:press-move="handlePressMove"
+            v-finger:touch-start="handleTouchStart"
+            v-finger:touch-end="handleTouchEnd"
+            v-finger:double-tap="handleDoubleTap"
+            v-finger:rotate="handleRotate"
+            id="box-vertical"
+            :src="v.src">
+        </div>
+      </template>
     </div>
   </transition>
 </template>
@@ -40,9 +41,7 @@ export default {
   name: 'im-preview-image',
   data () {
     return {
-      pressMoveStatus: false,
-      currSrc: '',
-      imgDirection: ''
+      pressMoveStatus: false
     }
   },
   props: {
@@ -63,27 +62,32 @@ export default {
     }
   },
   created () {
-    this.init()
+    setTimeout(() => {
+      console.log(this.imgArr)
+    }, 2000)
+    // this.init()
   },
   mounted () {
 
   },
   methods: {
     init () {
-      let imgDom = new Image()
-      let vm = this
-      imgDom.src = this.imgArr[this.currentIndex]
-      imgDom.onload = function () {
-        vm.currSrc = this.src
-        if (this.width > this.height) {
-          vm.imgDirection = 'horizontal'
-        } else {
-          vm.imgDirection = 'vertical'
+      for (let i = 0; i < this.imgArr.length; i++) {
+        let imgDom = new Image()
+        let vm = this
+        // imgDom.src = this.imgArr[this.currentIndex]
+        imgDom.src = this.imgArr[i].src
+        imgDom.onload = function () {
+          if (this.width > this.height) {
+            vm.imgArr[i].imgDirection = 'horizontal'
+          } else {
+            vm.imgArr[i].imgDirection = 'vertical'
+          }
+          imgDom.onload = null
+          imgDom = null
+          // vm.imgWidth = this.width
+          // vm.imgHeight = this.height
         }
-        imgDom.onload = null
-        imgDom = null
-        // vm.imgWidth = this.width
-        // vm.imgHeight = this.height
       }
     },
     getCriticalX (target, container) {
