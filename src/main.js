@@ -16,6 +16,7 @@ import { ConfirmPlugin } from './components/Confirm'
 import { ToastPlugin } from './components/Toast'
 import { ActionSheetPlugin } from './components/ActionSheet'
 import { TipPlugin } from './components/Tip'
+import { PreviewImagePlugin } from './components/PreviewImage'
 
 import { Tab } from './components/Tab'
 import { Rater } from './components/Rater'
@@ -28,15 +29,11 @@ import { Switch } from './components/Switch'
 import { Marquee } from './components/Marquee'
 import { IndexList } from './components/IndexList'
 import { Progress } from './components/Progress'
-import { PreviewImage } from './components/PreviewImage'
 import { SwiperOut } from './components/SwiperOut'
 import { Picker, PickerItem } from './components/Picker'
 import { CountUp } from './components/CountUp'
 import { CityPicker } from './components/CityPicker'
 import { DatePicker } from './components/DatePicker'
-
-// import AlloyFinger from './lib/AlloyFinger'
-// import AlloyFingerVue from './lib/AlloyFingerVue'
 
 Vue.component(`${Tab.name}`, Tab)
 Vue.component(`${Rater.name}`, Rater)
@@ -53,7 +50,7 @@ Vue.component(`${Switch.name}`, Switch)
 Vue.component(`${Marquee.name}`, Marquee)
 Vue.component(`${IndexList.name}`, IndexList)
 Vue.component(`${Progress.name}`, Progress)
-Vue.component(`${PreviewImage.name}`, PreviewImage)
+// Vue.component(`${PreviewImage.name}`, PreviewImage)
 Vue.component(`${SwiperOut.name}`, SwiperOut)
 Vue.component(`${Picker.name}`, Picker)
 Vue.component(`${PickerItem.name}`, PickerItem)
@@ -65,11 +62,7 @@ Vue.use(ConfirmPlugin)
 Vue.use(ToastPlugin)
 Vue.use(ActionSheetPlugin)
 Vue.use(TipPlugin)
-
-// console.log(AlloyFinger())
-// Vue.use(AlloyFingerVue)
-
-// console.log(AlloyFingerVue)
+Vue.use(PreviewImagePlugin)
 
 Vue.config.productionTip = false
 
