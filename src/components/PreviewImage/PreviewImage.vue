@@ -62,34 +62,12 @@ export default {
     }
   },
   created () {
-    setTimeout(() => {
-      console.log(this.imgArr)
-    }, 2000)
-    // this.init()
+
   },
   mounted () {
 
   },
   methods: {
-    init () {
-      for (let i = 0; i < this.imgArr.length; i++) {
-        let imgDom = new Image()
-        let vm = this
-        // imgDom.src = this.imgArr[this.currentIndex]
-        imgDom.src = this.imgArr[i].src
-        imgDom.onload = function () {
-          if (this.width > this.height) {
-            vm.imgArr[i].imgDirection = 'horizontal'
-          } else {
-            vm.imgArr[i].imgDirection = 'vertical'
-          }
-          imgDom.onload = null
-          imgDom = null
-          // vm.imgWidth = this.width
-          // vm.imgHeight = this.height
-        }
-      }
-    },
     getCriticalX (target, container) {
       return (target.getBoundingClientRect().width - container.getBoundingClientRect().width) / 2
     },
@@ -158,8 +136,10 @@ export default {
       this.imgEl = e.target
       let el = this.imgEl
       if (el.width > el.height) {
-        new To(el, 'translateY', 0, this.animationTime)
         // console.log('horizontal')
+
+        new To(el, 'translateY', 0, this.animationTime)
+
         if (el.translateX > this.criticalX && this.pressMoveStatus) {
           new To(el, 'translateX', this.criticalX, this.animationTime)
           this.pressMoveStatus = false
@@ -170,7 +150,9 @@ export default {
         }
       } else {
         // console.log('vertical')
+
         new To(el, 'translateX', 0, this.animationTime)
+        
         if (el.translateY > this.criticalY && this.pressMoveStatus) {
           new To(el, 'translateY', this.criticalY, this.animationTime)
           this.pressMoveStatus = false

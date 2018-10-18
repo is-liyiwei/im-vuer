@@ -27,25 +27,47 @@ let PreviewImagePlugin = {
 
 
     Vue.prototype.$openPreviewImage = function (options) {
-      
-      const instance = new PreviewImageConstructor({
-        el: document.createElement('div'),
-        data () {
-          return {
-            imgArr: options.imgArr || [],
-            currentIndex: options.currentIndex || 0
+
+      new Promise((reslove, reject) => {
+        let count = 0
+
+        for (let i = 0; i < options.imgArr.length; i++) {
+          let imgDom = new Image()
+          imgDom.src = options.imgArr[i].src
+          imgDom.onload = function () {
+            if (this.width > this.height) {
+              options.imgArr[i].imgDirection = 'horizontal'
+            } else {
+              options.imgArr[i].imgDirection = 'vertical'
+            }
+            imgDom.onload = null
+            imgDom = null
+            count++
+            if (count === options.imgArr.length) {
+              reslove()
+            }
           }
         }
-      })
+      }).then(res => {
+        const instance = new PreviewImageConstructor({
+          el: document.createElement('div'),
+          data () {
+            return {
+              imgArr: options.imgArr || [],
+              currentIndex: options.currentIndex || 0
+            }
+          }
+        })
 
-      const el = instance.$el
+        const el = instance.$el
 
-      document.body.appendChild(el)
+        document.body.appendChild(el)
 
-      el.addEventListener('click', (e) => {
-        if (e.target.tagName !== 'IMG') {
-          instance.$closePreviewImage()
-        }
+        el.addEventListener('click', (e) => {
+          if (e.target.tagName !== 'IMG') {
+            instance.$closePreviewImage()
+          }
+        })
       })
     }
   }
