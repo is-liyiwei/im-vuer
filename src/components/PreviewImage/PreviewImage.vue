@@ -84,6 +84,9 @@ export default {
       // this.currentScale = this.imgEl.scaleX
     },
     handlePressMove (e) {
+      // 这个方法得逻辑有点问题的
+      // 特别是elMargin，这里有横向竖向图片，所以这个不应该是固定的
+      // 还有这个getCriticalX和getCriticalY方法，自己都没有搞懂什么意义
       e.preventDefault()
       this.pressMoveStatus = true
       this.imgEl = e.target
@@ -95,6 +98,14 @@ export default {
 
       this.criticalX = this.getCriticalX(el, container)
       this.criticalY = this.getCriticalY(el, container)
+
+      // console.log(el.translateX) // 自身的x
+      // console.log(this.criticalX) // 相对于
+      // console.log(elMargin)
+      // console.log(this.targetNum)
+      // console.log(el.scaleX)
+      // console.log(el.translateX - this.criticalX - elMargin, this.targetNum * el.scaleX)
+      // console.log(el.translateX - (-this.criticalX) - (-elMargin), -this.targetNum * el.scaleX)
 
       el.translateX += e.deltaX
       el.translateY += e.deltaY
@@ -120,7 +131,7 @@ export default {
           this.containerX += e.deltaX
           if (this.containerX < -30) {
             this.$el.translateX += e.deltaX
-            this.containerSwipeStatus = 'swipe-rigth'
+            this.containerSwipeStatus = 'swipe-right'
           } else {
             this.containerSwipeStatus = 'no-swipe'
           }
@@ -156,7 +167,7 @@ export default {
     handleTouchEnd (e) {
       this.imgEl = e.target
       let el = this.imgEl
-      if (this.containerSwipeStatus == 'swipe-rigth') {
+      if (this.containerSwipeStatus == 'swipe-right') {
         this.currentIndex++
       }
       if (this.containerSwipeStatus == 'swipe-left') {
@@ -208,8 +219,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @import '../../less/base.less';
-
-
 .@{prefixClass} {
   &-previewImage {
     position: fixed;

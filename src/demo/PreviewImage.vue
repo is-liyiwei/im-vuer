@@ -14,9 +14,9 @@ export default {
       }, {
         src: 'http://pic9.nipic.com/20100831/2167235_164504023490_2.jpg'
       }, {
-        src: 'http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg'
-      }, {
         src: 'http://pic.58pic.com/58pic/15/70/34/93P58PIC82K_1024.jpg'
+      }, {
+        src: 'http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg'
       }],
       testImgArr2: [{
         src: 'http://pic.58pic.com/58pic/15/70/34/93P58PIC82K_1024.jpg'
@@ -38,7 +38,7 @@ export default {
   methods: {
     openPreviewImage (i) {
       this.$openPreviewImage({
-        imgArr: this.testImgArr2,
+        imgArr: this.testImgArr1,
         currentIndex: i
       })
     }
