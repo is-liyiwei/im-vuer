@@ -1,6 +1,6 @@
 <template>
   <transition name="vuer-fade-in">
-    <div class="im-previewImage" v-transform>
+    <div class="im-previewImage" v-transform :style="previewImageContainer">
       <template v-for="(v, k) in imgArr">
         <div id="container-horizontal" v-if="v.imgDirection === 'horizontal'">
           <img
@@ -70,7 +70,11 @@ export default {
 
   },
   computed: {
-
+    previewImageContainer () {
+      return {
+        
+      }
+    }
   },
   methods: {
     getCriticalX (target, container) {
@@ -92,6 +96,11 @@ export default {
 
       // 这个3是因为css布局采用全屏幕，3等分了，有这样一段calc(100% / 3)
       let elMargin = window.innerWidth / 3 / this.currScale
+      console.log(el.translateX)
+      console.log(this.criticalX)
+      console.log(elMargin)
+      console.log(this.targetNum)
+      console.log(el.scaleX)
 
       this.criticalX = this.getCriticalX(el, container)
       this.criticalY = this.getCriticalY(el, container)
@@ -104,8 +113,8 @@ export default {
           return
         } else {
           this.containerX += e.deltaX
+          this.$el.translateX += e.deltaX
           if (this.containerX > 30) {
-            this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-left'
           } else {
             this.containerSwipeStatus = 'no-swipe'
@@ -118,8 +127,8 @@ export default {
           return
         } else {
           this.containerX += e.deltaX
+          this.$el.translateX += e.deltaX
           if (this.containerX < -30) {
-            this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-rigth'
           } else {
             this.containerSwipeStatus = 'no-swipe'
@@ -134,8 +143,10 @@ export default {
       if (el.scaleX === this.currScale) {
         new To(el, 'scaleX', 1, this.animationTime)
         new To(el, 'scaleY', 1, this.animationTime)
-        new To(el, 'translateX', 0, this.animationTime)
-        new To(el, 'translateY', 0, this.animationTime)
+        setTimeout(() => {
+          new To(el, 'translateX', 0, this.animationTime)
+          new To(el, 'translateY', 0, this.animationTime)
+        }, 0)
       } else {
         let clickPointXDistanceSelfLeft = e.changedTouches['0'].clientX - el.getBoundingClientRect().x
         let clickPointYDistanceSelfTop = e.changedTouches['0'].clientY - el.getBoundingClientRect().y
@@ -146,8 +157,10 @@ export default {
 
         new To(el, 'scaleX', this.currScale, this.animationTime)
         new To(el, 'scaleY', this.currScale, this.animationTime)
-        new To(el, 'translateX', -diffX, this.animationTime)
-        new To(el, 'translateY', -diffY, this.animationTime)
+        setTimeout(() => {
+          new To(el, 'translateX', -diffX, this.animationTime)
+          new To(el, 'translateY', -diffY, this.animationTime)
+        }, 0)
       }
     },
     handleTouchStart (e) {
@@ -156,14 +169,17 @@ export default {
     handleTouchEnd (e) {
       this.imgEl = e.target
       let el = this.imgEl
+      this.containerX = 0
       if (this.containerSwipeStatus == 'swipe-rigth') {
         this.currentIndex++
+        this.containerX = 0
+        this.containerSwipeStatus = 'no-swipe'
       }
       if (this.containerSwipeStatus == 'swipe-left') {
         this.currentIndex--
+        this.containerX = 0
+        this.containerSwipeStatus = 'no-swipe'
       }
-      this.containerSwipeStatus = 'no-swipe'
-      this.containerX = 0
       new To(this.$el, 'translateX', -(window.innerWidth * this.currentIndex), this.animationTime)
       if (el.width > el.height) {
         // console.log('horizontal')
