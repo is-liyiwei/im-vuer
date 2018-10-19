@@ -35,7 +35,7 @@
 # npm run build --report
 ```
 
-项目参考了许多的文章以及开源项目，鉴于各种问题无法一一列举，只能列举部分参考较多的，如果有参考你的原创文章请与我联系添加，如有其它侵犯问题，也请与我联系，我会及时删除并向你道歉
+项目参考了许多的文章以及开源项目
 
 - [mint-ui](https://github.com/ElemeFE/mint-ui)
 
@@ -46,3 +46,5 @@
 - [muse-ui](https://github.com/museui/muse-ui)
 
 - [countup.js](https://github.com/inorganik/CountUp.js)
+
+鉴于各种问题无法一一列举，只能列举部分参考较多的，如果有参考你的原创文章请与我联系并添加原文出处，如有其它侵犯问题，也请与我联系，我会及时删除
