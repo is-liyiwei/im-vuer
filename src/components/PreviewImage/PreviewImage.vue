@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import To from '@/lib/AlloyTo'
+import To from '../../lib/AlloyTo'
 /* eslint-disable no-new */
 export default {
   name: 'im-preview-image',

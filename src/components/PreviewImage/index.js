@@ -1,8 +1,8 @@
 import PreviewImage from './PreviewImage.vue'
 
-import AlloyFinger from '@/lib/AlloyFinger'
-import AlloyFingerVue from '@/lib/AlloyFingerVue'
-import Transform from '@/lib/AlloyTransform'
+import AlloyFinger from '../../lib/AlloyFinger'
+import AlloyFingerVue from '../../lib/AlloyFingerVue'
+import Transform from '../../lib/AlloyTransform'
 
 function nonNegativeInteger (num) {
   return /^(0|[1-9]\d*)$/.test(String(num))
