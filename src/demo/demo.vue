@@ -1,12 +1,12 @@
 <template>
-  <div class="demo-step">
+  <div class="demo-demo">
     改class和下面的name
   </div>
 </template>
 
 <script>
 export default {
-  name: 'step',
+  name: 'demo',
   data () {
     return {
       

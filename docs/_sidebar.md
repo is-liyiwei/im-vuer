@@ -9,6 +9,7 @@
   - [indexlist](indexlist)
   - [marquee](marquee)
   - [picker](picker)
+  - [previewImage](previewImage)
   - [progress](progress)
   - [radio](radio)
   - [rater](rater)

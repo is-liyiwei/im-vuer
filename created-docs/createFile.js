@@ -1,29 +1,29 @@
-const fs = require('fs');
-const path = require('path');
-const chalk = require('chalk');
+const fs = require('fs')
+const path = require('path')
+const chalk = require('chalk')
 
 /**
  * @param startPath  起始目录文件夹路径
  * @returns {Array}
  */
 function findFileSync (startPath) {
-  let result = [];
+  let result = []
   function finder(pa) {
-    let files = fs.readdirSync(pa);
+    let files = fs.readdirSync(pa)
     files.forEach((val, index) => {
-      let fPath = path.join(pa, val);
-      let stats = fs.statSync(fPath);
+      let fPath = path.join(pa, val)
+      let stats = fs.statSync(fPath)
       if (stats.isDirectory()) {
-        result.push(fPath);
+        result.push(fPath)
         // 递归读取文件夹下文件
         // finder(fPath)
-      };
+      }
       // 读取文件名
-      if (stats.isFile()) result.push(fPath);
-    });
+      if (stats.isFile()) result.push(fPath)
+    })
   }
-  finder(startPath);
-  return result;
+  finder(startPath)
+  return result
 }
 
 function makeContent(data, componentName) {
@@ -75,33 +75,42 @@ function makeTable(tb_data) {
   return result
 }
 
+// 不生成文档名单
+const blackArr = [
+'Home',
+'Demo',
+'PullRefresh'
+]
+
 function creatFile(files) {
 
-  let count = 0;
+  let count = 0
   files.map(v => {
     // 获取文件后缀名
     if (path.parse(v).ext != '.vue') return
 
-    const fileName = path.parse(v).name;  // 获取文件名字
-    const md_create_path = path.resolve(__dirname, `./create/${fileName}.MD`);  // 将要获取的文件路径
+    const fileName = path.parse(v).name  // 获取文件名字
+    if (blackArr.indexOf(fileName) != -1) {
+      return
+    }
+    const md_create_path = path.resolve(__dirname, `./create/${fileName}.MD`)  // 将要获取的文件路径
 
     fs.exists(md_create_path, function (exists) {
 
-      if (!exists) return
+      let demoContent = fs.readFileSync(v, "utf-8")  // 读取文件内容，用于生成示例代码
 
-      let demoContent = fs.readFileSync(v, "utf-8");  // 读取文件内容，用于生成示例代码
+      let apiData = require(path.resolve(__dirname, './api/' + fileName + '.js'))  // 获取对应的文件的api参数内容，用于生成表格
 
-      let apiData = require(path.resolve(__dirname, './api/' + fileName + '.js'));  // 获取对应的文件的api参数内容，用于生成表格
+      let resultData = makeContent(demoContent, fileName) + makeTable(apiData)  // 生成模板
 
-      let resultData = makeContent(demoContent, fileName) + makeTable(apiData);  // 生成模板
+      fs.writeFileSync(md_create_path, resultData)
 
-      fs.writeFileSync(md_create_path, resultData);
-
-      console.log(chalk.yellowBright.bgBlack.bold(`The file ${fileName}.MD was saved!`, count++ + '\n'));
+      console.log(chalk.yellowBright.bgBlack.bold(`The file ${fileName}.MD was saved!`, count++ + '\n'))
     })
 
   })
 }
 
-let files = findFileSync(path.resolve(__dirname, '../src/demo'));
-creatFile(files);
+let files = findFileSync(path.resolve(__dirname, '../src/demo'))
+
+creatFile(files)

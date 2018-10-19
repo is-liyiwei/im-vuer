@@ -1,6 +1,16 @@
+> 使用
+
+```js
+import { PreviewImage } form 'im-vuer'
+Vue.component(PreviewImage.name, PreviewImage)
+```
+
+> 示例代码
+
+```js
 <template>
   <div class="demo-previewImage">
-    <img v-for="(v, k) in testImgArr1" :src="v.src" :key="k">
+    <img v-for="v in testImgArr1" :src="v.src" alt="">
     <button id="btn" @click="openPreviewImage(0)">openPreviewImage</button>
     <br>存在问题
     <br>微信公众号无法正常使用的bug
@@ -62,3 +72,57 @@ img {
    font-size: 32px;
 }
 </style>
+
+```
+> 参数说明
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>参数</th> 
+        <th>说明</th> 
+        <th>类型</th> 
+        <th>可选值/备注</th> 
+        <th>默认值</th>
+      </tr>
+    </thead> 
+    <tbody>
+      <tr>
+        <td>imgArr</td> 
+        <td>图片列表</td> 
+        <td>Array</td> 
+        <td>-</td> 
+        <td>[]</td>
+      </tr>
+      <tr>
+        <td>currentIndex</td> 
+        <td>初始的图片index</td> 
+        <td>Number</td> 
+        <td>非负整数</td> 
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>currScale</td> 
+        <td>缩放倍数</td> 
+        <td>Number</td> 
+        <td>最大不要超过3</td> 
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>targetSwipeBoundaryValue</td> 
+        <td>决定是否swipe触发边界值</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>130</td>
+      </tr>
+      <tr>
+        <td>animationTime</td> 
+        <td>动画时间</td> 
+        <td>Number</td> 
+        <td>-</td> 
+        <td>300</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

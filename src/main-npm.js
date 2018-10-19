@@ -11,6 +11,7 @@ import { ConfirmPlugin } from './components/Confirm'
 import { ToastPlugin } from './components/Toast'
 import { ActionSheetPlugin } from './components/ActionSheet'
 import { TipPlugin } from './components/Tip'
+import { PreviewImagePlugin } from './components/PreviewImage'
 
 import { Tab } from './components/Tab'
 import { Rater } from './components/Rater'
@@ -99,5 +100,6 @@ export {
   ConfirmPlugin,
   ToastPlugin,
   ActionSheetPlugin,
-  TipPlugin
+  TipPlugin,
+  PreviewImagePlugin
 }

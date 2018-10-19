@@ -27,6 +27,7 @@
 <script src="./im-vuer.js"></script>
 <script>
 let lib = window['im-vuer']
+console.log(lib)
 Vue.component(lib.Tab.name, lib.Tab)
 Vue.component(lib.Step.name, lib.Step)
 Vue.component(lib.CountUp.name, lib.CountUp)
@@ -52,6 +53,7 @@ Vue.use(lib.ConfirmPlugin);
 Vue.use(lib.ToastPlugin);
 Vue.use(lib.ActionSheetPlugin);
 Vue.use(lib.TipPlugin);
+Vue.use(lib.PreviewImagePlugin)
 let vm = new Vue({
   el: '#app',
   data () {

@@ -1,6 +1,6 @@
 ![logo](_assets/SFont.CN.svg)
 
-# im-vuer <small>0.2.3</small>
+# im-vuer <small>0.2.4</small>
 
 > A Vue.js UI lib
 
