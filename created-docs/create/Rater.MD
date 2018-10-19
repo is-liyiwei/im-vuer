@@ -119,64 +119,55 @@ export default {
         <td>-</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>min</td> 
         <td>最小值</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>max</td> 
         <td>最大值</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>5</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>disabled</td> 
         <td>是否禁用</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>star</td> 
         <td>html模板</td> 
         <td>String</td> 
         <td>-</td> 
         <td>★</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>activeColor</td> 
         <td>选中颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>margin</td> 
         <td>边距</td> 
         <td>String</td> 
         <td>-</td> 
         <td>0.2rem</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>fontSize</td> 
         <td>大小</td> 
         <td>String</td> 
         <td>-</td> 
         <td>0.4rem</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>offColor</td> 
         <td>没选中颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#ccc</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

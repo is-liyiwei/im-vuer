@@ -423,15 +423,13 @@ export default {
         <td>Array</td> 
         <td>参考demo</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@handleClick</td> 
         <td>点击每一项事件</td> 
         <td>Function</td> 
         <td>返回item数据</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

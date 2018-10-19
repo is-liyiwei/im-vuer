@@ -73,64 +73,55 @@ export default {
         <td>Array</td> 
         <td>参考demo</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>labelColor</td> 
         <td>标签背景颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00BFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>labelTextColor</td> 
         <td>标签文本颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#fff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>textColorActive</td> 
         <td>选中文本颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00BFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>textColorDefault</td> 
         <td>默认文本颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#000</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>lineColor</td> 
         <td>底部线条颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00BFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>lineThickness</td> 
         <td>底部线条高度(宽度)</td> 
         <td>String</td> 
         <td>-</td> 
         <td>2px</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>activeCurrIndex</td> 
         <td>当前选中索引值</td> 
         <td>Number, String</td> 
         <td>-</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@on-tab</td> 
         <td>点击事件</td> 
         <td>Function</td> 
         <td>返回索引值</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

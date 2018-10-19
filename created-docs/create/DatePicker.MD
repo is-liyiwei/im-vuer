@@ -91,43 +91,37 @@ export default {
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>itemColor</td> 
         <td>每一项颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>cancelBtn</td> 
         <td>取消按钮颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#000000</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>confirmBtn</td> 
         <td>确定按钮颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>v-model</td> 
         <td>控制组件显示</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@confirm</td> 
         <td>确定按钮事件</td> 
         <td>Function</td> 
         <td>-</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

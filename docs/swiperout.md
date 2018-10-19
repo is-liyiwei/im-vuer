@@ -90,29 +90,25 @@ export default {
         <td>Array</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>showStatus</td> 
         <td>控制组件显示</td> 
         <td>Boolean</td> 
         <td>true, false</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@cancelBtn</td> 
         <td>取消按钮事件</td> 
         <td>Function</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@confirmBtn</td> 
         <td>确定按钮事件</td> 
         <td>Function</td> 
         <td>-</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

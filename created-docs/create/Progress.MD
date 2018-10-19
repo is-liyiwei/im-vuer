@@ -142,50 +142,43 @@ export default {
         <td>Number, String</td> 
         <td>0-100</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>progressHeight</td> 
         <td>进度条高度(宽度)</td> 
         <td>Number, String</td> 
         <td>-</td> 
         <td>2</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>progressColor</td> 
         <td>进度条颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>color</td> 
         <td>进度条默认背景颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#5d5d5d</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>startText</td> 
         <td>默认左边开始文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>endText</td> 
         <td>默认右边结束文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>inTop</td> 
         <td>顶部进度条</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

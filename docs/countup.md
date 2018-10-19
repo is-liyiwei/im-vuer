@@ -93,50 +93,43 @@ export default {
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>startVal</td> 
         <td>开始值</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>endVal</td> 
         <td>结束值</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>100</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>decimals</td> 
         <td>保留小数位</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>duration</td> 
         <td>动画时间</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>2</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>txtColor</td> 
         <td>文本颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>fz</td> 
         <td>文本大小</td> 
         <td>String</td> 
         <td>-</td> 
         <td>.37rem</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

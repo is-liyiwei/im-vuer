@@ -115,29 +115,25 @@ export default {
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>onColor</td> 
         <td>选中颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>onBgColor</td> 
         <td>选中背景颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>styleFor</td> 
         <td>样式风格</td> 
         <td>String</td> 
         <td>ios, android</td> 
         <td>ios</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

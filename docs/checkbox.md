@@ -84,36 +84,31 @@ export default {
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>val</td> 
         <td>文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>activeBgColor</td> 
         <td>选中背景颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00BFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>activeColor</td> 
         <td>选中图标颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#FFFFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>circle</td> 
         <td>是否圆形</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

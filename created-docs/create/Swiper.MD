@@ -92,64 +92,55 @@ export default {
         <td>Number, String</td> 
         <td>-</td> 
         <td>350</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>loop</td> 
         <td>是否循环</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>true</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>autoPlay</td> 
         <td>自动播放时间间隔</td> 
         <td>Number, String</td> 
         <td>为0时不自动播放</td> 
         <td>3000</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>idx</td> 
         <td>当前图片索引</td> 
         <td>Number, String</td> 
         <td>-</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>dotColor</td> 
         <td>点颜色</td> 
         <td>String</td> 
         <td>为0时不自动播放</td> 
         <td>#fff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>dotActiveColor</td> 
         <td>点选中颜色</td> 
         <td>String</td> 
         <td>为0时不自动播放</td> 
         <td>#f00</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>isTabView</td> 
         <td>是否配合tab组件使用</td> 
         <td>Boolean</td> 
         <td>详情看demo</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@on-swiper</td> 
         <td>滑动事件</td> 
         <td>Function</td> 
         <td>返回1或-1代表正反向</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@tap-swiper</td> 
         <td>点击事件</td> 
         <td>Function</td> 
         <td>返回索引值</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

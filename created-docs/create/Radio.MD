@@ -111,50 +111,43 @@ export default {
         <td>-</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>val</td> 
         <td>item值</td> 
         <td>Number, String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>disabled</td> 
         <td>是否禁用</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>bgColor</td> 
         <td>颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00BFFF</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>size</td> 
         <td>大小</td> 
         <td>String</td> 
         <td>-</td> 
         <td>22px</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>textFz</td> 
         <td>文本大小</td> 
         <td>String</td> 
         <td>-</td> 
         <td>.2rem</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>textColor</td> 
         <td>文本颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#888</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

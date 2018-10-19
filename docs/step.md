@@ -148,22 +148,19 @@ export default {
         <td>Array</td> 
         <td>参考demo</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>current</td> 
         <td>控制active项</td> 
         <td>Number, String</td> 
         <td></td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>activeColor</td> 
         <td>控制active颜色</td> 
         <td>String</td> 
         <td></td> 
         <td>#00bFFF</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

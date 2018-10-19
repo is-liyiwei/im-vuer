@@ -89,50 +89,43 @@ export default {
         <td>Array</td> 
         <td>-</td> 
         <td>[]</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>v-model</td> 
         <td>控制组件显示</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>bgColor</td> 
         <td>背景颜色</td> 
         <td>String</td> 
         <td>-</td> 
         <td>#00bfff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>cancelBtnColor</td> 
         <td>取消文字颜色</td> 
         <td>String</td> 
         <td></td> 
         <td>#fff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>confirmBtnColor</td> 
         <td>确定文字颜色</td> 
         <td>String</td> 
         <td></td> 
         <td>#fff</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@cancelBtn</td> 
         <td>取消按钮事件</td> 
         <td>Function</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>@confirmBtn</td> 
         <td>确定按钮事件</td> 
         <td>Function</td> 
         <td>-</td> 
         <td>-</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

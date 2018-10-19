@@ -127,22 +127,19 @@ export default {
         <td>String</td> 
         <td>up, down</td> 
         <td>up</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>duration</td> 
         <td>动画时长</td> 
         <td>[Number, String]</td> 
         <td></td> 
         <td>300</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>interval</td> 
         <td>动画间隔时长</td> 
         <td>[Number, String]</td> 
         <td></td> 
         <td>3000</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

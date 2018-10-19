@@ -10,7 +10,7 @@ Vue.component(PreviewImage.name, PreviewImage)
 ```js
 <template>
   <div class="demo-previewImage">
-    <img v-for="v in testImgArr1" :src="v.src" alt="">
+    <img v-for="(v, k) in testImgArr1" :src="v.src" :key="k">
     <button id="btn" @click="openPreviewImage(0)">openPreviewImage</button>
     <br>存在问题
     <br>微信公众号无法正常使用的bug
@@ -93,36 +93,31 @@ img {
         <td>Array</td> 
         <td>-</td> 
         <td>[]</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>currentIndex</td> 
         <td>初始的图片index</td> 
         <td>Number</td> 
         <td>非负整数</td> 
         <td>0</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>currScale</td> 
         <td>缩放倍数</td> 
         <td>Number</td> 
         <td>最大不要超过3</td> 
         <td>2</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>targetSwipeBoundaryValue</td> 
         <td>决定是否swipe触发边界值</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>130</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>animationTime</td> 
         <td>动画时间</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>300</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

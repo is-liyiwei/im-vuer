@@ -296,127 +296,109 @@ h5 {
         <td>Confirm组件</td> 
         <td>Confirm组件</td> 
         <td>Confirm组件</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>title</td> 
         <td>标题</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>content</td> 
         <td>文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>styleFor</td> 
         <td>样式</td> 
         <td>String</td> 
         <td>ios, android</td> 
         <td>ios</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>opts</td> 
         <td>配置</td> 
         <td>Array</td> 
         <td>参考demo,最好不要超过3个配置项</td> 
         <td>ios</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>Toast组件</td> 
         <td>Toast组件</td> 
         <td>Toast组件</td> 
         <td>Toast组件</td> 
         <td>Toast组件</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>content</td> 
         <td>文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>position</td> 
         <td>位置</td> 
         <td>String</td> 
         <td>top, bottom, center</td> 
         <td>bottom</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>time</td> 
         <td>显示时间</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>3000</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>ActionSheet组件</td> 
         <td>ActionSheet组件</td> 
         <td>ActionSheet组件</td> 
         <td>ActionSheet组件</td> 
         <td>ActionSheet组件</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>styleFor</td> 
         <td>样式</td> 
         <td>String</td> 
         <td>ios, android</td> 
         <td>android</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>hasCancel</td> 
         <td>是否有取消按钮</td> 
         <td>Boolean</td> 
         <td>-</td> 
         <td>false</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>opts</td> 
         <td>配置</td> 
         <td>Array</td> 
         <td>参考demo</td> 
         <td></td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>Tip组件</td> 
         <td>Tip组件</td> 
         <td>Tip组件</td> 
         <td>Tip组件</td> 
         <td>Tip组件</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>txt</td> 
         <td>文本</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>icon</td> 
         <td>图标</td> 
         <td>String</td> 
         <td>loading, success, warn, error</td> 
         <td>loading</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>tpl</td> 
         <td>自定义模板</td> 
         <td>String</td> 
         <td>-</td> 
         <td>-</td>
-      </tr>
-      <tr>
+      </tr><tr>
         <td>time</td> 
         <td>显示时间</td> 
         <td>Number</td> 
         <td>-</td> 
         <td>1800</td>
       </tr>
-      
     </tbody>
   </table>
 </div>

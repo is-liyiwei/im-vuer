@@ -53,8 +53,7 @@ function makeTable(tb_data) {
         <td>${tb_data[i].type}</td> 
         <td>${tb_data[i].optional}</td> 
         <td>${tb_data[i].default}</td>
-      </tr>
-      `
+      </tr>`
   }
   let result = `<div>
   <table>
