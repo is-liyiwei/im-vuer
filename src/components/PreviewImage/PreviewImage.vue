@@ -2,7 +2,7 @@
   <transition name="vuer-fade-in">
     <div class="im-previewImage" v-transform>
       <template v-for="(v, k) in imgArr">
-        <div id="container-horizontal" v-if="v.imgDirection === 'horizontal'">
+        <div :key="k" id="container-horizontal" v-if="v.imgDirection === 'horizontal'">
           <img
             v-transform
             v-finger:pinch="handlePinch"
@@ -15,8 +15,7 @@
             id="box-horizontal"
             :src="v.src">
         </div>
-
-        <div id="container-vertical" v-else>
+        <div :key="k" id="container-vertical" v-else>
           <img
             v-transform
             v-finger:pinch="handlePinch"
@@ -36,7 +35,7 @@
 
 <script>
 import To from '@/lib/AlloyTo'
-
+/* eslint-disable no-new */
 export default {
   name: 'im-preview-image',
   data () {
@@ -48,33 +47,29 @@ export default {
       targetSwipeBoxValue: 30
     }
   },
-  props: {
-    // 决定是否swipe触发边界值
-    targetSwipeBoundaryValue: {
-      type: Number,
-      default: 130
-    },
-    // 放大的系数
-    currScale: {
-      type: Number,
-      default: 2
-    },
-    // 动画时间
-    animationTime: {
-      type: Number,
-      default: 300
-    }
-  },
   created () {
 
   },
   mounted () {
-
+    this.init()
   },
   computed: {
 
   },
   methods: {
+    init () {
+      const el = this.$el
+
+      document.body.appendChild(el)
+
+      el.addEventListener('click', (e) => {
+        if (e.target.tagName !== 'IMG') {
+          this.$closePreviewImage()
+        }
+      })
+      
+      new To(this.$el, 'translateX', -(window.innerWidth * this.currentIndex), 0)
+    },
     // 获取图片水平空白区域，只获取一边
     getBlankSpaceWidth (target, container) {
       return (target.getBoundingClientRect().width - container.getBoundingClientRect().width) / 2
@@ -108,7 +103,7 @@ export default {
 
       if (el.translateX - this.blankSpaceWidth - elMargin > this.targetSwipeBoxValue * el.scaleX) {
         if (this.currentIndex <= 0) {
-          return
+          return false
         } else {
           this.containerX += e.deltaX
           if (this.containerX > this.targetSwipeBoxValue) {
@@ -117,12 +112,11 @@ export default {
           } else {
             this.containerSwipeStatus = 'no-swipe'
           }
-          console.log('左边拉动')
         }
       }
       if (el.translateX - (-this.blankSpaceWidth) - (-elMargin) < -this.targetSwipeBoxValue * el.scaleX) {
         if (this.currentIndex >= this.imgArr.length - 1) {
-          return
+          return false
         } else {
           this.containerX += e.deltaX
           if (this.containerX < -this.targetSwipeBoxValue) {
@@ -131,7 +125,6 @@ export default {
           } else {
             this.containerSwipeStatus = 'no-swipe'
           }
-          console.log('右边拉动')
         }
       }
     },
@@ -148,7 +141,6 @@ export default {
         let clickPointYDistanceSelfTop = e.changedTouches['0'].clientY - el.getBoundingClientRect().y
 
         let diffX = (clickPointXDistanceSelfLeft - el.getBoundingClientRect().width / 2) * (this.currScale - 1)
-
         let diffY = (clickPointYDistanceSelfTop - el.getBoundingClientRect().height / 2) * (this.currScale - 1)
 
         new To(el, 'scaleX', this.currScale, this.animationTime)

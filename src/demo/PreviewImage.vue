@@ -39,7 +39,8 @@ export default {
     openPreviewImage (i) {
       this.$openPreviewImage({
         imgArr: this.testImgArr2,
-        currentIndex: i
+        currentIndex: i,
+        currScale: 2
       })
     }
   }
