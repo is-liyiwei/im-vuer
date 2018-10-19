@@ -38,7 +38,7 @@ export default {
   methods: {
     openPreviewImage (i) {
       this.$openPreviewImage({
-        imgArr: this.testImgArr1,
+        imgArr: this.testImgArr2,
         currentIndex: i
       })
     }

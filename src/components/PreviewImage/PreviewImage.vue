@@ -43,14 +43,16 @@ export default {
     return {
       pressMoveStatus: false,
       containerX: 0,
-      containerSwipeStatus: ''
+      containerSwipeStatus: '',
+      // 过了这个值才开始出现拖动下一页的图片
+      targetSwipeBoxValue: 30
     }
   },
   props: {
-    // 拖动边界触发值
-    targetNum: {
+    // 决定是否swipe触发边界值
+    targetSwipeBoundaryValue: {
       type: Number,
-      default: 30
+      default: 130
     },
     // 放大的系数
     currScale: {
@@ -73,10 +75,12 @@ export default {
 
   },
   methods: {
-    getCriticalX (target, container) {
+    // 获取图片水平空白区域，只获取一边
+    getBlankSpaceWidth (target, container) {
       return (target.getBoundingClientRect().width - container.getBoundingClientRect().width) / 2
     },
-    getCriticalY (target, container) {
+    // 获取图片垂直空白区域，只获取一边
+    getBlankSpaceHeight (target, container) {
       return (target.getBoundingClientRect().height - container.getBoundingClientRect().height) / 2
     },
     handleMultipointStart (e) {
@@ -84,38 +88,30 @@ export default {
       // this.currentScale = this.imgEl.scaleX
     },
     handlePressMove (e) {
-      // 这个方法得逻辑有点问题的
-      // 特别是elMargin，这里有横向竖向图片，所以这个不应该是固定的
-      // 还有这个getCriticalX和getCriticalY方法，自己都没有搞懂什么意义
+      // 这个算法问题，应该是不准确的，碰巧可以的，我自己都懵逼T T
       e.preventDefault()
       this.pressMoveStatus = true
       this.imgEl = e.target
       let el = this.imgEl
       let container = this.imgEl.parentElement
 
-      // 这个3是因为css布局采用全屏幕，3等分了，有这样一段calc(100% / 3)
+      // 这个3是因为css布局采用全屏幕，3等分了，css有这样一段calc(100% / 3)
+      // let elMargin = window.innerWidth / 3 / this.currScale + this.targetElementXByContainer
+      // console.log(this.targetElementXByContainer) // 这个暂时不用
       let elMargin = window.innerWidth / 3 / this.currScale
 
-      this.criticalX = this.getCriticalX(el, container)
-      this.criticalY = this.getCriticalY(el, container)
-
-      // console.log(el.translateX) // 自身的x
-      // console.log(this.criticalX) // 相对于
-      // console.log(elMargin)
-      // console.log(this.targetNum)
-      // console.log(el.scaleX)
-      // console.log(el.translateX - this.criticalX - elMargin, this.targetNum * el.scaleX)
-      // console.log(el.translateX - (-this.criticalX) - (-elMargin), -this.targetNum * el.scaleX)
+      this.blankSpaceWidth = this.getBlankSpaceWidth(el, container)
+      this.blankSpaceHeight = this.getBlankSpaceHeight(el, container)
 
       el.translateX += e.deltaX
       el.translateY += e.deltaY
 
-      if (el.translateX - this.criticalX - elMargin > this.targetNum * el.scaleX) {
+      if (el.translateX - this.blankSpaceWidth - elMargin > this.targetSwipeBoxValue * el.scaleX) {
         if (this.currentIndex <= 0) {
           return
         } else {
           this.containerX += e.deltaX
-          if (this.containerX > 30) {
+          if (this.containerX > this.targetSwipeBoxValue) {
             this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-left'
           } else {
@@ -124,12 +120,12 @@ export default {
           console.log('左边拉动')
         }
       }
-      if (el.translateX - (-this.criticalX) - (-elMargin) < -this.targetNum * el.scaleX) {
+      if (el.translateX - (-this.blankSpaceWidth) - (-elMargin) < -this.targetSwipeBoxValue * el.scaleX) {
         if (this.currentIndex >= this.imgArr.length - 1) {
           return
         } else {
           this.containerX += e.deltaX
-          if (this.containerX < -30) {
+          if (this.containerX < -this.targetSwipeBoxValue) {
             this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-right'
           } else {
@@ -162,15 +158,18 @@ export default {
       }
     },
     handleTouchStart (e) {
-
+      this.imgEl = e.target
+      let el = this.imgEl
+      this.targetElementXByContainer = el.getBoundingClientRect().x
     },
     handleTouchEnd (e) {
       this.imgEl = e.target
       let el = this.imgEl
-      if (this.containerSwipeStatus == 'swipe-right') {
+      const containerX = Math.abs(this.containerX)
+      if (this.containerSwipeStatus === 'swipe-right' && containerX >= this.targetSwipeBoundaryValue) {
         this.currentIndex++
       }
-      if (this.containerSwipeStatus == 'swipe-left') {
+      if (this.containerSwipeStatus === 'swipe-left' && containerX >= this.targetSwipeBoundaryValue) {
         this.currentIndex--
       }
       this.containerSwipeStatus = 'no-swipe'
@@ -181,12 +180,12 @@ export default {
 
         new To(el, 'translateY', 0, this.animationTime)
 
-        if (el.translateX > this.criticalX && this.pressMoveStatus) {
-          new To(el, 'translateX', this.criticalX, this.animationTime)
+        if (el.translateX > this.blankSpaceWidth && this.pressMoveStatus) {
+          new To(el, 'translateX', this.blankSpaceWidth, this.animationTime)
           this.pressMoveStatus = false
         }
-        if (el.translateX < -this.criticalX && this.pressMoveStatus) {
-          new To(el, 'translateX', -this.criticalX, this.animationTime)
+        if (el.translateX < -this.blankSpaceWidth && this.pressMoveStatus) {
+          new To(el, 'translateX', -this.blankSpaceWidth, this.animationTime)
           this.pressMoveStatus = false
         }
       } else {
@@ -194,12 +193,12 @@ export default {
 
         new To(el, 'translateX', 0, this.animationTime)
 
-        if (el.translateY > this.criticalY && this.pressMoveStatus) {
-          new To(el, 'translateY', this.criticalY, this.animationTime)
+        if (el.translateY > this.blankSpaceHeight && this.pressMoveStatus) {
+          new To(el, 'translateY', this.blankSpaceHeight, this.animationTime)
           this.pressMoveStatus = false
         }
-        if (el.translateY < -this.criticalY && this.pressMoveStatus) {
-          new To(el, 'translateY', -this.criticalY, this.animationTime)
+        if (el.translateY < -this.blankSpaceHeight && this.pressMoveStatus) {
+          new To(el, 'translateY', -this.blankSpaceHeight, this.animationTime)
           this.pressMoveStatus = false
         }
       }
