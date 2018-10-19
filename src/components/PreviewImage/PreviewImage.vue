@@ -41,7 +41,7 @@ export default {
   data () {
     return {
       pressMoveStatus: false,
-      containerX: 0,
+      currContainerX: 0,
       containerSwipeStatus: '',
       // 过了这个值才开始出现拖动下一页的图片
       targetSwipeBoxValue: 30
@@ -67,7 +67,7 @@ export default {
           this.$closePreviewImage()
         }
       })
-      
+
       new To(this.$el, 'translateX', -(window.innerWidth * this.currentIndex), 0)
     },
     // 获取图片水平空白区域，只获取一边
@@ -105,8 +105,8 @@ export default {
         if (this.currentIndex <= 0) {
           return false
         } else {
-          this.containerX += e.deltaX
-          if (this.containerX > this.targetSwipeBoxValue) {
+          this.currContainerX += e.deltaX
+          if (this.currContainerX > this.targetSwipeBoxValue) {
             this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-left'
           } else {
@@ -118,8 +118,8 @@ export default {
         if (this.currentIndex >= this.imgArr.length - 1) {
           return false
         } else {
-          this.containerX += e.deltaX
-          if (this.containerX < -this.targetSwipeBoxValue) {
+          this.currContainerX += e.deltaX
+          if (this.currContainerX < -this.targetSwipeBoxValue) {
             this.$el.translateX += e.deltaX
             this.containerSwipeStatus = 'swipe-right'
           } else {
@@ -157,15 +157,15 @@ export default {
     handleTouchEnd (e) {
       this.imgEl = e.target
       let el = this.imgEl
-      const containerX = Math.abs(this.containerX)
-      if (this.containerSwipeStatus === 'swipe-right' && containerX >= this.targetSwipeBoundaryValue) {
+      const currContainerX = Math.abs(this.currContainerX)
+      if (this.containerSwipeStatus === 'swipe-right' && currContainerX >= this.targetSwipeBoundaryValue) {
         this.currentIndex++
       }
-      if (this.containerSwipeStatus === 'swipe-left' && containerX >= this.targetSwipeBoundaryValue) {
+      if (this.containerSwipeStatus === 'swipe-left' && currContainerX >= this.targetSwipeBoundaryValue) {
         this.currentIndex--
       }
       this.containerSwipeStatus = 'no-swipe'
-      this.containerX = 0
+      this.currContainerX = 0
       new To(this.$el, 'translateX', -(window.innerWidth * this.currentIndex), this.animationTime)
       if (el.width > el.height) {
         // console.log('horizontal')
