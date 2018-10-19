@@ -16,6 +16,7 @@ import { ConfirmPlugin } from 'im-vuer'
 import { ToastPlugin } from 'im-vuer'
 import { ActionSheetPlugin } from 'im-vuer'
 import { TipPlugin } from 'im-vuer'
+import { PreviewImagePlugin } from 'im-vuer'
 
 import { Tab } from 'im-vuer'
 import { Step } from 'im-vuer'
@@ -58,10 +59,11 @@ Vue.component(`${PickerItem.name}`, PickerItem)
 Vue.component(`${Progress.name}`, Progress)
 Vue.component(`${Switch.name}`, Switch)
 
-Vue.use(ConfirmPlugin);
-Vue.use(ToastPlugin);
-Vue.use(ActionSheetPlugin);
-Vue.use(TipPlugin);
+Vue.use(ConfirmPlugin)
+Vue.use(ToastPlugin)
+Vue.use(ActionSheetPlugin)
+Vue.use(TipPlugin)
+Vue.use(PreviewImagePlugin)
 ```
 
 ## 单文件项目中使用

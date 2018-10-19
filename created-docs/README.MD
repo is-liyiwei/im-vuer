@@ -5,6 +5,7 @@ node createFile
 table数据生成，依赖api文件夹下的对应的.js文件，这个要自己写
 
 Dialog.MD要手动改下，特殊引入方式
+PreviewImage.MD要手动改下，特殊引入方式
 
 新增组件步骤
 

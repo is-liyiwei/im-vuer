@@ -1,8 +1,8 @@
 > 使用
 
 ```js
-import { PreviewImage } form 'im-vuer'
-Vue.component(PreviewImage.name, PreviewImage)
+import { PreviewImagePlugin } form 'im-vuer'
+Vue.use(PreviewImagePlugin)
 ```
 
 > 示例代码
