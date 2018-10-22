@@ -47,20 +47,15 @@ export default {
       targetSwipeBoxValue: 30
     }
   },
-  created () {
-
-  },
   mounted () {
     this.init()
-  },
-  computed: {
-
   },
   methods: {
     init () {
       const el = this.$el
 
       document.body.appendChild(el)
+
       setTimeout(() => {
         el.style.opacity = 1
       }, 100)
@@ -84,12 +79,8 @@ export default {
     getBlankSpaceHeight (target, container) {
       return (target.getBoundingClientRect().height - container.getBoundingClientRect().height) / 2
     },
-    handleMultipointStart (e) {
-      // this.imgEl = e.target
-      // this.currentScale = this.imgEl.scaleX
-    },
     handlePressMove (e) {
-      // 这个算法问题，应该是不准确的，碰巧可以的，我自己都懵逼T T
+      // 这个算法的问题，应该是不准确的，碰巧功能可以的，我自己都懵逼T T
       e.preventDefault()
       this.pressMoveStatus = true
       this.imgEl = e.target
@@ -200,14 +191,6 @@ export default {
           this.pressMoveStatus = false
         }
       }
-    },
-    handleRotate (e, el) {
-      // this.imgEl = e.target
-      // this.imgEl.rotateZ += e.angle
-    },
-    handlePinch (e, el) {
-      // this.imgEl = e.target
-      // this.imgEl.scaleX = this.imgEl.scaleY = this.currentScale * e.zoom
     }
   }
 }
@@ -266,14 +249,4 @@ export default {
     }
   }
 }
-
-.vuer-fade-in-enter-active,
-.vuer-fade-in-leave-active {
-  transition: all .3s ease-in;
-}
-.vuer-fade-in-enter,
-.vuer-fade-in-leave-active {
-  opacity: 0;
-}
-
 </style>
