@@ -4,7 +4,6 @@
     <button id="btn" @click="openPreviewImage(0)">openPreviewImage</button>
     <br>存在问题
     <br>微信公众号无法正常使用的bug
-    <br>组件动画问题
     <br>切换图片时拖动幅度较大
   </div>
 </template>

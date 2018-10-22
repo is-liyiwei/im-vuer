@@ -1,5 +1,5 @@
 <template>
-  <transition name="vuer-fade-in">
+  <!-- <transition name="vuer-fade-in"> -->
     <div class="im-previewImage" v-transform>
       <template v-for="(v, k) in imgArr">
         <div :key="k" id="container-horizontal" v-if="v.imgDirection === 'horizontal'">
@@ -30,7 +30,7 @@
         </div>
       </template>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -61,10 +61,16 @@ export default {
       const el = this.$el
 
       document.body.appendChild(el)
+      setTimeout(() => {
+        el.style.opacity = 1
+      }, 100)
 
       el.addEventListener('click', (e) => {
         if (e.target.tagName !== 'IMG') {
-          this.$closePreviewImage()
+          el.style.opacity = 0
+          setTimeout(() => {
+            this.$closePreviewImage()
+          }, 300)
         }
       })
 
@@ -219,14 +225,12 @@ export default {
     background-color: rgba(0, 0, 0, .6);
     top: 0;
     display: flex;
+    opacity: 0;
+    transition: opacity 300ms;
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-    * {
-      margin: 0;
-      padding: 0;
     }
     #container-horizontal {
       width: 100vw;
@@ -262,4 +266,14 @@ export default {
     }
   }
 }
+
+.vuer-fade-in-enter-active,
+.vuer-fade-in-leave-active {
+  transition: all .3s ease-in;
+}
+.vuer-fade-in-enter,
+.vuer-fade-in-leave-active {
+  opacity: 0;
+}
+
 </style>

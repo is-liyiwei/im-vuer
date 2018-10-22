@@ -54,6 +54,7 @@ let PreviewImagePlugin = {
         }
       }).then(res => {
         /* eslint-disable no-new */
+        // let previewImageInstance = new PreviewImageConstructor({
         new PreviewImageConstructor({
           el: document.createElement('div'),
           data () {
