@@ -6,12 +6,13 @@
 npm install im-vuer -S
 ```
 
-
 ## 项目中使用
 
 > `main.js`
 
 ```js
+适配方案采用的是手淘的flexiable方案，要先安装配置
+
 import { ConfirmPlugin } from 'im-vuer'
 import { ToastPlugin } from 'im-vuer'
 import { ActionSheetPlugin } from 'im-vuer'
