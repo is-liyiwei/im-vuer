@@ -4,7 +4,7 @@
       <div class="im-date-picker-box">
 
         <div class="im-date-picker-box-value" :style="{ backgroundColor: headerColor}">
-          <span :class="{ 'im-txt-in': setAnimate }">{{todayText.split('--')[1]}}</span>
+          <span :class="{ 'im-txt-in': setAnimate }">{{todayText}}</span>
         </div>
 
         <div class="im-date-picker-box-ctrl">
@@ -22,12 +22,26 @@
           </tr>
           <tr class="im-date-picker-box-content" v-for="(v, k) in allDate" :key="k">
             <td
+              v-if="type == 'multiple'"
               v-for="(vv, kk) in v"
               :key="kk"
-              :id="vv.id"
-              :style="currentItem.indexOf(vv.id) != -1 ? currentDate : vv.disabled ? '' : currentDateNot"
+              :style="currentItem == (7 * k + kk) ? currentDate : vv.disabled ? '' : currentDateNot"
               :class="[vv.disabled ? 'im-disabled-true' : 'im-disabled-flase', 'im-date-picker-box-content-item']"
-              @click.stop="tapItem(7 * k + kk, false, vv.id)">{{vv.date}}</td>
+              @click.stop="tapItem(7 * k + kk)">{{vv.date}}</td>
+            <td
+              v-if="type == 'single'"
+              v-for="(vv, kk) in v"
+              :key="kk"
+              :style="currentItem == (7 * k + kk) ? currentDate : vv.disabled ? '' : currentDateNot"
+              :class="[vv.disabled ? 'im-disabled-true' : 'im-disabled-flase', 'im-date-picker-box-content-item']"
+              @click.stop="tapItem(7 * k + kk)">{{vv.date}}</td>
+            <td
+              v-if="type == 'range'"
+              v-for="(vv, kk) in v"
+              :key="kk"
+              :style="currentItem == (7 * k + kk) ? currentDate : vv.disabled ? '' : currentDateNot"
+              :class="[vv.disabled ? 'im-disabled-true' : 'im-disabled-flase', 'im-date-picker-box-content-item']"
+              @click.stop="tapItem(7 * k + kk)">{{vv.date}}</td>
           </tr>
         </table>
 
@@ -42,7 +56,6 @@
 </template>
 
 <script>
-// import { parseTime } from '../../helper/time'
 import sliceArray from '../../helper/sliceArray'
 export default {
   name: 'im-date-picker',
@@ -53,7 +66,7 @@ export default {
         month: new Date().getMonth(),
         date: new Date().getDate()
       },
-      oHeadDate: '',
+      oHeadDate: null,
       prevDate: [],
       nowDate: [],
       nextDate: [],
@@ -69,7 +82,8 @@ export default {
         '星期五',
         '星期六'
       ],
-      currentItem: [],
+      weekArrIndex: 0,
+      currentItem: null,
       setAnimate: false
     }
   },
@@ -107,7 +121,7 @@ export default {
     this._fillDate(this.now.year, this.now.month)
   },
   mounted () {
-    this.$emit('confirm', this.type === 'multiple' ? JSON.parse(JSON.stringify(this.todayTextMultiple)) : this.todayText)
+    this.$emit('confirm', this.type === 'multiple' ? this.todayTextMultiple : this.todayText)
   },
   methods: {
     _fillDate (year, month) {
@@ -120,21 +134,21 @@ export default {
         this.prevDate.push({
           date: lastDate - (firstDay - 1) + i,
           disabled: true,
-          id: 'prevDate--' + year + '年' + (month + 1) + '月' + (i + 1) + '日'
+          id: Math.random().toString(36).substr(2, 4) + '-prevDate-' + Math.random().toString(36).substr(2, 8)
         })
       }
       for (let j = 0; j < finalDate; j++) {
         this.nowDate.push({
           date: j + 1,
           disabled: false,
-          id: 'nowDate--' + year + '年' + (month + 1) + '月' + (j + 1) + '日'
+          id: Math.random().toString(36).substr(2, 4) + '-nowDate-' + Math.random().toString(36).substr(2, 8)
         })
       }
       for (let k = 0; k < surplus; k++) {
         this.nextDate.push({
           date: k + 1,
           disabled: true,
-          id: 'nextDate--' + year + '年' + (month + 1) + '月' + (k + 1) + '日'
+          id: Math.random().toString(36).substr(2, 4) + '-nextDate-' + Math.random().toString(36).substr(2, 8)
         })
       }
 
@@ -148,11 +162,10 @@ export default {
 
       this.allDate = sliceArray(this.allDate, 7)
 
-      // if (year === new Date().getFullYear() && month === new Date().getMonth()) {
-      //   // 这段用来初始化当天时间的
-      //   this.currentItem = [firstDay + new Date().getDate() - 1]
-      //   this._setWeek(this.currentItem, false, parseTime(new Date, '{y}年{m}月{d}日'))
-      // }
+      if (year === new Date().getFullYear() && month === new Date().getMonth()) {
+        this.currentItem = firstDay + new Date().getDate() - 1
+        this._setWeek(this.currentItem)
+      }
     },
     _next () {
       this.now.month++
@@ -162,7 +175,7 @@ export default {
       }
       this._reset()
       this._fillDate(this.now.year, this.now.month)
-      // this.tapItem(1, true)
+      this.tapItem(1, true)
     },
     _prev () {
       this.now.month--
@@ -172,7 +185,7 @@ export default {
       }
       this._reset()
       this._fillDate(this.now.year, this.now.month)
-      // this.tapItem(1, true)
+      this.tapItem(1, true)
     },
     _nextYear () {
 
@@ -185,16 +198,23 @@ export default {
       this.nowDate = []
       this.nextDate = []
     },
-    _setWeek (k, tapArrow = false, id) {
+    _setWeek (k, tapArrow = false) {
+      let str = ''
+
       this.setAnimate = true
 
+      this.weekArrIndex = k
+
       if (tapArrow) {
-        this.todayText = this.weekArr[~~this.prevDate.length % 7]
+        str = k + '日'
+        this.todayText = this.oHeadDate + str + this.weekArr[~~this.prevDate.length % 7]
       } else {
+        this.weekArrIndex = k - this.prevDate.length
+        str = this.weekArrIndex + 1 + '日'
         if (this.type === 'multiple') {
-          this._setMultipleValue(id, k)
+          this._setMultipleValue(str, k)
         } else {
-          this._setSingleValue(id, k)
+          this._setSingleValue(str, k)
         }
       }
 
@@ -203,20 +223,17 @@ export default {
       }, 300)
     },
     _setSingleValue (str, k) {
-      this.todayText = str + this.weekArr[~~k % 7]
+      this.todayText = this.oHeadDate + str + this.weekArr[~~k % 7]
     },
     _setMultipleValue (str, k) {
-      const _index = this.todayTextMultiple.indexOf(str + this.weekArr[~~k % 7])
-      if (_index === -1) {
-        this.todayTextMultiple.push(str + this.weekArr[~~k % 7])
-      } else {
-        this.todayTextMultiple.splice(_index, 1)
-      }
+      this.todayTextMultiple.push(this.oHeadDate + str + this.weekArr[~~k % 7])
     },
-    tapItem (targetIndex, tapArrow = false, id) {
+    tapItem (targetIndex, tapArrow = false) {
       if (tapArrow) {
         // 点击箭头
-        this.currentItem.push(id)
+        this.currentItem = tapArrow
+          ? targetIndex + this.prevDate.length - 1
+          : targetIndex
         this._setWeek(targetIndex, tapArrow)
       } else {
         // 点击灰色区域日期
@@ -227,28 +244,17 @@ export default {
           return
         }
         // 点击可选日期
-        if (this.type === 'single') {
-          this.currentItem = []
-        }
-        const _index = this.currentItem.indexOf(id)
-        if (_index === -1) {
-          this.currentItem.push(id)
-        } else {
-          this.currentItem.splice(_index, 1)
-        }
-        this._setWeek(targetIndex, tapArrow, id)
+        this.currentItem = tapArrow
+          ? targetIndex + this.prevDate.length - 1
+          : targetIndex
+        this._setWeek(targetIndex, tapArrow)
       }
     },
     cancel () {
       this.$emit('input', false)
     },
     confirm () {
-      let currentData = this.type === 'multiple' ? JSON.parse(JSON.stringify(this.todayTextMultiple)) : JSON.parse(JSON.stringify([this.todayText]))
-      for (let i = 0; i < currentData.length; i++) {
-        // fix数据
-        currentData[i] = currentData[i].split('--')[1]
-      }
-      this.$emit('confirm', currentData)
+      this.$emit('confirm', this.type === 'multiple' ? this.todayTextMultiple : this.todayText)
       this.$emit('input', false)
     }
   },

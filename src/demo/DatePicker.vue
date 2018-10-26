@@ -1,18 +1,23 @@
 <template>
   <div class="demo-date-picker">
-    <div class="result-txt">选择的是：{{date_user_style}}</div>
-    <button id="btn" @click="showCtrl_user_style = !showCtrl_user_style">自定义颜色</button>
+    <div class="result-txt">选择的是：{{date1}}</div>
+    <button id="btn" @click="showCtrl1 = !showCtrl1">自定义颜色</button>
     <im-date-picker
-      @confirm="datePickerConfirm_user_style"
+      @confirm="datePickerConfirm1"
       headerColor="#ff9c9c"
       itemColor="#673ab7"
       cancelBtn="#888"
       confirmBtn="#f00"
-      v-model="showCtrl_user_style">
+      v-model="showCtrl1">
     </im-date-picker>
-    <div class="result-txt">选择的是：{{date_default_style}}</div>
-    <button id="btn" @click="showCtrl_default_style = !showCtrl_default_style">默认颜色</button>
-    <im-date-picker @confirm="datePickerConfirm_default_style" v-model="showCtrl_default_style"></im-date-picker>
+
+    <div class="result-txt">选择的是：{{date2}}</div>
+    <button id="btn" @click="showCtrl2 = !showCtrl2">默认颜色</button>
+    <im-date-picker @confirm="datePickerConfirm_default_style" v-model="showCtrl2"></im-date-picker>
+
+    <div class="result-txt">选择的是：{{date3}}</div>
+    <button id="btn" @click="showCtrl3 = !showCtrl3">多选(有bug)</button>
+    <im-date-picker @confirm="datePickerConfirm_default_multiple_style" type="multiple" v-model="showCtrl3"></im-date-picker>
   </div>
 </template>
 
@@ -21,21 +26,26 @@ export default {
   name: 'date-picker',
   data () {
     return {
-      date_user_style: '',
-      date_default_style: '',
-      showCtrl_user_style: false,
-      showCtrl_default_style: false
+      date1: [],
+      date2: [],
+      date3: [],
+      showCtrl1: false,
+      showCtrl2: false,
+      showCtrl3: false
     }
   },
   created: function () {
 
   },
   methods: {
-    datePickerConfirm_user_style (v) {
-      this.date_user_style = v
+    datePickerConfirm1 (v) {
+      this.date1 = v
     },
     datePickerConfirm_default_style (v) {
-      this.date_default_style = v
+      this.date2 = v
+    },
+    datePickerConfirm_default_multiple_style (v) {
+      this.date3 = v
     }
   }
 }
