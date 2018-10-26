@@ -16,7 +16,7 @@
     <im-date-picker @confirm="datePickerConfirm_default_style" v-model="showCtrl2"></im-date-picker>
 
     <div class="result-txt">选择的是：{{date3}}</div>
-    <button id="btn" @click="showCtrl3 = !showCtrl3">多选(有bug)</button>
+    <button id="btn" @click="showCtrl3 = !showCtrl3">多选</button>
     <im-date-picker @confirm="datePickerConfirm_default_multiple_style" type="multiple" v-model="showCtrl3"></im-date-picker>
   </div>
 </template>
@@ -26,8 +26,8 @@ export default {
   name: 'date-picker',
   data () {
     return {
-      date1: [],
-      date2: [],
+      date1: '',
+      date2: '',
       date3: [],
       showCtrl1: false,
       showCtrl2: false,

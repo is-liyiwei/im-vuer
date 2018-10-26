@@ -243,10 +243,15 @@ export default {
       this.$emit('input', false)
     },
     confirm () {
-      let currentData = this.type === 'multiple' ? JSON.parse(JSON.stringify(this.todayTextMultiple)) : JSON.parse(JSON.stringify([this.todayText]))
-      for (let i = 0; i < currentData.length; i++) {
-        // fix数据
-        currentData[i] = currentData[i].split('--')[1]
+      let currentData
+      // fix数据
+      if (this.type === 'multiple') {
+        currentData = JSON.parse(JSON.stringify(this.todayTextMultiple))
+        for (let i = 0; i < currentData.length; i++) {
+          currentData[i] = currentData[i].split('--')[1]
+        }
+      } else {
+        currentData = this.todayText.split('--')[1]
       }
       this.$emit('confirm', currentData)
       this.$emit('input', false)
