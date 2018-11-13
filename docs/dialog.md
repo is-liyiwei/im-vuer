@@ -1,8 +1,18 @@
+
 > 使用
 
 ```js
-import { Dialog } form 'im-vuer'
-Vue.component(Dialog.name, Dialog)
+
+import { ConfirmPlugin } from 'im-vuer'
+import { ToastPlugin } from 'im-vuer'
+import { ActionSheetPlugin } from 'im-vuer'
+import { TipPlugin } from 'im-vuer'
+
+Vue.use(ConfirmPlugin);
+Vue.use(ToastPlugin);
+Vue.use(ActionSheetPlugin);
+Vue.use(TipPlugin);
+
 ```
 
 > 示例代码
@@ -46,9 +56,9 @@ Vue.component(Dialog.name, Dialog)
 let mixin = {
   methods: {
     setFlag () {
-      this.flag = true
-      setTimeout(() => {
-        this.flag = false
+      this.flag = true;
+      setTimeout( () => {
+        this.flag = false;
       }, 1800)
     }
   }
@@ -77,7 +87,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        }, {
+        },{
           txt: '确定',
           color: '#00bFFF',
           cb: () => {
@@ -114,7 +124,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        }, {
+        },{
           txt: '确定',
           color: '#00bFFF',
           cb: () => {
@@ -124,16 +134,15 @@ export default {
       })
     },
     openConfirm4 (styleFor) {
-      // 默认是ios
       this.$confirm({
-        styleFor: styleFor
+        styleFor: styleFor  // 默认是ios
       })
     },
     openToast1 (position) {
       if (this.flag) {
         return
       }
-      this.setFlag()
+      this.setFlag();
       this.$toast({
         content: '登录成功',
         position: position,
@@ -148,19 +157,19 @@ export default {
           cb: () => {
             console.log(1)
           }
-        }, {
+        },{
           txt: '转发',
           color: '#f00',
           cb: () => {
             console.log(2)
           }
-        }, {
+        },{
           txt: '打印',
           color: '#009688',
           cb: () => {
             console.log(3)
           }
-        }, {
+        },{
           txt: '评论',
           color: '#673ab7',
           cb: () => {
@@ -181,7 +190,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        }, {
+        },{
           txt: '从本地选择',
           color: '#f00',
           cb: () => {
@@ -199,7 +208,7 @@ export default {
           cb: () => {
             console.log(1)
           }
-        }, {
+        },{
           txt: '我是红色',
           color: '#f00',
           cb: () => {
@@ -212,7 +221,7 @@ export default {
       if (this.flag) {
         return
       }
-      this.setFlag()
+      this.setFlag();
       this.$tip({
         txt: iconStatus,
         icon: iconStatus,
@@ -223,7 +232,7 @@ export default {
       if (this.flag) {
         return
       }
-      this.setFlag()
+      this.setFlag();
       this.$tip({
         txt: '自定义',
         time: 1800,
@@ -255,14 +264,14 @@ export default {
 }
 
 .dialog-button button {
-  font-size: 32px;
+  font-size: .35rem;
   background-color: #00bfff;
   border: none;
   outline:none;
   text-align: center;
   display: block;
   width: 90%;
-  margin: 1px 0;
+  margin: 1rem 0;
   height: 80px;
   color: #fff;
   margin: 20px;
@@ -271,134 +280,167 @@ export default {
 
 h5 {
   margin: 10px;
-  font-size: 30px;
+  font-size: .37rem;
   color: #3d3d3d;
 }
 </style>
 
 ```
 > 参数说明
-<div>
-  <table>
+
+  <div>
+   <table>
     <thead>
-      <tr>
-        <th>参数</th> 
-        <th>说明</th> 
-        <th>类型</th> 
-        <th>可选值/备注</th> 
-        <th>默认值</th>
-      </tr>
+     <tr>
+      <th>参数</th> 
+      <th>说明</th> 
+      <th>类型</th> 
+      <th>可选值/备注</th> 
+      <th>默认值</th>
+     </tr>
     </thead> 
     <tbody>
-      <tr>
-        <td>Confirm组件</td> 
-        <td>Confirm组件</td> 
-        <td>Confirm组件</td> 
-        <td>Confirm组件</td> 
-        <td>Confirm组件</td>
-      </tr><tr>
-        <td>title</td> 
-        <td>标题</td> 
-        <td>String</td> 
-        <td>-</td> 
-        <td>-</td>
-      </tr><tr>
-        <td>content</td> 
-        <td>文本</td> 
-        <td>String</td> 
-        <td>-</td> 
-        <td>-</td>
-      </tr><tr>
-        <td>styleFor</td> 
-        <td>样式</td> 
-        <td>String</td> 
-        <td>ios, android</td> 
-        <td>ios</td>
-      </tr><tr>
-        <td>opts</td> 
-        <td>配置</td> 
-        <td>Array</td> 
-        <td>参考demo,最好不要超过3个配置项</td> 
-        <td>ios</td>
-      </tr><tr>
-        <td>Toast组件</td> 
-        <td>Toast组件</td> 
-        <td>Toast组件</td> 
-        <td>Toast组件</td> 
-        <td>Toast组件</td>
-      </tr><tr>
-        <td>content</td> 
-        <td>文本</td> 
-        <td>String</td> 
-        <td>-</td> 
-        <td>-</td>
-      </tr><tr>
-        <td>position</td> 
-        <td>位置</td> 
-        <td>String</td> 
-        <td>top, bottom, center</td> 
-        <td>bottom</td>
-      </tr><tr>
-        <td>time</td> 
-        <td>显示时间</td> 
-        <td>Number</td> 
-        <td>-</td> 
-        <td>3000</td>
-      </tr><tr>
-        <td>ActionSheet组件</td> 
-        <td>ActionSheet组件</td> 
-        <td>ActionSheet组件</td> 
-        <td>ActionSheet组件</td> 
-        <td>ActionSheet组件</td>
-      </tr><tr>
-        <td>styleFor</td> 
-        <td>样式</td> 
-        <td>String</td> 
-        <td>ios, android</td> 
-        <td>android</td>
-      </tr><tr>
-        <td>hasCancel</td> 
-        <td>是否有取消按钮</td> 
-        <td>Boolean</td> 
-        <td>-</td> 
-        <td>false</td>
-      </tr><tr>
-        <td>opts</td> 
-        <td>配置</td> 
-        <td>Array</td> 
-        <td>参考demo</td> 
-        <td></td>
-      </tr><tr>
-        <td>Tip组件</td> 
-        <td>Tip组件</td> 
-        <td>Tip组件</td> 
-        <td>Tip组件</td> 
-        <td>Tip组件</td>
-      </tr><tr>
-        <td>txt</td> 
-        <td>文本</td> 
-        <td>String</td> 
-        <td>-</td> 
-        <td>-</td>
-      </tr><tr>
-        <td>icon</td> 
-        <td>图标</td> 
-        <td>String</td> 
-        <td>loading, success, warn, error</td> 
-        <td>loading</td>
-      </tr><tr>
-        <td>tpl</td> 
-        <td>自定义模板</td> 
-        <td>String</td> 
-        <td>-</td> 
-        <td>-</td>
-      </tr><tr>
-        <td>time</td> 
-        <td>显示时间</td> 
-        <td>Number</td> 
-        <td>-</td> 
-        <td>1800</td>
-      </tr>
+    <tr>
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td> 
+      <td>Confirm组件</td>
+    </tr>
+    <tr>
+      <td>title</td> 
+      <td>标题</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>content</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>styleFor</td> 
+      <td>样式</td> 
+      <td>String</td> 
+      <td>ios, android</td> 
+      <td>ios</td>
+    </tr>
+    <tr>
+      <td>opts</td> 
+      <td>配置</td> 
+      <td>Array</td> 
+      <td>参考demo,最好不要超过3个配置项</td> 
+      <td>ios</td>
+    </tr>
+    <tr>
+      <td>complete</td> 
+      <td>完成回调</td> 
+      <td>function</td> 
+      <td>参考demo</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Toast组件</td> 
+      <td>Toast组件</td> 
+      <td>Toast组件</td> 
+      <td>Toast组件</td> 
+      <td>Toast组件</td>
+    </tr>
+    <tr>
+      <td>content</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>position</td> 
+      <td>位置</td> 
+      <td>String</td> 
+      <td>top, bottom, center</td> 
+      <td>bottom</td>
+    </tr>
+    <tr>
+      <td>time</td> 
+      <td>显示时间</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td> 
+      <td>ActionSheet组件</td>
+    </tr>
+    <tr>
+      <td>styleFor</td> 
+      <td>样式</td> 
+      <td>String</td> 
+      <td>ios, android</td> 
+      <td>android</td>
+    </tr>
+    <tr>
+      <td>hasCancel</td> 
+      <td>是否有取消按钮</td> 
+      <td>Boolean</td> 
+      <td>-</td> 
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>opts</td> 
+      <td>配置</td> 
+      <td>Array</td> 
+      <td>参考demo</td> 
+      <td></td>
+    </tr>
+    <tr>
+      <td>complete</td> 
+      <td>完成回调</td> 
+      <td>function</td> 
+      <td>参考demo</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Tip组件</td> 
+      <td>Tip组件</td> 
+      <td>Tip组件</td> 
+      <td>Tip组件</td> 
+      <td>Tip组件</td>
+    </tr>
+    <tr>
+      <td>txt</td> 
+      <td>文本</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>icon</td> 
+      <td>图标</td> 
+      <td>String</td> 
+      <td>loading, success, warn, error</td> 
+      <td>loading</td>
+    </tr>
+    <tr>
+      <td>tpl</td> 
+      <td>自定义模板</td> 
+      <td>String</td> 
+      <td>-</td> 
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>time</td> 
+      <td>显示时间</td> 
+      <td>Number</td> 
+      <td>-</td> 
+      <td>1800</td>
+    </tr>
     </tbody>
-  </table>
-</div>
+   </table>
+  </div>
+  
