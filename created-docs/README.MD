@@ -13,11 +13,9 @@ PreviewImage.MD要手动改下，特殊引入方式
 
 2、docs目录下面的_sidebar.md这里要添加那个组件
 
-3、生成的md名字好像是大写的，改成小写
+3、src/index.html也要更新，复制到dist目录
 
-4、src/index.html也要更新
-
-5、main-npm.js要引入组件再打包
+4、main-npm.js要引入组件再打包
 
 
 

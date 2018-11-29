@@ -1,5 +1,9 @@
 <template>
   <div class="demo-index-list">
+    <p>占位测试</p>
+    <p>占位测试</p>
+    <p>占位测试</p>
+    <p>占位测试</p>
     <im-index-list :dataList="dataList" @handleClick="myClick"></im-index-list>
   </div>
 </template>

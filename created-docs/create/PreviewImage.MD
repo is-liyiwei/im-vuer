@@ -2,7 +2,7 @@
 
 ```js
 import { PreviewImage } form 'im-vuer'
-Vue.component(PreviewImage.name, PreviewImage)
+Vue.use(PreviewImage)
 ```
 
 > 示例代码

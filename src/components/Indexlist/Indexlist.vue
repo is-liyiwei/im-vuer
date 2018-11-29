@@ -1,5 +1,5 @@
 <template>
-  <div id="list-box" class="im-index-list">
+  <div id="list-box" class="im-index-list" :style="{height: boxH + 'px'}">
 
     <ul class="im-index-list-content">
       <li v-for="(v, k) in dataList" :key="k" :id="v.title" class="im-index-list-content-item">
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-
+import getDocumentDpr from '../../helper/getDocumentDpr'
 export default {
   name: 'im-index-list',
   data () {
@@ -32,7 +32,8 @@ export default {
       navOffsetX: null,
       indicator: '',
       showIndicator: false,
-      offsetTopForBox: 0
+      offsetTopForBox: 0,
+      boxH: 0
     }
   },
   props: {
@@ -46,8 +47,12 @@ export default {
   mounted: function () {
     this.box = document.getElementById('list-box')
     this.offsetTopForBox = this.box.getBoundingClientRect().top
+    this.setBoxH()
   },
   methods: {
+    setBoxH () {
+      this.boxH = getDocumentDpr() * window.screen.height - this.offsetTopForBox
+    },
     start (evt) {
       if (evt.target.tagName.toLowerCase() === 'li') {
         this.targetInnerText = evt.target.innerText

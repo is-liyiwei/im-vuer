@@ -83,7 +83,7 @@ const blackArr = [
 
 function creatFile(files) {
 
-  let count = 0
+  let count = 1
   files.map(v => {
     // 获取文件后缀名
     if (path.parse(v).ext != '.vue') return
@@ -92,7 +92,7 @@ function creatFile(files) {
     if (blackArr.indexOf(fileName) != -1) {
       return
     }
-    const md_create_path = path.resolve(__dirname, `./create/${fileName}.MD`)  // 将要获取的文件路径
+    const md_create_path = path.resolve(__dirname, `./create/${fileName}.md`)  // 将要获取的文件路径
 
     fs.exists(md_create_path, function (exists) {
 
@@ -104,7 +104,7 @@ function creatFile(files) {
 
       fs.writeFileSync(md_create_path, resultData)
 
-      console.log(chalk.yellowBright.bgBlack.bold(`The file ${fileName}.MD was saved!`, count++ + '\n'))
+      console.log(chalk.yellowBright.bgBlack.bold(`The file ${fileName}.md was saved!`, count++ + '\n'))
     })
 
   })
