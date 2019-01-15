@@ -191,6 +191,15 @@ export default {
           this.pressMoveStatus = false
         }
       }
+    },
+    handlePinch (e) {
+
+    },
+    handleMultipointStart (e) {
+
+    },
+    handleRotate (e) {
+
     }
   }
 }

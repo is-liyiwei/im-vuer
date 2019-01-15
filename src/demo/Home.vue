@@ -41,7 +41,7 @@ const list = [{
   icon: 'icon-Progress'
 }, {
   name: 'PreviewImage',
-  icon: 'icon-Progress'
+  icon: 'icon-PreviewImage'
 }, {
   name: 'Radio',
   icon: 'icon-Radio'

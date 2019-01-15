@@ -1,5 +1,5 @@
 <template>
-  <div id="list-box" class="im-index-list" :style="{height: boxH + 'px'}">
+  <div id="list-box" class="im-index-list" :style="boxStyle">
 
     <ul class="im-index-list-content">
       <li v-for="(v, k) in dataList" :key="k" :id="v.title" class="im-index-list-content-item">
@@ -95,6 +95,13 @@ export default {
     handleClick (item) {
       this.$emit('handleClick', item)
     }
+  },
+  computed: {
+    boxStyle () {
+      return {
+        height: this.boxH + 'px'
+      }
+    }
   }
 }
 </script>
@@ -167,6 +174,6 @@ export default {
   overflow-y: scroll;
   height: 100vh;
   width: 100%;
-  position: absolute;
+  // position: absolute;
 }
 </style>
